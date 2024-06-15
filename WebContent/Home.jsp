@@ -11,17 +11,27 @@
 <body>
 	<header>
 	<div id="logo">
-		<img src="images/Logo.png" width="250" height="70">	
-	</div>
-
+		<img src="images/logo.png" width="250" height="65">
+	 </div>
+	 
+	  <div id="icone">
+		        <img src="images/persona.png" width="40" height="40">
+		        <img src="images/preferiti.png" width="40" height="40">	
+		        <img src="images/carrello.png" width="40" height="40">
+	    </div>
+	
 	</header>
 	
-			<nav>	
+			<nav>
+			    <div id="search">
+					<input type="text" placeholder="Cerca...">
+					<span class="material-symbols-outlined">search</span>
+				</div>	
 				<ul>
 					<li><a href="">Cani
 					<span class="material-symbols-outlined">keyboard_arrow_down</span></a>
 					</li>
-					<li><a hresf="">Gatti
+					<li><a href="">Gatti
 					<span class="material-symbols-outlined">keyboard_arrow_down</span></a>
 					</li>
 					<li><a href="">Rettili
@@ -36,13 +46,7 @@
 					<li><a href="">Pesci
 					<span class="material-symbols-outlined">keyboard_arrow_down</span></a>
 					</li>
-				</ul>
-				
-				<div id="search">
-					<input type="text" placeholder="Cerca...">
-					<span class="material-symbols-outlined">search</span>
-				</div>
-			
+				</ul>   		
 			</nav>
 	
 </body>
