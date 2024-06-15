@@ -13,35 +13,37 @@
 	<div id="logo">
 		<img src="images/Logo.png" width="250" height="70">	
 	</div>
+
 	</header>
 	
-	<nav id="bar">
-		<ul>
-			<li>Cani
-			<span class="material-symbols-outlined">keyboard_arrow_down</span>
-			</li>
-			<li>Gatti
-			<span class="material-symbols-outlined">keyboard_arrow_down</span>
-			</li>
-			<li>Rettili
-			<span class="material-symbols-outlined">keyboard_arrow_down</span>
-			</li>
-			<li>Roditori
-			<span class="material-symbols-outlined">keyboard_arrow_down</span>
-			</li>
-			<li>Uccelli
-			<span class="material-symbols-outlined">keyboard_arrow_down</span>
-			</li>
-			<li>Pesci
-			<span class="material-symbols-outlined">keyboard_arrow_down</span>
-			</li>
-		</ul>
-	</nav>
+			<nav>	
+				<ul>
+					<li><a href="">Cani
+					<span class="material-symbols-outlined">keyboard_arrow_down</span></a>
+					</li>
+					<li><a hresf="">Gatti
+					<span class="material-symbols-outlined">keyboard_arrow_down</span></a>
+					</li>
+					<li><a href="">Rettili
+					<span class="material-symbols-outlined">keyboard_arrow_down</span></a>
+					</li>
+					<li><a href="">Roditori
+					<span class="material-symbols-outlined">keyboard_arrow_down</span></a>
+					</li>
+					<li><a href="">Uccelli
+					<span class="material-symbols-outlined">keyboard_arrow_down</span></a>
+					</li>
+					<li><a href="">Pesci
+					<span class="material-symbols-outlined">keyboard_arrow_down</span></a>
+					</li>
+				</ul>
+				
+				<div id="search">
+					<input type="text" placeholder="Cerca...">
+					<span class="material-symbols-outlined">search</span>
+				</div>
+			
+			</nav>
 	
-		
-	
-	<p>this is an example</p>
-	
-
 </body>
 </html>
