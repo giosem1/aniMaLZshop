@@ -14,16 +14,13 @@ background:white;
 margin:0px;
 }
 
-#preferiti{
-	margin-left: 300px;
-}
-
 #logo{
 	padding: 10px 0px 10px 10px;
 }
 
 #icone{
 	float: right;
+	margin-left: 1000px;
 }
 
 nav {
