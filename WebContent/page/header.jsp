@@ -11,11 +11,11 @@
 <body>
 <header>
 	<div id="logo">
-		<img src="images/logo.png" width="250" height="65">
+		<a href="<%= request.getContextPath() %>/Home.jsp"><img src="images/logo.png" width="250" height="65"></a>
 	 </div>
 	 
 	  <div id="icone">
-		 		<a href="<%= request.getContextPath() %>"><img src="images/persona.png" width="40" height="40"></a>
+		 		<a href="<%= request.getContextPath() %>/Login.jsp"><img src="images/persona.png" width="40" height="40"></a>
 		        <img src="images/preferiti.png" width="40" height="40">	
 		        <img src="images/carrello.png" width="40" height="40">
 	    </div>
