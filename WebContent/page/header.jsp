@@ -11,7 +11,7 @@
 <body>
 <header>
 	<div id="logo">
-		<img src="images/Logo.png" width="250" height="65">
+		<img src="images/logo.png" width="250" height="65">
 	 </div>
 	 
 	  <div id="icone">
