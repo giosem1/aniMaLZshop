@@ -28,7 +28,7 @@
 				    
                 <div id="Access">
 			   		 <p><input type="submit" value="Accedi"></p>
-			    	 <a href="<%= request.getContextPath()%>/registrazione.jsp">Registrati!</a>
+			    	 <a href="<%= request.getContextPath()%>/Registration.jsp">Registrati!</a>
 		    	</div>
         </form>
         

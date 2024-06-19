@@ -117,11 +117,11 @@ nav ul li a:hover{
 	 font-family: Arial, sans-serif;
 }
 
-#Access input:hover{
+#Access  input:hover{
      font-weight: bold;
 }
 
-#Access a{
+#Access  a{
 	 font-weight: bold;
 	 color: black;
 	 text-decoration: none;
@@ -135,7 +135,8 @@ nav ul li a:hover{
 	 transition:.4s;
 }
 
-#registration input{
+#reg input{
+	
 	 border-radius: 15px;
      width: 100px;
 	 margin-left: 18%;
@@ -144,18 +145,18 @@ nav ul li a:hover{
 	 font-family: Arial, sans-serif;
 }
 
-#registration input:hover{
+#reg input:hover{
      font-weight: bold;
 }
 
-#registration a{
+#reg a{
 	 font-weight: bold;
 	 color: black;
 	 text-decoration: none;
 	 font-family: Arial, sans-serif;
 }
 
-#registration a:hover{
+#reg a:hover{
 	 font-weight: bold;
 	 color: rgba(6,191,173,1);
 	 transition:.4s;

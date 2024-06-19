@@ -16,8 +16,9 @@
 
 		<h2 id="title">Crea un account</h2>
 	
-		<form action="Registrazione" method="post" id="MyForm">
-
+		<form action="" method="post" id="MyForm">
+			
+		
 		<div id="table">
 			<p>Nome</p>
 			<p><input type="text" placeholder="Inserisci nome" ></p>	
@@ -49,7 +50,7 @@
 			<span class="material-symbols-outlined" id="togglePassword">Visibility</span>
 		</div>    
 
-		<div id="registration"> 
+		<div id="reg"> 
 			<p></p>
 			<p><input type="submit" value="Crea Account"></p>
 			<a href="<%= request.getContextPath()%>/Login.jsp">Hai già un account? Accedi!</a>

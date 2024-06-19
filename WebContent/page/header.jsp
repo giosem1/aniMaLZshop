@@ -15,7 +15,7 @@
 	 </div>
 	 
 	  <div id="icone">
-		 		<a href="<%= request.getContextPath() %>"><img src="images/persona.png" width="40" height="40"></a>
+		 		<a href="<%= request.getContextPath() %>/Login.jsp"><img src="images/persona.png" width="40" height="40"></a>
 		        <img src="images/preferiti.png" width="40" height="40">	
 		        <img src="images/carrello.png" width="40" height="40">
 	    </div>
