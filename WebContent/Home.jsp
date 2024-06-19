@@ -11,10 +11,13 @@
 <body>
 	<%@ include file="./page/header.jsp" %>
 	<%@ include file="./page/menu.jsp" %>	
-	 
-	 
-	 
-	 	<%@ include file="./page/footer.jsp" %>						
+
+
+
+
+
+
+	<%@ include file="./page/footer.jsp" %>						
 </body>
 
 </html>

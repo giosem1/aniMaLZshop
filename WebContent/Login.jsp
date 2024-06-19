@@ -10,7 +10,6 @@
 	</head>
 	<body>
          <%@ include file="./page/header.jsp" %>
-	     <%@ include file="./page/menu.jsp" %>	
         
         <h2 id="title">Accesso</h2>
         
@@ -20,13 +19,13 @@
 					<p><input type="text" required placeholder="Insercisci email"></p>
 			    </div>
 			    
-			    <div id="table">
-					<p>Password:</p>
-					<p><input type="password" id="password" required placeholder="Inserisci password"></p>
-					<span class="material-symbols-outlined" id="togglePassword">Visibility</span>
-				</div>    
+			  	<div id="table" class="password-container">
+			       <p>Password:</p>
+		           <p><input type="password" id="password" placeholder="Inserisci password"></p>
+                   <span id="toggle-password" class="material-symbols-outlined">visibility</span>
+				</div>
 				    
-                <div id="Access">
+                <div id="clic">
 			   		 <p><input type="submit" value="Accedi"></p>
 			    	 <a href="<%= request.getContextPath()%>/Registration.jsp">Registrati!</a>
 		    	</div>

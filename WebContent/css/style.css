@@ -25,31 +25,34 @@ margin:0px;
 	clear: both;
 }
 
-#logo{
+#logo {
 	padding: 10px 0px 10px 10px;
 }
 
-#icone{
+#icone {
 	float: right;
-	margin-left: 1000px;
+	margin-left: 70%;
 }
 
 nav {
 	height: 60px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);	
 }
-nav ul{
+
+nav ul {
 	text-align: center;
 	margin: 0px;
 	list-style-type: none;
 	padding: 0px 5px 30px;
 }
-nav ul li{
+
+nav ul li {
 	font-size: 20px;
 	font-family: Arial, sans-serif;
 	display: inline;
 	padding: 10px 10px;
 }
+
 .material-symbols-outlined {
   font-variation-settings:
   'FILL' 0,
@@ -60,83 +63,58 @@ nav ul li{
    vertical-align: middle;
    margin: 20px 0px;
 }
-nav ul li a{
+
+nav ul li a {
 	font-weight: bold;
 	color: black;
 	text-decoration:none;
 }
-nav ul li a:hover{
+
+nav ul li a:hover {
 	font-weight: bold;
 	color: rgba(6,191,173,1);
 	text-decoration:none;
 }
-#search{
+
+#search {
 	float: right;	
 	margin-right: 15px;
 }
 
-#search input{
+#search input {
 	 border-radius: 15px;
 	 padding: 5px;
 	 width: 250px;
 }
 
-#title{ 
+#title { 
      text-align: center;
      font-size: 50px;
      font-family: Arial, sans-serif;	
-	}
-	
-#MyForm{
-	margin-left: 520px; 
 }
 
-#table{
+#MyForm {
+	margin-left: 35%; 
+}
+
+#table {
 	display: table-row;	
 }
 
-#table p{
+#table p {
 	display: table-cell;
 	padding: 3px;
 	font-family: Arial, sans-serif;
 	text-align: center;
 }
 
-#table p input{
+#table p input {
 	 border-radius: 15px;
 	 padding: 5px;
 	 width: 250px;
 }
 
-#Access input{
-	 border-radius: 15px;
-     width: 80px;
-	 margin-left: 18%;
-	 background:rgba(208,128,242,1);
-	 color: black;
-	 font-family: Arial, sans-serif;
-}
-
-#Access  input:hover{
-     font-weight: bold;
-}
-
-#Access  a{
-	 font-weight: bold;
-	 color: black;
-	 text-decoration: none;
-	 font-family: Arial, sans-serif;
-}
-
-#Access a:hover{
-	 font-weight: bold;
-	 color: rgba(6,191,173,1);
-	 text-decoration: none;
-	 transition:.4s;
-}
-
-#reg input{
-	
+#clic input {
 	 border-radius: 15px;
      width: 100px;
 	 margin-left: 18%;
@@ -145,24 +123,39 @@ nav ul li a:hover{
 	 font-family: Arial, sans-serif;
 }
 
-#reg input:hover{
+#clic input:hover {
      font-weight: bold;
 }
 
-#reg a{
+#clic a {
 	 font-weight: bold;
 	 color: black;
 	 text-decoration: none;
 	 font-family: Arial, sans-serif;
 }
 
-#reg a:hover{
+#clic a:hover {
 	 font-weight: bold;
 	 color: rgba(6,191,173,1);
-	 transition:.4s;
 	 text-decoration: none;
-	 font-family: Arial, sans-serif;
+	 transition:.4s;
 }
 
+.password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
 
+#password {
+    padding-right: 40px; 
+}
 
+.password-container span {
+	color: gray;
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    user-select: none;
+    margin: 6px 0px 0px;
+}
