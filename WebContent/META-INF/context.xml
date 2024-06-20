@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+    <Resource name="jdbc/aniMaLZshop"
+        auth="Container"
+        driverClassName="com.mysql.cj.jdbc.Driver"
+        type="javax.sql.DataSource"
+        username="root"
+        password="Giodb#2001"
+        url="jdbc:mysql://localhost:3306/aniMaLZshop?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC"/>
+</Context>
