@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="model.*, java.util.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,9 +15,28 @@
 	 </div>
 	 
 	  <div id="icone">
-		 <a href="<%= request.getContextPath() %>/Login.jsp"><img src="images/persona.png" width="40" height="40"></a>
+	  	<% UtenteBean ute= (UtenteBean) request.getSession().getAttribute("currentSessionUser");
+	  		if(ute !=null){%>
+	  		<div class="drop">
+	  			<a href="<%= request.getContextPath() %>/Account.jsp" class="dropfirst"><img src="images/persona.png" width="40" height="40"></a>
+	  			<div class="elem-content">
+	  			<a href="<%= request.getContextPath() %>/Logout">Ordini</a>
+	  			
+	  			<%if(ute.isAmm()) {%>
+	  			<a href="">Aggiungi prodotti</a>
+	  			<a href="">Aggiungi News</a>
+	  			<a href="">Ordini complessivi</a>
+	  			<%}%>
+	  			
+	  			<a href="<%= request.getContextPath() %>/Logout">Logout</a>
+	  			</div>
+	  		</div>	
+	  		<%}else {%>
+		 		<a href="<%= request.getContextPath() %>/Login.jsp"><img src="images/persona.png" width="40" height="40"></a>
+		 	<%}%>
 		 <img src="images/preferiti.png" width="40" height="40">	
-	     <img src="images/carrello.png" width="40" height="40">
+	    		<img src="images/carrello.png" width="40" height="40">
+		
 	  </div>
 	
 	</header>

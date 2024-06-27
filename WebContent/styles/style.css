@@ -23,6 +23,7 @@ margin:0px;
 	padding: 25px;
 	text-align: center;
 	clear: both;
+	line-height: normal;
 }
 
 #logo {
@@ -30,6 +31,7 @@ margin:0px;
 }
 
 #icone {
+	display: flex;
 	float: right;
 	margin-left: 70%;
 }
@@ -127,7 +129,7 @@ nav ul li a:hover {
      font-weight: bold;
 }
 
-#clic a {
+#clic a{
 	 font-weight: bold;
 	 color: black;
 	 text-decoration: none;
@@ -159,3 +161,51 @@ nav ul li a:hover {
     user-select: none;
     margin: 6px 0px 0px;
 }
+
+.elem-content {
+	display: none;
+	 position: absolute;
+	
+}
+.drop:hover .elem-content{
+	display: block;
+}
+.elem-content a{
+	display: table;
+	text-align: left;
+	font-weight: bold;
+	color: black;
+	text-decoration: none;
+	font-family: Arial, sans-serif;
+}
+.elem-content a:hover{
+	 font-weight: bold;
+	 color: rgba(196,121,217,1);
+	 text-decoration: none;
+	 transition:.4s;
+}
+fieldset{
+	border-style: solid;
+	border-radius: 30px;
+	border-width: medium;
+	
+}
+#leg{
+	font-family: Arial, sans-serif;
+	text-align: center;
+	font-weight: bold;
+	color:rgba(6,191,173,1);
+	
+}
+ #dati-list{
+	text-align: center;
+	list-style-type: none;
+	color:rgba(6,191,173,1);
+
+}
+#dati-list .elem-field{
+	font-weight: bold;
+	font-size: 150%;
+	color: black;
+}
+

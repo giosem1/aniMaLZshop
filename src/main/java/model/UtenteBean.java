@@ -14,7 +14,7 @@ public class UtenteBean implements Serializable {
 	private String numCivico;
 	private int cap;
 	private String tel;
-	private int cartaCredito;
+	private long cartaCredito;
 	private boolean isAmm;
 
 	public UtenteBean() { 
@@ -101,11 +101,11 @@ public class UtenteBean implements Serializable {
 		this.tel = tel;
 	}
 
-	public int getCartaCredito() {
+	public long getCartaCredito() {
 		return cartaCredito;
 	}
 
-	public void setCartaCredito(int cartaCredito) {
+	public void setCartaCredito(long cartaCredito) {
 		this.cartaCredito = cartaCredito;
 	}
 
@@ -115,6 +115,18 @@ public class UtenteBean implements Serializable {
 
 	public void setAmm(boolean isAmm) {
 		this.isAmm = isAmm;
+	}
+
+	@Override
+	public String toString() {
+		return "UtenteBean [id=" + id + ", password=" + password + ", email=" + email + ", nome=" + nome + ", cognome="
+				+ cognome + ", dataNascita=" + dataNascita + ", via=" + via + ", numCivico=" + numCivico + ", cap="
+				+ cap + ", tel=" + tel + ", cartaCredito=" + cartaCredito + ", isAmm=" + isAmm + ", getId()=" + getId()
+				+ ", getPassword()=" + getPassword() + ", getEmail()=" + getEmail() + ", getNome()=" + getNome()
+				+ ", getCognome()=" + getCognome() + ", getDataNascita()=" + getDataNascita() + ", getVia()=" + getVia()
+				+ ", getNumCivico()=" + getNumCivico() + ", getCap()=" + getCap() + ", getTel()=" + getTel()
+				+ ", getCartaCredito()=" + getCartaCredito() + ", isAmm()=" + isAmm() + ", getClass()=" + getClass()
+				+ ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
 	}
 	
 }

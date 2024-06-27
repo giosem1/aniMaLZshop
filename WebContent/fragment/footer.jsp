@@ -1,3 +1,3 @@
 <div id="footer">
-	Animalzshop &copy; 2024.
+	aniMaLZshop &copy; 2024.
 </div>

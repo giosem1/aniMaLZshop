@@ -67,29 +67,34 @@ public class UtenteDao implements UtenteDaoInterface{
 		PreparedStatement preparedStatement =null;
 		UtenteBean ute= new UtenteBean();
 		
-		String search="SELECT * FROM"+UtenteDao.TABLE_NAME+"WHERE EMAIL= ?"+ "AND PWD= ?";
+		String search="SELECT * FROM "+UtenteDao.TABLE_NAME+" WHERE PWD= ? "+ " AND EMAIL= ?";
 		try {
 			connection =ds.getConnection();
+
 			preparedStatement =connection.prepareStatement(search);
-			preparedStatement.setString(1,email);
-			preparedStatement.setString(2, pwd);
+			preparedStatement.setString(1,pwd);
+			preparedStatement.setString(2, email);
+
 			ResultSet rs= preparedStatement.executeQuery();
-			boolean check =rs.next();
-			//da modificare con il controllo della session
+			boolean check= rs.next();
+
 			if(check) {
+
 				ute.setPassword(rs.getString("pwd"));
 				ute.setEmail(rs.getString("email"));
 				ute.setNome(rs.getString("nome"));
 				ute.setCognome(rs.getString("cognome"));
-				ute.setDataNascita(rs.getDate("data_nascita"));
+				ute.setDataNascita(rs.getDate("data_di_nascita"));
 				ute.setVia(rs.getString("via"));
 				ute.setNumCivico(rs.getString("num_civico"));
 				ute.setCap(rs.getInt("cap"));
-				ute.setCartaCredito(rs.getInt("carta_credito"));
+				ute.setTel(rs.getString("telefono"));
+				ute.setCartaCredito(rs.getLong("carta_di_credito"));
 				ute.setAmm(rs.getBoolean("isAmm"));
-				
+
 			}
 			
+				
 		}catch(Exception ex) {
 			System.out.println("Login failed");
 		}finally {
