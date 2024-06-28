@@ -65,7 +65,7 @@ public class Registration extends HttpServlet {
 		}catch(SQLException e) {
 			System.out.println("Error:" + e.getMessage());		
 		}
-		response.sendRedirect(request.getContextPath()+"/Home.jsp");
+		response.sendRedirect(request.getContextPath()+"/common/Home.jsp");
  	}
 
 }

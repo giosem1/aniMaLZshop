@@ -31,19 +31,17 @@ public class ProdottoDao implements ProdottoDaoInterface {
 		try (Connection connection = ds.getConnection();
 		         PreparedStatement preparedStatement = connection.prepareStatement(
 		                 "INSERT INTO " + ProdottoDao.TABLE_NAME
-		                         + " (ID_PRODOTTI, NOME, PREZZO, GENERE, ANIMALE, TAGLIA, MARCA, DESCRIZONE, IMMAGINE, VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)")) {
+		                         + " (NOME, PREZZO, GENERE, ANIMALE, TAGLIA, MARCA, DESCRIZIONE, IMMAGINE, QUANTITA) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)")) {
 	
-				preparedStatement.setInt(1, prodotto.getID_prodotti());
-		        preparedStatement.setString(2, prodotto.getNome());
-		        preparedStatement.setDouble(3, prodotto.getPrezzo());
-		        preparedStatement.setDouble(4, prodotto.getPrezzo());
-		        preparedStatement.setString(5, prodotto.getGenere());
-		        preparedStatement.setString(6, prodotto.getAnimale());
-		        preparedStatement.setString(7, prodotto.getTaglia());
-		        preparedStatement.setString(8, prodotto.getMarca());
-		        preparedStatement.setString(9, prodotto.getDescrizione());
-		        preparedStatement.setString(10, prodotto.getImmagine());
-		        preparedStatement.setInt(11, prodotto.getQuantita());
+		        preparedStatement.setString(1, prodotto.getNome());
+		        preparedStatement.setDouble(2, prodotto.getPrezzo());
+		        preparedStatement.setString(3, prodotto.getGenere());
+		        preparedStatement.setString(4, prodotto.getAnimale());
+		        preparedStatement.setString(5, prodotto.getTaglia());
+		        preparedStatement.setString(6, prodotto.getMarca());
+		        preparedStatement.setString(7, prodotto.getDescrizione());
+		        preparedStatement.setString(8, prodotto.getImmagine());
+		        preparedStatement.setInt(9, prodotto.getQuantita());
 
 		        preparedStatement.executeUpdate();
 		    }
@@ -70,7 +68,7 @@ public class ProdottoDao implements ProdottoDaoInterface {
 				if(check) {
 		            	prod.setID_prodotti(rs.getInt("ID_prodotti"));
 		            	prod.setNome(rs.getString("Nome"));
-		            	prod.setPrezzo(rs.getDouble("Prezzo"));
+		            	prod.setPrezzo(rs.getFloat("Prezzo"));
 		            	prod.setGenere(rs.getString("Genere"));
 		            	prod.setAnimale(rs.getString("Animale"));
 		            	prod.setTaglia( rs.getString("Taglia"));

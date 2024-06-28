@@ -39,9 +39,9 @@ public class Login extends HttpServlet {
 			if(request.getParameter("user").equals(ute.getEmail()) && request.getParameter("pwd").equals(ute.getPassword())) {
 				HttpSession session = request.getSession(true);	    
 			    session.setAttribute("currentSessionUser",ute);
-			    response.sendRedirect(request.getContextPath()+"/Home.jsp");  
+			    response.sendRedirect(request.getContextPath()+"/common/Home.jsp");  
 			}else {
-				response.sendRedirect(request.getContextPath()+"/Login.jsp");
+				response.sendRedirect(request.getContextPath()+"/common/Login.jsp");
 			}
 					
 		}catch(SQLException e) {

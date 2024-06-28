@@ -115,6 +115,15 @@ nav ul li a:hover {
 	 padding: 5px;
 	 width: 250px;
 }
+#table #selTaglia{
+	border-radius: 15px;
+	padding: 5px;
+} 
+#table #descrizione{
+	border-radius: 15px;
+	padding: 5px;
+	resize: none;
+}
 
 #clic input {
 	 border-radius: 15px;

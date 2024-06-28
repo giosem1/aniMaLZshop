@@ -27,7 +27,7 @@ public class Logout extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getSession().removeAttribute("currentSessionUser");
-		response.sendRedirect(request.getContextPath() + "/Home.jsp");
+		response.sendRedirect(request.getContextPath() + "/common/Home.jsp");
 	}
 
 	/**
