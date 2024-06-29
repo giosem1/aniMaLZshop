@@ -14,16 +14,16 @@
 			
 			<%@ include file="../fragment/header.jsp" %>
 			<h2 class="title">Aggiungi un prodotto</h2>
-			<form action="../AddProdoct" method="post" id="MyForm" enctype="multipart/form-data">
-				<div id="table">
+			<form action="../AddProdoct" method="post" class="MyForm" enctype="multipart/form-data">
+				<div class="table">
 						<p>Nome:</p>
 						<p><input type="text" name="nomeprod" placeholder="Inserisci nome del prodotto"  required></p>	
 				</div>
-				<div id="table">
+				<div class="table">
 						<p>Prezzo:</p>
 						<p><input type="text" name="prezzo" placeholder="Inserisci il prezzo" required></p>	
 				</div>
-				<div id="table">
+				<div class="table">
 						<p>Genere:</p>
 						<p>	<select name="genere" class="sel">
 								<option value="Cibo">Cibo</option>
@@ -36,11 +36,11 @@
 							</select></p>
 
 				</div>
-				<div id="table">
+				<div class="table">
 						<p>Categoria:</p>
 						<p><input type="text" name="cate" placeholder="Inserisci la categoria del prodotto" required ></p>	
 				</div>
-				<div id="table">
+				<div class="table">
 						<p>Taglia:</p>
 						<p><select name="taglia" class="sel" required>
 							<option value="S">S</option>
@@ -49,23 +49,23 @@
 							<option value="Tutte le taglie">Tutte le taglie</option>
 						</select></p>
 				</div>
-				<div id="table">
+				<div class="table">
 						<p>Marca:</p>
 						<p><input type="text" name="marca" placeholder="Inserisci la marca del prodotto" required></p>	
 				</div>
-				<div id="table">
+				<div class="table">
 						<p>Descrizione:</p>
-						<p><textarea rows="10" cols="50" name="desc" id="testo" required></textarea></p>	
+						<p><textarea rows="10" cols="50" name="desc" id="testo"required></textarea></p>	
 				</div>
-				<div id="table">
+				<div class="table">
 						<p>Immagine:</p>
 						<p><input type="file" name="imm" accept="image/*" id="immag" required></p>	
 				</div>	
-				<div id="table">
+				<div class="table">
 						<p>Quantità:</p>
 						<p><input type="text" name="quant" placeholder="Inserisci la quantità del prodotto" required></p>	
 				</div>
-				<div id="clic">
+				<div class="clic">
 					<p><input type="submit" value="Inserisci"></p>
 				</div>
 			</form>

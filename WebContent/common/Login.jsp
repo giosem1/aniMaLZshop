@@ -14,19 +14,19 @@
         
         <h2 class="title">Accesso</h2>
         
-        <form action="../Login" method="post" id="MyForm">
-				   <div id="table">
+        <form action="../Login" method="post" class="MyForm">
+				   <div class="table">
                     <p>Username:</p>
                     <p><input type="text" name="user" required placeholder="Insercisci email"></p>
                 </div>
 
-                  <div id="table" class="password-container">
+                  <div class="password-container">
                    <p>Password:</p>
-                   <p><input type="password" name="pwd" id="password" placeholder="Inserisci password"></p>
+                   <p><input type="password" name="pwd" placeholder="Inserisci password"></p>
                    <span id="toggle-password" class="material-symbols-outlined" onclick="togglePasswordVisibility()">visibility</span>
                 </div>
 
-                <div id="clic">
+                <div class="clic">
                         <p><input type="submit" value="Accedi"></p>
                      <a href="<%= request.getContextPath()%>/common/Registration.jsp">Registrati!</a>
                 </div>

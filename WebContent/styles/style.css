@@ -134,28 +134,47 @@ nav ul li a:hover {
      font-family: Arial, sans-serif;	
 }
 
-#MyForm {
+.MyForm {
     margin-left: 35%; 
 }
 
-#table {
+.table {
     display: table-row;
 }
 
-#table p {
+.table p {
     display: table-cell;
     padding: 3px;
-    font-family: Arial, sans-serif;
     text-align: center;
+    vertical-align: middle;
+    font-family: Arial, sans-serif;
 }
-
-#table p input {
+.table p input {
      border-radius: 15px;
      padding: 5px;
      width: 250px;
 }
-
-#clic input {
+ #table p textarea {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+.inOrder textarea {
+    width: 100%;
+    padding: 8px;
+    margin: 4px 0;
+    box-sizing: border-box;
+	border-radius: 15px;
+	padding: 5px;
+	resize: none;
+}
+.inOrder p{
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-right: 50%;
+}
+.clic input {
      border-radius: 15px;
      width: 100px;
      margin-left: 18%;
@@ -164,18 +183,18 @@ nav ul li a:hover {
      font-family: Arial, sans-serif;
 }
 
-#clic input:hover {
+.clic input:hover {
      font-weight: bold;
 }
 
-#clic a{
+.clic a{
      font-weight: bold;
      color: black;
      text-decoration: none;
      font-family: Arial, sans-serif;
 }
 
-#clic a:hover {
+.clic a:hover {
      font-weight: bold;
      color: rgba(6,191,173,1);
      text-decoration: none;
@@ -186,12 +205,8 @@ nav ul li a:hover {
     position: relative;
     display: flex;
     align-items: center;
+    display: table-row;
 }
-
-#password {
-    padding-right: 40px; 
-}
-
 .password-container span {
     color: gray;
     position: absolute;
@@ -200,11 +215,27 @@ nav ul li a:hover {
     user-select: none;
     margin: 6px 0px 0px;
 }
-#table .sel{
+
+.password-container p{
+	display: table-cell;
+    padding: 3px;
+    text-align: center;
+    vertical-align: middle;
+    font-family: Arial, sans-serif;
+}
+
+.password-container p input {
+     border-radius: 15px;
+     padding: 5px;
+     width: 250px;
+}
+
+.sel{
 	border-radius: 15px;
 	padding: 5px;
+	width: 265px;
 } 
-#table #testo{
+.table #testo{
 	border-radius: 15px;
 	padding: 5px;
 	resize: none;
@@ -248,3 +279,10 @@ nav ul li a:hover {
 	color: black;
 }
 
+.error{
+	margin-top:60px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin-bottom: 150px;
+   
+}

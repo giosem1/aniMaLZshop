@@ -13,12 +13,12 @@
 			
 	<%@ include file="../fragment/header.jsp" %>
 	<h2 class="title">Aggiungi una News</h2>
-	<form action="../AddNews" method="post" id="MyForm" enctype="multipart/form-data">
-		<div id="table">
+	<form action="../AddNews" method="post" class="MyForm" enctype="multipart/form-data">
+		<div class="table">
 			<p>Titolo:</p>
 			<p><input type="text" name="titolo" placeholder="Inserisci il titolo"></p>
 		</div>
-		<div id="table">
+		<div class="table">
 			<p>Categoria:</p>
 			<p><select name="cate" class="sel">
 					<option value="Benessere & Salute">Benessere & Salute</option>
@@ -26,28 +26,28 @@
 					<option value="Alimentazione">Alimentazione</option>
 			</select></p>
 		</div>
-		<div id="table">
+		<div class="table">
 			<p>Data publicazione:</p>
 			<p><input type="date" name="dataPubl" placeholder="GG/MM/AAAA"></p>
 		</div>
-		<div id="table">
+		<div class="table">
 			<p>Animale:</p>
 			<p><input type="text" name="animal" placeholder="Inserisci l'animale"></p>
 		</div>
-		<div id="table">
+		<div class="table">
 			<p>Immagine:</p>
 			<p><input type="file" name="imm" accept="image/*" ></p>
 		</div>
-		<div id="table">
+		<div class="table">
 			<p>Autore:</p>
 			<p><input type="text" name="aut" placeholder="Inserisci l'autore"></p>
 		</div>
-		<div id="table">
+		<div class="inOrder">
 			<p>Contenuto:</p>
-			<p><textarea rows="50" cols="100" name="cont" id="testo" placeholder="Inserisci il contenuto"></textarea></p>
+			<p><textarea rows="50" cols="100" name="cont" placeholder="Inserisci il contenuto"></textarea></p>
 		</div>
 		
-		<div id="clic"> 
+		<div class="clic"> 
 	            <p><input type="submit" value="Inserisci News"></p>
 			</div>
 	</form>

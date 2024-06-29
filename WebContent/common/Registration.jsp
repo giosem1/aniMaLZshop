@@ -16,39 +16,39 @@
 
 
 		<h2 class="title">Crea un account</h2>
-		<form action="../Registration" method="post" id="MyForm">
-				<div id="table">
+		<form action="../Registration" method="post" class="MyForm">
+				<div class="table">
 	            <p>Nome:</p>
 	            <p><input type="text" name="nome" placeholder="Inserisci nome" ></p>
 	        </div>
 	
-	        <div id="table"> 
+	        <div class="table"> 
 	            <p>Cognome:</p>
 	            <p><input type="text" name="cognome" placeholder="Inserisci cognome"></p>
 	        </div>
 	
-	        <div id="table">
+	        <div class="table">
 	            <p>Email:</p>
 	            <p><input type="email" name="email" placeholder="Inserisci email" ></p>
 	        </div>
 	
-	        <div id="table">
+	        <div class="table">
 	            <p>Data di nascita:</p>
 	            <p><input type="date" name="dataNascita" placeholder="GG/MM/AAAA" ></p>
 	        </div>
 	
-	        <div id="table">
+	        <div class="table">
 	            <p>Telefono:</p>
 	            <p><input type="tel" name="telefono" placeholder="Inserisci telefono" ></p>
 	        </div>
 	
-	        <div id="table" class="password-container">
+	        <div class="password-container">
 	            <p>Password:</p>
 	            <p><input type="password" name="pwd" id="password" placeholder="Inserisci password"></p>
 	                   <span id="toggle-password" class="material-symbols-outlined" onclick="togglePasswordVisibility()">visibility</span>
 	        </div>
 	
-	        <div id="clic"> 
+	        <div class="clic"> 
 	            <p><input type="submit" value="Crea Account"></p>
 				<a href="<%= request.getContextPath()%>/common/Login.jsp">Hai già un account? Accedi!</a>
 			</div>	
