@@ -31,7 +31,7 @@ public class NewsDao implements NewsDaoInterface {
 		Connection connection=null;
 		PreparedStatement preparedStatement= null;
 		
-		String insertSQL="INSERT INTO"+NewsDao.TABLE_NAME+"(TITOLO, CATEGORIA, DATA_PUBLICAZIONE, ANIMALE, IMMAGINE, AUTORE, CONTENUTO) VALUES(?, ?, ?, ?, ?, ?, ?)";
+		String insertSQL="INSERT INTO "+NewsDao.TABLE_NAME+" (TITOLO, CATEGORIA, DATA_PUBLICAZIONE, ANIMALE, IMMAGINE, AUTORE, CONTENUTO) VALUES(?, ?, ?, ?, ?, ?, ?)";
 		try{
 			connection =ds.getConnection();
 			connection.setAutoCommit(false);
@@ -62,7 +62,7 @@ public class NewsDao implements NewsDaoInterface {
 		PreparedStatement preparedStatement= null;
 		NewsBean news= new NewsBean();
 		
-		String serach= "SELECT * FROM"+NewsDao.TABLE_NAME+"WHERE TITOLO= ?"+"AND CATEGORIA0 ?";
+		String serach= "SELECT * FROM "+NewsDao.TABLE_NAME+" WHERE TITOLO= ?"+"AND CATEGORIA0 ?";
 		try {
 			connection =ds.getConnection();
 			preparedStatement =connection.prepareStatement(serach);

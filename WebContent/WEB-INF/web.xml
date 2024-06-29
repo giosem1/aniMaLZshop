@@ -27,4 +27,8 @@
   	<servlet-name>AddProdoct</servlet-name>
   	<url-pattern>/file-upload</url-pattern>
   </servlet-mapping>
+  <error-page>
+  <error-code>404</error-code>
+  <location>/error/Erroraccess.jsp</location>
+  </error-page>
 </web-app>

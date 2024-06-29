@@ -44,7 +44,7 @@ public class AddProduct extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-ProdottoDao dao= new ProdottoDao();
+		ProdottoDao dao= new ProdottoDao();
 		
 		try {
 			ProdottoBean prod=new ProdottoBean();
@@ -64,7 +64,6 @@ ProdottoDao dao= new ProdottoDao();
 					fileName = extractFileName(part);
 						if (fileName != null && !fileName.equals("")) {
 							part.write(savePath + File.separator + fileName);
-							System.out.println(fileName);
 							prod.setImmagine(fileName);
 							}
 				}

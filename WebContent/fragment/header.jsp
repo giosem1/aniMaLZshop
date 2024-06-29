@@ -24,7 +24,7 @@
 	  			
 	  			<%if(ute.isAmm()) {%>
 	  			<a href="<%= request.getContextPath() %>/admin/AddProduct.jsp">Aggiungi prodotti</a>
-	  			<a href="">Aggiungi News</a>
+	  			<a href="<%= request.getContextPath() %>/admin/AddNews.jsp">Aggiungi News</a>
 	  			<a href="">Ordini complessivi</a>
 	  			<%}%>
 	  			
