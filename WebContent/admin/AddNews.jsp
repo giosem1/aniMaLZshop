@@ -12,14 +12,14 @@
 		if(uteacc !=null && uteacc.isAmm()){%>
 			
 	<%@ include file="../fragment/header.jsp" %>
-	<h2 id="title">Aggiungi una News</h2>
+	<h2 class="title">Aggiungi una News</h2>
 	<form action="../AddNews" method="post" id="MyForm" enctype="multipart/form-data">
 		<div id="table">
 			<p>Titolo:</p>
 			<p><input type="text" name="titolo" placeholder="Inserisci il titolo"></p>
 		</div>
 		<div id="table">
-			<p>Categoria:  </p>
+			<p>Categoria:</p>
 			<p><select name="cate" class="sel">
 					<option value="Benessere & Salute">Benessere & Salute</option>
 					<option value="Comportamento & Gioco">Comportamento & Gioco</option>

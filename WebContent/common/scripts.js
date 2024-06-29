@@ -9,3 +9,20 @@
                 visibilityIcon.textContent = 'visibility';
                 }
 }
+document.addEventListener('DOMContentLoaded', function() {
+    
+    var basePath = '../images/';
+    var imageName = getImageName();
+    var imageUrl = basePath + imageName;
+
+    var newsElement = document.getElementById('news');
+    
+    if (newsElement) {
+        newsElement.style.backgroundImage = 'url(' + imageUrl + ')';
+    }
+})
+
+function getImageName() {
+    // Logica per calcolare dinamicamente il nome dell'immagine
+    
+}

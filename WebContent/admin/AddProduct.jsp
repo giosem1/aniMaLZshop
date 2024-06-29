@@ -13,7 +13,7 @@
 		if(uteacc !=null && uteacc.isAmm()){%>
 			
 			<%@ include file="../fragment/header.jsp" %>
-			<h2 id="title">Aggiungi un prodotto</h2>
+			<h2 class="title">Aggiungi un prodotto</h2>
 			<form action="../AddProdoct" method="post" id="MyForm" enctype="multipart/form-data">
 				<div id="table">
 						<p>Nome:</p>

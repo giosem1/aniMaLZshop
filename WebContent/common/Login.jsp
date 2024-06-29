@@ -12,7 +12,7 @@
 	<body>
          <%@ include file="../fragment/header.jsp" %>
         
-        <h2 id="title">Accesso</h2>
+        <h2 class="title">Accesso</h2>
         
         <form action="../Login" method="post" id="MyForm">
 				   <div id="table">

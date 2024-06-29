@@ -15,7 +15,7 @@
 	<%@ include file="../fragment/header.jsp" %>
 
 
-		<h2 id="title">Crea un account</h2>
+		<h2 class="title">Crea un account</h2>
 		<form action="../Registration" method="post" id="MyForm">
 				<div id="table">
 	            <p>Nome:</p>

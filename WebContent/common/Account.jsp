@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="model.*, java.util.*" errorPage="../error/Erroraccess"%>
+    pageEncoding="UTF-8" import="model.*, java.util.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,9 +10,7 @@
 	<%@ include file="../fragment/header.jsp" %>
 	
 	<%UtenteBean utente=(UtenteBean) request.getSession().getAttribute("currentSessionUser");%>
-	
-	<fieldset >
-	<legend id="leg">Dati Personali</legend>
+	<h2 class="title">Dati Personali</h2>
 	<ul id="dati-list">
 		<li><span class="elem-field">Nome: </span><%=utente.getNome()%></li>
 		<li><span class="elem-field">Cognome: </span><%=utente.getCognome() %></li>
@@ -24,7 +22,6 @@
 		<li><span class="elem-field">Telefono: </span><%=utente.getTel() %></li>
 		<li><span class="elem-field">Carta di credito: </span><%=utente.getCartaCredito() %></li>
 	</ul>
-	</fieldset>
 	<%@ include file="../fragment/footer.jsp" %>	
 </body>
-</html>
+<
