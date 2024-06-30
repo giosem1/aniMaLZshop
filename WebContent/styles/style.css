@@ -154,7 +154,7 @@ nav ul li a:hover {
      padding: 5px;
      width: 250px;
 }
- #table p textarea {
+ .table p textarea {
     width: 100%;
     padding: 8px;
     box-sizing: border-box;
@@ -182,8 +182,14 @@ nav ul li a:hover {
      color: black;
      font-family: Arial, sans-serif;
 }
-
-.clic input:hover {
+.clicprod input {
+     border-radius: 15px;
+     width: 200px;
+     background:rgba(208,128,242,1);
+     color: black;
+     font-family: Arial, sans-serif;
+}
+.clic input:hover, .clicprod inupt:hover {
      font-weight: bold;
 }
 
@@ -201,6 +207,9 @@ nav ul li a:hover {
      transition:.4s;
 }
 
+.prodotti {
+	display: table;
+}
 .password-container {
     position: relative;
     display: flex;

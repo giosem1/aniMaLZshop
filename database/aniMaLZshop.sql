@@ -10,9 +10,9 @@ CREATE TABLE utente(
         nome VARCHAR(20) NOT NULL,
         cognome VARCHAR(20) NOT NULL,
         data_di_nascita DATE NOT NULL,
-        via VARCHAR(30) NOT NULL,
-        num_civico INT  NOT NULL,
-        cap INT NOT NULL,
+        via VARCHAR(30) DEFAULT NULL,
+        num_civico INT  DEFAULT NULL,
+        cap INT DEFAULT NULL,
         telefono CHAR(10) NOT NULL, 
 		carta_di_credito CHAR(16) DEFAULT NULL,
         isAmm BOOLEAN NOT NULL,
@@ -27,7 +27,7 @@ INSERT INTO utente VALUES(NULL, 'vale', 'valeria@gmail.com', 'Valeria', 'Zaccaro
 DROP TABLE IF EXISTS prodotti;
 CREATE TABLE prodotti(
 	ID_prodotti INT NOT NULL AUTO_INCREMENT,
-    nome VARCHAR(50) NOT NULL,
+    nome VARCHAR(100) NOT NULL,
 	prezzo DOUBLE NOT NULL,
 	genere VARCHAR(50) NOT NULL,
     animale VARCHAR(50) NOT NULL,
@@ -39,12 +39,19 @@ CREATE TABLE prodotti(
     
     PRIMARY KEY(ID_prodotti)
 );
-
-INSERT INTO prodotti VALUES(NULL, 'Perfect Lettiera in Silicio per Gatti', '10.99', 'Igiene', 'Gatto', 'Tutte le taglie', 'PERFECT', 'Il marchio Perfect è il tuo alleato a 360° per garantire l igiene e la bellezza del tuo prezioso amico a quattro zampe. La loro gamma di prodotti altamente specializzati è progettata per promuovere l igiene e la salute di cani e gatti, offrendo soluzioni mirate per soddisfare le esigenze degli animali più esigenti e sensibili.
+INSERT INTO prodotti VALUES(NULL, 'Anione Pettorina Classic Verde', '15.99', 'Accessori', 'Cane', 'L', 'AniOne', 'L imbracatura AniOne Classic è realizzata in robusto materiale di nylon di alta qualità. Disponibile in molti colori e dimensioni.', 
+'cane.png', '5');
+INSERT INTO prodotti VALUES(NULL, 'Perfect Lettiera in Silicio per Gatti', '10.99', 'Igienici', 'Gatto', 'Tutte le taglie', 'PERFECT', 'Il marchio Perfect è il tuo alleato a 360° per garantire l igiene e la bellezza del tuo prezioso amico a quattro zampe. La loro gamma di prodotti altamente specializzati è progettata per promuovere l igiene e la salute di cani e gatti, offrendo soluzioni mirate per soddisfare le esigenze degli animali più esigenti e sensibili.
 Inoltre, Perfect si dedica anche a preservare l ambiente in cui vivono i tuoi animali domestici, mettendo a disposizione spray e detergenti per la casa. Con competenza e affetto per gli animali, Perfect si contraddistingue come la scelta ottimale per chiunque voglia garantire ai propri amici pelosi soltanto il meglio in termini di cura e benessere.', 
-NULL, '10');
-INSERT INTO prodotti VALUES(NULL, 'Anione Pettorina Classic Verde', '15.99', 'Guinzaglieria', 'Cane', 'L', 'AniOne', 'L imbracatura AniOne Classic è realizzata in robusto materiale di nylon di alta qualità. Disponibile in molti colori e dimensioni.', 
-NULL, '5');
+'gattino.png', '10');
+INSERT INTO prodotti VALUES(NULL,'Incubatore Digitale Per Uova Reptibator', '300.00', 'Farmaceutici', 'Rettile', 'Tutte le taglie','CROCI','L incubatore Digitale per uova di Croci è il luogo perfetto in cui tenere le uova dei rettili fino alla loro naturale schiusura: la presenza contemporanea di serbatoi di acqua e inserti in spugna consentono di mantenere il livello di umidità ideale',
+'rettili.png','1');
+INSERT INTO prodotti VALUES(NULL,'MultiFit Snack per Roditori Drops Mix Senza Cereali', '54.99', 'Snack', 'Roditore', 'Tutte le taglie', 'MULTIFIT', 'MultiFit Grain Free Drops è uno snack senza cereali disponibile in diverse versioni e offre deliziosi snack per il tuo piccolo animale domestico.',
+'roditori.png', '30');
+INSERT INTO prodotti VALUES(NULL,'Neo Foractil Spray per Uccelli 300 ml', '15.36', 'Farmaceutici', 'Uccello', 'TUtte le taglie', 'CROCI','Soluzione spray per uso esterno, per uccelli da gabbia e voliera.',
+'uccelli.png', '5');
+INSERT INTO prodotti VALUES(NULL,'Mangime per Pesci Discus in Granuli', '6.99', 'Cibo','Pesce', 'Tutte le taglie', 'Tetra','Il mangime per pesci di Tetra è ideale per lalimentazione dei pesci Discus, realizzato in piccoli granuli per favorire una dieta ricca di vitamine e proteine e povera di grassi. Stai cercando il cibo ideale per il re dell acqua dolce Discus? Il pesce Discus, tra i più belli e affascinanti negli acquari dolci, ha bisogno di un alimentazione adatta per la sua natura pacifica. Tetra Discus è la nutrizione giusta per il pesce Disco.',
+'pesci.png', '20');
 
 DROP TABLE IF EXISTS ordine;
 CREATE TABLE ordine(
