@@ -28,11 +28,13 @@ public class ProdottoDao implements ProdottoDaoInterface {
 
 	private static final String TABLE_NAME = "prodotti";
 	public void doSave(ProdottoBean prodotto) throws SQLException {
-		try (Connection connection = ds.getConnection();
-		         PreparedStatement preparedStatement = connection.prepareStatement(
-		                 "INSERT INTO " + ProdottoDao.TABLE_NAME
-		                         + " (NOME, PREZZO, GENERE, ANIMALE, TAGLIA, MARCA, DESCRIZIONE, IMMAGINE, QUANTITA) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)")) {
-	
+		Connection connection =null;
+		PreparedStatement preparedStatement =null;
+		String sqlInsert="INSERT INTO " + ProdottoDao.TABLE_NAME+ " (NOME, PREZZO, GENERE, ANIMALE, TAGLIA, MARCA, DESCRIZIONE, IMMAGINE, QUANTITA) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		
+		try {
+		    	connection = ds.getConnection();
+				preparedStatement = connection.prepareStatement(sqlInsert);
 		        preparedStatement.setString(1, prodotto.getNome());
 		        preparedStatement.setDouble(2, prodotto.getPrezzo());
 		        preparedStatement.setString(3, prodotto.getGenere());
@@ -44,7 +46,15 @@ public class ProdottoDao implements ProdottoDaoInterface {
 		        preparedStatement.setInt(9, prodotto.getQuantita());
 
 		        preparedStatement.executeUpdate();
-		    }
+		    }finally {
+				try {
+					if(preparedStatement !=null)
+						preparedStatement.close();
+				}finally {
+					if(connection != null)
+						connection.close();
+				}
+			}
 		}
 
 
@@ -64,7 +74,6 @@ public class ProdottoDao implements ProdottoDaoInterface {
 				
 				ResultSet rs= preparedStatement.executeQuery();
 				boolean check =rs.next();
-				//da modificare con il controllo della session
 				if(check) {
 		            	prod.setID_prodotti(rs.getInt("ID_prodotti"));
 		            	prod.setNome(rs.getString("Nome"));
@@ -94,24 +103,73 @@ public class ProdottoDao implements ProdottoDaoInterface {
 
 	public synchronized boolean doDelete(int ID_Prodotto) throws SQLException {
 		 int result = 0;
+		 Connection connection =null;
+		 PreparedStatement preparedStatement =null;
+		 String deleteSQL = "DELETE FROM " + ProdottoDao.TABLE_NAME + " WHERE ID_PRODOTTO = ?";
 
-		    String deleteSQL = "DELETE FROM " + ProdottoDao.TABLE_NAME + " WHERE ID_PRODOTTO = ?";
-
-		    try (Connection connection = ds.getConnection();
-		         PreparedStatement preparedStatement = connection.prepareStatement(deleteSQL)) {
-
-		        preparedStatement.setInt(1, ID_Prodotto);
+		    try {
+		    	connection = ds.getConnection();
+		    	preparedStatement = connection.prepareStatement(deleteSQL);
+		    	preparedStatement.setInt(1, ID_Prodotto);
 
 		        result = preparedStatement.executeUpdate();
-		    }
+		    }finally {
+				try {
+					if(preparedStatement !=null)
+						preparedStatement.close();
+				}finally {
+					if(connection != null)
+						connection.close();
+				}
+			}
 
 		    return (result != 0);
 		}
 
 
-	public ArrayList<ProdottoBean> doRetriveAll() throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<ProdottoBean> doRetriveAll(String anim) throws SQLException {
+		Connection connection = null;
+	    PreparedStatement preparedStatement = null; 
+	    
+	    ArrayList<ProdottoBean> prodotti=new ArrayList<>();
+	   
+	    String selectSQL="SELECT * FROM "+ ProdottoDao.TABLE_NAME +" WHERE ANIMALE = ?";
+	   
+	    
+		    try {
+		    	connection = ds.getConnection();
+				preparedStatement = connection.prepareStatement(selectSQL);
+				preparedStatement.setString(1, anim);
+				ResultSet rs= preparedStatement.executeQuery();
+				while(rs.next()) {
+					ProdottoBean prod =new ProdottoBean();
+					
+					prod.setNome(rs.getString("nome"));
+					prod.setPrezzo(rs.getDouble("prezzo"));
+					prod.setGenere(rs.getString("genere"));
+					prod.setAnimale(rs.getString("animale"));
+					prod.setTaglia(rs.getString("taglia"));
+					prod.setMarca(rs.getString("marca"));
+					prod.setDescrizione(rs.getString("descrizione"));
+					prod.setImmagine(rs.getString("immagine"));
+					prod.setQuantita(rs.getInt("quantita"));
+			
+	
+
+					prodotti.add(prod);
+				}
+		    }finally {
+				try {
+					if (preparedStatement != null)
+						preparedStatement.close();
+				} finally {
+					if (connection != null)
+						connection.close();
+				}
+		    }
+		    
+	    
+		return prodotti;
 	}
 
 	public void doUpdate(ProdottoBean prodotto) throws SQLException {
@@ -119,9 +177,12 @@ public class ProdottoDao implements ProdottoDaoInterface {
 		            + " SET NOME = ? , QUANTITA = ?, DESCRIZIONE = ?, PREZZO = ?, GENERE = ?, ANIMALE = ?, TAGLIA = ?, MARCA = ?, DESCRIZIONE = ?, IMMAGINE = ?"
 		            + " WHERE ID_PRODOTTO = ? ";
 
-		    try (Connection connection = ds.getConnection();
-		         PreparedStatement preparedStatement = connection.prepareStatement(updateSQL)) { 
-	
+		     Connection connection = null;
+		     PreparedStatement preparedStatement = null; 
+		        		
+		      try { 
+		    	connection = ds.getConnection();
+		    	preparedStatement = connection.prepareStatement(updateSQL);
 		        preparedStatement.setString(1, prodotto.getNome());
 		        preparedStatement.setInt(2, prodotto.getQuantita());
 		        preparedStatement.setString(3, prodotto.getDescrizione());
@@ -135,7 +196,15 @@ public class ProdottoDao implements ProdottoDaoInterface {
 		        preparedStatement.setInt(11, prodotto.getID_prodotti());
 
 		        preparedStatement.executeUpdate();
-		    }
+		    }finally {
+				try {
+					if (preparedStatement != null)
+						preparedStatement.close();
+				} finally {
+					if (connection != null)
+						connection.close();
+				}
+			}
     	}
 
 }

@@ -10,7 +10,7 @@ public interface ProdottoDaoInterface {
 	
 	public boolean doDelete(int ID_Prodotto) throws SQLException;
 	
-	public ArrayList<ProdottoBean> doRetriveAll(   ) throws SQLException;
+	public ArrayList<ProdottoBean> doRetriveAll(String anim ) throws SQLException;
 	
 	public void doUpdate(ProdottoBean prodotto) throws SQLException;
 }
