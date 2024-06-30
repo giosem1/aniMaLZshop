@@ -14,7 +14,7 @@ import model.*;
 /**
  * Servlet implementation class Prodotto
  */
-@WebServlet("/Prodotto")
+@WebServlet("/prodotto")
 public class Prodotto extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -34,6 +34,7 @@ public class Prodotto extends HttpServlet {
     ProdottoDao prodDao = new ProdottoDao();
 		
 		try {		
+
 				String nome = request.getParameter("nome");
 				String animale = request.getParameter("animale");
                 String genere = request.getParameter("genere");
