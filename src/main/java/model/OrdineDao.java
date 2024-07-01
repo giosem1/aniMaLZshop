@@ -33,21 +33,17 @@ public class OrdineDao implements OrdineDaoInterface {
 		PreparedStatement preparedStatement = null;
 
 		String insertSQL = "INSERT INTO " + OrdineDao.TABLE_NAME
-				+ " (EMAIL, IMPORTO_TOTALE, STATO, DATA_ORDINE, INDIRIZZO, CAP, CARTA_CREDITO, ID_ORDINE) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+				+ " ( IMPORTO_TOTALE, ID_UTENTE, DATA_ORDINE, ID_ORDINE, QUANTITA) VALUES (?, ?, ?, ?, ?)";
 
 		try {
 			connection = ds.getConnection();
 			connection.setAutoCommit(false);
 			preparedStatement = connection.prepareStatement(insertSQL);
-			preparedStatement.setString(1, ordine.getEmail());
-			preparedStatement.setDouble(2, ordine.getImportoTotale());
-			preparedStatement.setString(3, ordine.getStato());
-			preparedStatement.setString(4, ordine.getData());
-			preparedStatement.setString(5, ordine.getIndirizzo());
-			preparedStatement.setString(6, ordine.getCap());
-			preparedStatement.setString(7, ordine.getCartaCredito());
-			preparedStatement.setInt(8, ordine.getIdOrdine());
-
+			preparedStatement.setDouble(1, ordine.getImportoTotale());
+			preparedStatement.setInt(2, ordine.getIdUtente());
+			preparedStatement.setString(3, ordine.getData());
+			preparedStatement.setInt(4, ordine.getIdOrdine());
+			preparedStatement.setInt(5, ordine.getquantita());
 
 
 			preparedStatement.executeUpdate();
@@ -84,13 +80,10 @@ public class OrdineDao implements OrdineDaoInterface {
 
 			while (rs.next()) {
 				ordine.setIdOrdine(rs.getInt("ID_ORDINE"));
-				ordine.setEmail(rs.getString("EMAIL"));
 				ordine.setImportoTotale(rs.getDouble("IMPORTO_TOTALE"));
-				ordine.setStato(rs.getString("STATO"));
 				ordine.setData(rs.getString("DATA_ORDINE"));
-				ordine.setIndirizzo(rs.getString("INDIRIZZO"));
-				ordine.setCap(rs.getString("CAP"));
-				ordine.setCartaCredito(rs.getString("CARTA_CREDITO"));
+				ordine.setIdUtente(rs.getInt("ID_UTENTE"));
+				ordine.setquantita(rs.getInt("QUANTITA"));
 			}
 
 		} 
@@ -108,49 +101,6 @@ public class OrdineDao implements OrdineDaoInterface {
 		return ordine;
 	}
 
-	
-	public synchronized ArrayList<OrdineBean> doRetrieveByEmail(String email) throws SQLException {
-		Connection connection = null;
-		PreparedStatement preparedStatement = null;
-
-		ArrayList<OrdineBean> ordini = new ArrayList<OrdineBean>();
-		
-		String search = "SELECT * FROM " + OrdineDao.TABLE_NAME
-						+ " WHERE EMAIL = ? ";
-		
-		try {
-			connection = ds.getConnection();
-			preparedStatement = connection.prepareStatement(search);
-			preparedStatement.setString(1, email);
-
-			ResultSet rs = preparedStatement.executeQuery();
-			
-			while (rs.next()) {
-				OrdineBean ordine = new OrdineBean();
-				ordine.setIdOrdine(rs.getInt("ID_ORDINE"));
-				ordine.setEmail(rs.getString("EMAIL"));
-				ordine.setImportoTotale(rs.getDouble("IMPORTO_TOTALE"));
-				ordine.setStato(rs.getString("STATO"));
-				ordine.setData(rs.getString("DATA_ORDINE"));
-				ordine.setIndirizzo(rs.getString("INDIRIZZO"));
-				ordine.setCap(rs.getString("CAP"));
-				ordine.setCartaCredito(rs.getString("CARTA_CREDITO"));
-				ordini.add(ordine);
-			}
-		}
-		finally {
-			try {
-				if (preparedStatement != null)
-					preparedStatement.close();
-			} 
-			finally {
-				if (connection != null)
-					connection.close();
-			}
-		}
-		
-		return ordini;
-	}
 	
 	
 	public synchronized ArrayList<OrdineBean> doRetrieveAll(String order) throws SQLException {
@@ -176,14 +126,10 @@ public class OrdineDao implements OrdineDaoInterface {
 			while (rs.next()) {
 				OrdineBean ordine = new OrdineBean();
 				ordine.setIdOrdine(rs.getInt("ID_ORDINE"));
-				ordine.setEmail(rs.getString("EMAIL"));
 				ordine.setImportoTotale(rs.getDouble("IMPORTO_TOTALE"));
-				ordine.setStato(rs.getString("STATO"));
 				ordine.setData(rs.getString("DATA_ORDINE"));
-				ordine.setIndirizzo(rs.getString("INDIRIZZO"));
-				ordine.setCap(rs.getString("CAP"));
-				ordine.setCartaCredito(rs.getString("CARTA_CREDITO"));
-				ordini.add(ordine);
+				ordine.setIdUtente(rs.getInt("ID_UTENTE"));
+				ordine.setquantita(rs.getInt("QUANTITA"));
 			}
 		}
 		finally {
