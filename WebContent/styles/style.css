@@ -295,3 +295,12 @@ nav ul li a:hover {
     margin-bottom: 150px;
    
 }
+#car {
+	margin-left: 50%;
+	margin-right: 50%;
+	padding: 5px;
+	text-align: left;	
+}
+.clear {
+	clear: both;
+}
