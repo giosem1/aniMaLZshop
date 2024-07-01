@@ -12,16 +12,16 @@ import javax.servlet.http.HttpServletResponse;
 import model.*;
 
 /**
- * Servlet implementation class Prodotto
+ * Servlet implementation class News
  */
-@WebServlet("/prodotto")
-public class Prodotto extends HttpServlet {
+@WebServlet("/News")
+public class News extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Prodotto() {
+    public News() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,23 +30,21 @@ public class Prodotto extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-    ProdottoDao prodDao = new ProdottoDao();
+    NewsDao newsDao = new NewsDao();
 		
 		try {		
-
-				String nome = request.getParameter("nome");
-				String animale = request.getParameter("animale");
-                String genere = request.getParameter("genere");
-				request.getSession().removeAttribute("prodotto");
-				 ProdottoBean Prodotto= prodDao.doRetrive(nome, animale, genere);
-				request.getSession().setAttribute("prodotto", Prodotto);
+				String titolo = request.getParameter("titolo");
+                String categ = request.getParameter("categ");
+				request.getSession().removeAttribute("news");
+				NewsBean News= newsDao.doRetrive(titolo, categ);
+				request.getSession().setAttribute("news", News);
 			
 		} catch (SQLException e) {
 			System.out.println("Error:" + e.getMessage());
 		}
 		
-		response.sendRedirect(request.getContextPath() + "/Prodotto.jsp");
+		response.sendRedirect(request.getContextPath() + "/common/News.jsp");
+		
 	}
 
 	/**
@@ -56,4 +54,5 @@ public class Prodotto extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
+
 }
