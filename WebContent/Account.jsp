@@ -7,7 +7,7 @@
 <title>Il mio account</title>
 </head>
 <body>
-	<%@ include file="../fragment/header.jsp" %>
+	<%@ include file="./fragment/header.jsp" %>
 	
 	<%UtenteBean utente=(UtenteBean) request.getSession().getAttribute("currentSessionUser");%>
 	<h2 class="title">Dati Personali</h2>
@@ -22,6 +22,6 @@
 		<li><span class="elem-field">Telefono: </span><%=utente.getTel() %></li>
 		<li><span class="elem-field">Carta di credito: </span><%=utente.getCartaCredito() %></li>
 	</ul>
-	<%@ include file="../fragment/footer.jsp" %>	
+	<%@ include file="./fragment/footer.jsp" %>	
 </body>
 <

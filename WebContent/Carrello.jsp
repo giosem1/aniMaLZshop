@@ -6,13 +6,13 @@
 <meta charset="UTF-8">
 <title>Carrello</title>
 
-<link rel="stylesheet" href="../styles/style.css" type="text/css">
+<link rel="stylesheet" href="./styles/style.css" type="text/css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
 </head>
 <body>
 
-	<%@ include file="../fragment/header.jsp" %>	
+	<%@ include file="./fragment/header.jsp" %>	
 	
 	<div id="car" class="clear">
 	
@@ -34,9 +34,9 @@
 		%>
 	
 		<tr>
-			<td><img src="<%=infopetBag.getProdotto().getImmagine()%>" height="100" width="100"></td>
+			<td><img src="./images/<%=infopetBag.getProdotto().getImmagine()%>" height="100" width="100"></td>
 			<td><%=infopetBag.getProdotto().getNome()%></td>
-			<td> <form action="carrello">
+			<td> <form action="../carrello">
 					<input type="hidden" name="Animale" value="<%=infopetBag.getAnimale()%>">
 					<input type="hidden" name="Genere" value="<%=infopetBag.getGenere()%>">
 					<input type="hidden" name="Nome" value="<%=infopetBag.getNome()%>">
@@ -46,13 +46,12 @@
 						<option value="<%=i+1%>" <%if( (i+1)==infopetBag.getQuantitaCarrello()){ %> selected="selected" <%} %>> <%=i+1%> </option> <%} %>
 						
 					</select>
+					
 					<input type="submit" value="update">
 				</form>
 			</td>
 			<td><%=String.format("%.2f",infopetBag.getTotale())%>&euro;</td>
-			<td><a href="carrello?action=deletePB&nome=<%=infopetBag.getNome()%>&page=Carrello.jsp"><button>X</button></a></td>
-			<td><a href="carrello?action=deletePB&genere=<%=infopetBag.getGenere()%>&page=Carrello.jsp"><button>X</button></a></td>
-			<td><a href="carrello?action=deletePB&animale=<%=infopetBag.getAnimale()%>&page=Carrello.jsp"><button>X</button></a></td>
+			<td><a href="./carrello?action=deletePB&nome=<%=infopetBag.getNome()%>&page=Carrello.jsp"><button>X</button></a></td>
 		</tr>
 		<% } %>
 	</table><br>
@@ -63,14 +62,15 @@
 					href="account?page=Checkout.jsp"> <%}else{%>href="Login.jsp?action=checkout"> <%} %><button>Effettua il pagamento</button> </a>
 		</div>
 	<%}else{%> 
-		<h2>Il tuo carrello è vuoto</h2>
-		<img src="../images/parrots.png" width="150" height="150">
+		
+		<h2 class="title">Il tuo carrello è vuoto</h2>
+		<img src="./images/parrots.png" width="150" height="150" id="empty">
 		<%} %>
 		<br><br>
-		
+	
 	</div>
 	
-	<%@ include file="../fragment/footer.jsp" %>	
+	<%@ include file="./fragment/footer.jsp" %>	
 
 </body>
 </html>

@@ -6,17 +6,17 @@
 	<meta charset="UTF-8">
 	<title> Registrazione </title>
 	    <script src="scripts.js"></script>
-		<link rel="stylesheet" href="../styles/style.css" type="text/css">
+		<link rel="stylesheet" href="./styles/style.css" type="text/css">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 	</head>
 
 	<body>
 
-	<%@ include file="../fragment/header.jsp" %>
+	<%@ include file="./fragment/header.jsp" %>
 
 
 		<h2 class="title">Crea un account</h2>
-		<form action="../Registration" method="post" class="MyForm">
+		<form action="/Registration" method="post" class="MyForm">
 				<div class="table">
 	            <p>Nome:</p>
 	            <p><input type="text" name="nome" placeholder="Inserisci nome" ></p>
@@ -50,12 +50,12 @@
 	
 	        <div class="clic"> 
 	            <p><input type="submit" value="Crea Account"></p>
-				<a href="<%= request.getContextPath()%>/common/Login.jsp">Hai già un account? Accedi!</a>
+				<a href="<%= request.getContextPath()%>/Login.jsp">Hai già un account? Accedi!</a>
 			</div>	
 			
 	</form>
 	
-	 <%@ include file="../fragment/footer.jsp" %>	
+	 <%@ include file="./fragment/footer.jsp" %>	
              
 	</body>
 	

@@ -182,14 +182,23 @@ nav ul li a:hover {
      color: black;
      font-family: Arial, sans-serif;
 }
-.clicprod input {
+a #input {
      border-radius: 15px;
      width: 200px;
      background:rgba(208,128,242,1);
      color: black;
      font-family: Arial, sans-serif;
 }
-.clic input:hover, .clicprod inupt:hover {
+a #inputprod {
+	font-size: large;
+     border-radius: 15px;
+     width: 300px;
+     height: 50px;
+     background:rgba(208,128,242,1);
+     color: black;
+     font-family: Arial, sans-serif;
+}
+.clic input:hover, a #input:hover, a #inputprod:hover {
      font-weight: bold;
 }
 
@@ -366,4 +375,58 @@ nav ul li a:hover {
 }
 .clear {
 	clear: both;
+}
+
+.immprod img{
+	border-style: solid;
+	border-color: rgba(215, 215, 215, 1);
+    border-width: 2px;
+    border-radius: 20px;
+	margin-top: 3.2%;
+	display: flex;
+	float: left;
+}
+.viewprod ul{
+	align-items: center;
+	list-style-type: none;
+}
+.viewprod ul li{
+	text-align: center;
+	font-size: 20px;
+	font-family: Arial, sans-serif;
+	display: flow;
+	padding: 10px 10px;
+}
+
+.price, .size, .dispimm, .nondisp{
+	font-size: 30px;
+
+}
+
+.viewprod .dispimm {
+	font-weight: bold;
+	font-family: Arial, sans-serif;
+	color:rgba(6,191,173,1);
+}
+
+.viewprod .nondisp{
+	font-weight: bold;
+	font-family: Arial, sans-serif;
+	color:rgba(208,128,242,1);
+}
+.desc {
+	margin-top: 0.2%;
+	border-style: solid;
+	border-color: rgba(215, 215, 215, 1);
+    border-width: 2px;
+    border-radius: 20px;
+	display: inline-block;
+}
+.titleprod{
+	text-align: center;
+     font-size: 25px;
+     font-family: Arial, sans-serif;	
+}
+.cont{
+	font-family: Arial, sans-serif;
 }
