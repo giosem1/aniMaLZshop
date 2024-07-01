@@ -25,25 +25,28 @@
     </div>
     <div id="preferiti">
     	
- 	  <%	for(int j=0; j<anim.size(); j++){
+ 	  <%for(int j=0; j<anim.size(); j++){
 	 	  		ArrayList<ProdottoBean> pets= anim.get(j);
 	 	  		int i=0;
 	 			ProdottoBean cate= pets.get(i);%>
-	      			<h2 class="titleHome">I Preferiti di <%= cate.getAnimale() %></h2>
-	    				
+	 			   <div class="category-group">
+	 			   <h2 class="titlehome">Consigliato per <%= cate.getAnimale()%></h2>		 
+	 				 	<div class="conteiner-prod">   				
 	    			<%while( i< pets.size()){
 	    				ProdottoBean pet= pets.get(i);%>
-	    				
-	    				<div class="prodotti">
-	    					<a href="../prodotto?nome=<%= pet.getNome()%>&animale=<%=pet.getAnimale()%>&genere=<%=pet.getGenere()%>">
-		    				<img src="../images/<%= pet.getImmagine()%>" height="130" width="130" ></a>
-		    				<p>Nome: <%= pet.getNome()%>  Prezzo: <%= pet.getPrezzo()%>&euro;</p>
-		    				<div class="clicprod">
+	    			    	<div class="prodotti">    				
+	    				   	    <a href="../prodotto?nome=<%= pet.getNome()%>&animale=<%=pet.getAnimale()%>&genere=<%=pet.getGenere()%>">
+		    				    <img src="../images/<%= pet.getImmagine()%>" height="130" width="130" ></a>
+		    				    <p class="nome"><%=pet.getNome()%> </p> 
+		    				    <p class="prezzo">&euro; <%= pet.getPrezzo()%></p>
+		    				    <div class="clicprod">
 		    					<input type="submit" value="Aggiungi al carello">
-		    				</div>
-	    				</div>
+		    				    </div>
+		    			   </div>
 		    		<%i++;
 		    		}%>
+		    		   </div>
+		            </div>
     		<%}%>
     </div>
 	<%@ include file="../fragment/footer.jsp" %>						
