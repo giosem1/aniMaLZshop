@@ -46,7 +46,7 @@ public class Home extends HttpServlet {
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
-		RequestDispatcher disp= getServletContext().getRequestDispatcher("/common/Home.jsp");
+		RequestDispatcher disp= getServletContext().getRequestDispatcher("/Home.jsp");
 	
 		disp.forward(request, response);
 	}

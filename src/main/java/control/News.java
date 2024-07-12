@@ -43,7 +43,7 @@ public class News extends HttpServlet {
 			System.out.println("Error:" + e.getMessage());
 		}
 		
-		response.sendRedirect(request.getContextPath() + "/common/News.jsp");
+		response.sendRedirect(request.getContextPath() + "/News.jsp");
 		
 	}
 

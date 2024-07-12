@@ -16,14 +16,13 @@
 </head>
 <body>
 	
-	<%@ include file="./fragment/header.jsp" %>
-	<%@ include file="./fragment/menu.jsp" %>	
+	<%@ include file="../fragment/header.jsp" %>
+	<%@ include file="../fragment/menu.jsp" %>	
     
     <div id="news">
       <span id="left-arrow" class="material-symbols-outlined arrow">arrow_back_ios</span>
       <span id="right-arrow" class="material-symbols-outlined arrow">arrow_forward_ios</span>
     </div>
-    
     <div id="preferiti">
     	
  	  <%for(int j=0; j<anim.size(); j++){
@@ -31,31 +30,26 @@
 	 	  		int i=0;
 	 			ProdottoBean cate= pets.get(i);%>
 	 			   <div class="category-group">
-	 			   
-	 			   		<h2 class="titlehome">Consigliato per <%= cate.getAnimale()%></h2>		 
+	 			   <h2 class="titlehome">Consigliato per <%= cate.getAnimale()%></h2>		 
 	 				 	<div class="conteiner-prod">   				
-			    			
-			    			<%while( i< pets.size()){
-			    				ProdottoBean pet= pets.get(i);%>
-			    			    	<div class="prodotti">    				
-			    				   	    <a href="./prodotto?nome=<%= pet.getNome()%>&animale=<%=pet.getAnimale()%>&genere=<%=pet.getGenere()%>">
-				    				    <img src="./images/<%= pet.getImmagine()%>" height="130" width="130" ></a>
-				    				    <p class="nome"><%=pet.getNome()%> </p> 
-				    				    <p class="prezzo"> &euro; <%=String.format("%.2f", pet.getPrezzo()) %></p>
-				    				    
-				    				    <div class="clicprod">
-											<a href="./carrello?action=addPB&animale=<%=pet.getAnimale()%>&genere=<%=pet.getGenere()%>&nome=<%=pet.getNome()%>&page=Home.jsp"><button id="input">Aggiungi al carello</button></a>		    				    
-										</div>
-				    			   		
-				    			   </div>
-				    		<%i++;
-				    		}%>
-		    		  
+	    			<%while( i< pets.size()){
+	    				ProdottoBean pet= pets.get(i);%>
+	    			    	<div class="prodotti">    				
+	    				   	    <a href="./prodotto?nome=<%= pet.getNome()%>&animale=<%=pet.getAnimale()%>&genere=<%=pet.getGenere()%>">
+		    				    <img src="./images/<%= pet.getImmagine()%>" height="130" width="130" ></a>
+		    				    <p class="nome"><%=pet.getNome()%> </p> 
+		    				    <p class="prezzo">&euro; <%= pet.getPrezzo()%></p>
+		    				    <div class="clicprod">
+		    					<a href="./carrello?action=addPB&nome=<%=pet.getNome()%>&animale=<%=pet.getAnimale()%>&genere=<%=pet.getGenere()%>"><button id="input">Aggiungi al carello</button></a>
+		    				    </div>
+		    			   </div>
+		    		<%i++;
+		    		}%>
 		    		   </div>
 		            </div>
     		<%}%>
     </div>
-	<%@ include file="./fragment/footer.jsp" %>						
+	<%@ include file="../fragment/footer.jsp" %>						
 </body>
 
 </html>

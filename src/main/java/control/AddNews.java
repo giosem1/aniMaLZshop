@@ -71,7 +71,7 @@ public class AddNews extends HttpServlet {
 				news.setContenuto(request.getParameter("cont"));
 				dao.doSave(news);
 				
-				response.sendRedirect(request.getContextPath()+"/common/Home.jsp");
+				response.sendRedirect(request.getContextPath()+"/Home.jsp");
 
 			}
 		}catch(SQLException e) {

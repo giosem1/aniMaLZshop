@@ -198,7 +198,17 @@ a #inputprod {
      color: black;
      font-family: Arial, sans-serif;
 }
-.clic input:hover, a #input:hover, a #inputprod:hover {
+a #inputcar {
+	 font-size: 150%;
+     border-radius: 15px;
+     width: 300px;
+     height: 50px;
+     background:rgba(208,128,242,1);
+     color: black;
+     margin-left: 45%;
+     font-family: Arial, sans-serif;
+}
+.clic input:hover, a #input:hover, a #inputprod:hover #inputcar:hover {
      font-weight: bold;
 }
 
@@ -367,11 +377,97 @@ a #inputprod {
     margin-bottom: 150px;
    
 }
+.carrello {
+    background-color: #fff;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 80px 80px 80px 80px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+ .immcar img {
+    border-radius: 20px;
+	margin-top: 10%;
+	margin-bottom: 10%;
+	margin-right: 10%;
+	margin-left: 10%;
+    outline-width: 3px;
+    outline-style: solid;
+	outline-color: rgba(215, 215, 215, 1);
+	display: flex;
+	float: left;
+	margin: 30px;
+}
+#nome {
+    margin: 25px 50px 75px 100px;
+    text-align: center;
+	font-size: 125%;
+	font-family: Arial, sans-serif;
+	display: flow;
+	font-weight: bold;
+}
+
+ .tot {
+    color: black;
+    font-weight: bold;
+    font-size:125%;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f1f1f1;
+    border-top: 1px solid #ddd;
+}
+ .prezzo {
+    font-family: Arial, sans-serif;
+    font-size: 125%;
+    margin: 25px 50px 75px 100px;
+    text-align: center;
+}
+
+.numero {
+	margin: 10px 15px 20px 25px;
+	border-width: 2px;
+	font-size: 100%;
+	text-align: center;
+	color: black;
+	text-decoration: none;
+	font-family: Arial, sans-serif;
+}
+ .quantita {
+ 	margin: 10px 15px 20px 25px;
+ 	border-width: 2px;
+ 	font-size: 100%;
+	font-weight: bold;
+	color: black;
+	text-decoration: none;
+	font-family: Arial, sans-serif;
+}
+ .quantita:hover {
+	transition:.15s;
+    align-items: center;
+    background:rgba(208,128,242,1);
+}
+.delete {
+    color: black;
+    margin: 10px 10px 10px 94%;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 8px;
+    font-size: 100%;
+}
+
+.delete:hover {
+	transition:.15s;
+    align-items: center;
+    background:rgba(208,128,242,1);		
+}
 #car {
-	margin-left: 50%;
-	margin-right: 50%;
-	padding: 5px;
-	text-align: left;	
+	font-family: Arial, sans-serif;
+	margin:25px 50px 75px 100px;
+	padding: 2px;
+	text-align: center;	
+	font-size:110%;
 }
 .clear {
 	clear: both;
