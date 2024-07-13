@@ -1,6 +1,8 @@
 package control;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,13 +14,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
 import model.*;
 
 /**
  * Servlet implementation class Login
  */
-@WebServlet("/Login")
+@WebServlet("/login")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
    
@@ -30,24 +34,35 @@ public class Login extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		UtenteDao user= new UtenteDao();
-		
-		try {
-			
-			UtenteBean ute=new UtenteBean();
-			ute= user.doRetrive(request.getParameter("user"),request.getParameter("pwd"));
-			if(request.getParameter("user").equals(ute.getEmail()) && request.getParameter("pwd").equals(ute.getPassword())) {
-				HttpSession session = request.getSession(true);	    
-			    session.setAttribute("currentSessionUser",ute);
-			    response.sendRedirect(request.getContextPath()+"/Home.jsp");  
-			}else {
-				response.sendRedirect(request.getContextPath()+"/Login.jsp");
-			}
-					
-		}catch(SQLException e) {
-			System.out.println("Error:" + e.getMessage());
-		}
+        UtenteDao userDao = new UtenteDao();
+        response.setContentType("application/json");
 
+        try { 
+            BufferedReader reader = new BufferedReader(new InputStreamReader(request.getInputStream()));
+            Gson gson = new Gson();
+            JsonObject json = gson.fromJson(reader, JsonObject.class);
 
-	}
+            String username = json.get("user").getAsString();
+            String password = json.get("pwd").getAsString();
+
+            UtenteBean user = userDao.doRetrive(username, password);
+
+            if (user != null && username.equals(user.getEmail()) && password.equals(user.getPassword())) {
+                HttpSession session = request.getSession(true);
+                session.setAttribute("currentSessionUser", user);
+                response.getWriter().write("{\"status\": \"success\", \"redirect\": \"" + request.getContextPath() + "/Home.jsp\"}");
+            } else {
+                response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+                response.getWriter().write("{\"status\": \"error\", \"message\": \"Email o password non valida\"}");
+            }
+        } catch (SQLException e) {
+            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            response.getWriter().write("{\"status\": \"error\", \"message\": \"Errore durante il login\"}");
+            e.printStackTrace();
+        } catch (Exception e) {
+            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            response.getWriter().write("{\"status\": \"error\", \"message\": \"Errore interno del server\"}");
+            e.printStackTrace();
+        }
+    }
 }

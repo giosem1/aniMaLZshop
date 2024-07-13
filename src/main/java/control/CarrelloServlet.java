@@ -40,19 +40,19 @@ public class CarrelloServlet extends HttpServlet {
                 	String animale = request.getParameter("animale");
                     String genere = request.getParameter("genere");
                     String nome = request.getParameter("nome");
-                    petBag.aggiungiProdotto(prodDao.doRetrive( nome, genere, animale));
+                    petBag.aggiungiProdotto(prodDao.doRetrive( nome, animale, genere));
                 } else if (action.equalsIgnoreCase("deletePB")) {
                 	String animale = request.getParameter("animale");
                     String genere = request.getParameter("genere");
                     String nome = request.getParameter("nome");
-                    petBag.rimuoviProdotto(prodDao.doRetrive( nome, genere, animale));
+                    petBag.rimuoviProdotto(prodDao.doRetrive( nome, animale, genere));
                 }
             }
             if (quantita != null) {
             	String animale = request.getParameter("animale");
                 String genere = request.getParameter("genere");
                 String nome = request.getParameter("nome");
-                InfoCarrello info = petBag.getInfo(nome, genere, animale);
+                InfoCarrello info = petBag.getInfo(nome, animale, genere);
 				info.setQuantitaCarrello(Integer.parseInt(quantita));
             }
 			

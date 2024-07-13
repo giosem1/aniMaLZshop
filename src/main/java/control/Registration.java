@@ -38,34 +38,40 @@ public class Registration extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		UtenteDao dao= new UtenteDao();
-		String nome= request.getParameter("nome");
-		String cognome=request.getParameter("cognome");
-		String email= request.getParameter("email");
-		String dataNascita=request.getParameter("dataNascita");
-		String telefono=request.getParameter("telefono");
-		String pwd=request.getParameter("pwd");
-		
-		
-		try {
-			UtenteBean utente= new UtenteBean();
-			utente.setNome(nome);
-			utente.setCognome(cognome);
-			utente.setEmail(email);
-			utente.setDataNascita(Date.valueOf(dataNascita));
-			utente.setTel(telefono);
-			utente.setAmm(false);
-			utente.setCap(0);
-			utente.setNumCivico(null);
-			utente.setVia(null);
-			utente.setCartaCredito(0);
-			utente.setPassword(pwd);
-			dao.doSave(utente);
-		}catch(SQLException e) {
-			System.out.println("Error:" + e.getMessage());		
-		}
-		response.sendRedirect(request.getContextPath()+"/Home.jsp");
- 	}
-
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        UtenteDao dao = new UtenteDao();
+        String nome = request.getParameter("nome");
+        String cognome = request.getParameter("cognome");
+        String email = request.getParameter("email");
+        String dataNascita = request.getParameter("dataNascita");
+        String telefono = request.getParameter("telefono");
+        String pwd = request.getParameter("pwd");
+        
+        try {
+            if (dao.isEmailExist(email)) {
+                request.setAttribute("error", "L'email è già esistente.");
+                request.getRequestDispatcher("./Registration.jsp").forward(request, response);
+            } else {
+                UtenteBean utente = new UtenteBean();
+                utente.setNome(nome);
+                utente.setCognome(cognome);
+                utente.setEmail(email);
+                utente.setDataNascita(Date.valueOf(dataNascita));
+                utente.setTel(telefono);
+                utente.setAmm(false);
+                utente.setCap(0);
+                utente.setNumCivico(null);
+                utente.setVia(null);
+                utente.setCartaCredito(0);
+                utente.setPassword(pwd);
+                dao.doSave(utente);
+                response.sendRedirect(request.getContextPath() + "/Home.jsp");
+            }
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
+           
+        }
+    }
 }
+
+

@@ -11,5 +11,7 @@ public interface UtenteDaoInterface {
 	public void doUpdateSpedizione(String email, String via, String cap) throws SQLException;
 	
 	public void doUpdatePagamento(String email, String cartaCredito) throws SQLException;
+	
+	public boolean isEmailExist(String email) throws SQLException;
 
 }

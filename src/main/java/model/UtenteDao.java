@@ -124,4 +124,30 @@ public class UtenteDao implements UtenteDaoInterface{
 		
 	}
 
+public boolean isEmailExist(String email) throws SQLException {
+    Connection connection = null;
+    PreparedStatement preparedStatement = null;
+    boolean emailExists = false;
+    
+    String query = "SELECT COUNT(*) FROM " + UtenteDao.TABLE_NAME + " WHERE EMAIL = ?";
+    try {
+        connection = ds.getConnection();
+        preparedStatement = connection.prepareStatement(query);
+        preparedStatement.setString(1, email);
+        ResultSet rs = preparedStatement.executeQuery();
+        
+        if (rs.next()) {
+            emailExists = rs.getInt(1) > 0;
+        }
+    } finally {
+        try {
+            if (preparedStatement != null)
+                preparedStatement.close();
+        } finally {
+            if (connection != null)
+                connection.close();
+        }
+    }
+    return emailExists;
+}
 }

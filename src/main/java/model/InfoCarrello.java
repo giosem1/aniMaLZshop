@@ -37,6 +37,12 @@ public class InfoCarrello {
 		return prodotto.getAnimale();
 	}
 	
+	public double getPrezzo()
+	{
+		return prodotto.getPrezzo();
+	}
+	
+	
 	public double getTotale() {
 		return quantitaCarrello * prodotto.getPrezzo();
 	}

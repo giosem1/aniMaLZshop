@@ -75,7 +75,7 @@ public class AddProduct extends HttpServlet {
 		}catch(SQLException e) {
 			System.out.println("Error:" + e.getMessage());		
 		}
-		response.sendRedirect(request.getContextPath()+"/common/Home.jsp");
+		response.sendRedirect(request.getContextPath()+"/Home.jsp");
 	}	
 	private String extractFileName(Part part) {
 		// content-disposition: form-data; name="file"; filename="file.txt"

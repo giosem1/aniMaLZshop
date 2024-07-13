@@ -40,7 +40,7 @@
 		    				    <p class="nome"><%=pet.getNome()%> </p> 
 		    				    <p class="prezzo">&euro; <%= pet.getPrezzo()%></p>
 		    				    <div class="clicprod">
-		    					<a href="./carrello?action=addPB&nome=<%=pet.getNome()%>&animale=<%=pet.getAnimale()%>&genere=<%=pet.getGenere()%>"><button id="input">Aggiungi al carello</button></a>
+		    					<a href="./carrello?action=addPB&nome=<%=pet.getNome()%>&animale=<%=pet.getAnimale()%>&genere=<%=pet.getGenere()%>&page=Home.jsp"><button id="input">Aggiungi al carello</button></a>
 		    				    </div>
 		    			   </div>
 		    		<%i++;
