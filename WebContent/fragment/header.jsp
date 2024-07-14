@@ -20,12 +20,14 @@
 	  		<div class="drop">
 	  			<a href="<%= request.getContextPath() %>/Account.jsp" class="dropfirst"><img src="./images/persona.png" width="40" height="40"></a>
 	  			<div class="elem-content">
-	  			<a href="<%= request.getContextPath() %>/Logout">Ordini</a>
+	  			<a href="<%= request.getContextPath() %>/ordine?azione=order&id=<%= ute.getId()%>">I miei ordini</a>
 	  			
 	  			<%if(ute.isAmm()) {%>
 	  			<a href="<%= request.getContextPath() %>/admin/AddProduct.jsp">Aggiungi prodotti</a>
 	  			<a href="<%= request.getContextPath() %>/admin/AddNews.jsp">Aggiungi News</a>
-	  			<a href="">Ordini complessivi</a>
+	  			<a href="<%= request.getContextPath() %>/admin/Catalogo.jsp">Catalogo</a>
+	  			
+	  			<a href="">Ordini totali</a>
 	  			<%}%>
 	  			
 	  			<a href="<%= request.getContextPath() %>/Logout">Logout</a>

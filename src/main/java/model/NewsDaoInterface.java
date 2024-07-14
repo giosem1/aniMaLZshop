@@ -9,5 +9,5 @@ public interface NewsDaoInterface {
 	
 	public NewsBean doRetrive(String titolo, String categ) throws SQLException;
 	
-	public ArrayList<NewsBean> doRetriveAll() throws SQLException;
+	public ArrayList<NewsBean> doRetriveAll(String categ) throws SQLException;
 }

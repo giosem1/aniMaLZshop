@@ -42,7 +42,7 @@
 			<h2 id="nome"><%=infopetBag.getProdotto().getNome()%></h2>
 			 
 			 <h2 class="prezzoCar">Prezzo: <span class="price">&nbsp; &euro;<%=String.format("%.2f",infopetBag.getPrezzo())%></span></h2>
-			<a href="carrello?action=deletePB&nome=<%=infopetBag.getNome()%>&genere=<%=infopetBag.getGenere()%>&animale=<%=infopetBag.getAnimale()%>&page=Carrello.jsp"><button type="button" class="delete" >Elimina</button></a>
+			<a href="carrello?action=deletePB&id=<%=infopetBag.getID()%>&page=Carrello.jsp"><button type="button" class="delete" >Elimina</button></a>
 			
 		<% } %>
 	

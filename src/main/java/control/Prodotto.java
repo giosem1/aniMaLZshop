@@ -3,6 +3,7 @@ package control;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,22 +33,27 @@ public class Prodotto extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
     ProdottoDao prodDao = new ProdottoDao();
-		
-		try {		
+	String redirectpage= request.getParameter("page");
 
-				String nome = request.getParameter("nome");
-				String animale = request.getParameter("animale");
-                String genere = request.getParameter("genere");
+		try {		
+			int id=Integer.parseInt(request.getParameter("id"));
+			
 				request.getSession().removeAttribute("prodotto");
-				 ProdottoBean Prodotto= prodDao.doRetrive(nome, animale, genere);
+				ProdottoBean Prodotto= prodDao.doRetrive(id);
 				request.getSession().setAttribute("prodotto", Prodotto);
 			
 		} catch (SQLException e) {
 			System.out.println("Error:" + e.getMessage());
 		}
+		if(redirectpage.equalsIgnoreCase("ModificaProdotto.jsp")) {
+			RequestDispatcher disp= getServletContext().getRequestDispatcher("/admin/ModificaProdotto.jsp");
+			
+			disp.forward(request, response);
+		}else{
 		
-		response.sendRedirect(request.getContextPath() + "/Prodotto.jsp");
-	}
+			response.sendRedirect(request.getContextPath() + "/Prodotto.jsp");
+		}
+		}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

@@ -62,12 +62,13 @@ public class NewsDao implements NewsDaoInterface {
 		PreparedStatement preparedStatement= null;
 		NewsBean news= new NewsBean();
 		
-		String serach= "SELECT * FROM "+NewsDao.TABLE_NAME+" WHERE TITOLO= ?"+"AND CATEGORIA0 ?";
+		String serach= "SELECT * FROM "+NewsDao.TABLE_NAME+" WHERE TITOLO = ? "+" AND CATEGORIA = ?";
 		try {
 			connection =ds.getConnection();
 			preparedStatement =connection.prepareStatement(serach);
 			preparedStatement.setString(1, titolo);
 			preparedStatement.setString(2, categ);
+			
 			ResultSet rs= preparedStatement.executeQuery();
 			while(rs.next()) {
 				news.setTitolo(rs.getString("titolo"));
@@ -91,9 +92,43 @@ public class NewsDao implements NewsDaoInterface {
 		return news;
 	}
 
-	public ArrayList<NewsBean> doRetriveAll() throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<NewsBean> doRetriveAll(String categ) throws SQLException {
+		Connection connection = null;
+	    PreparedStatement preparedStatement = null; 
+	    ArrayList<NewsBean> news = new ArrayList<>();
+       
+	    String allElem="SELECT * FROM "+ NewsDao.TABLE_NAME+ " WHERE CATEGORIA = ? " ;
+		try {
+			connection =ds.getConnection();
+			preparedStatement =connection.prepareStatement(allElem);
+			preparedStatement.setString(1, categ);
+			
+			ResultSet rs= preparedStatement.executeQuery();
+			if(rs.next()) {
+				NewsBean nws = new NewsBean();
+				
+				nws.setTitolo(rs.getString("titolo"));
+				nws.setCategoria(rs.getString("categoria"));
+				nws.setDataPlub(rs.getDate("data_publicazione"));
+				nws.setAnimale(rs.getString("animale"));
+				nws.setImmagine(rs.getString("immagine"));
+				nws.setAutore(rs.getString("autore"));
+				nws.setContenuto(rs.getString("contenuto"));
+				
+				news.add(nws);
+			}
+			
+		}finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+	    }
+		
+	    return news;
 	}
 
 }

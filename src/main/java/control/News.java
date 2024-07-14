@@ -14,7 +14,7 @@ import model.*;
 /**
  * Servlet implementation class News
  */
-@WebServlet("/News")
+@WebServlet("/news")
 public class News extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -37,6 +37,7 @@ public class News extends HttpServlet {
                 String categ = request.getParameter("categ");
 				request.getSession().removeAttribute("news");
 				NewsBean News= newsDao.doRetrive(titolo, categ);
+				
 				request.getSession().setAttribute("news", News);
 			
 		} catch (SQLException e) {

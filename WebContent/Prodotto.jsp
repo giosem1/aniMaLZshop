@@ -32,7 +32,7 @@
             <% } else { %>
                 <li>Disponibilità: <span class="nondisp">Esaurito</span></li>
             <% } %>
-            <li><a href="./carrello?action=addPB&animale=<%= prodotto.getAnimale() %>&genere=<%= prodotto.getGenere() %>&nome=<%= prodotto.getNome() %>&page=Prodotto.jsp"><button id="inputprod">Aggiungi al carello</button></a></li>
+            <li><a href="./carrello?action=addPB&id=<%= prodotto.getID_prodotti() %>&page=Prodotto.jsp"><button id="inputprod">Aggiungi al carello</button></a></li>
         </ul>
     </div>
 </div>

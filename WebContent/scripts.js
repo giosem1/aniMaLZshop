@@ -119,3 +119,11 @@ function validate(obj) {
     }
     
 }
+function setNews(img){
+	var basePath = './images/';
+    var imageUrl = basePath + img;
+
+  document.getElementById('pnews').style.backgroundImage = "url("+imageUrl+")";
+   
+    
+}

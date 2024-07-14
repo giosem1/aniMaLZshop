@@ -79,7 +79,7 @@ public class UtenteDao implements UtenteDaoInterface{
 			boolean check= rs.next();
 
 			if(check) {
-
+				ute.setId(rs.getInt("id_utente"));
 				ute.setPassword(rs.getString("pwd"));
 				ute.setEmail(rs.getString("email"));
 				ute.setNome(rs.getString("nome"));

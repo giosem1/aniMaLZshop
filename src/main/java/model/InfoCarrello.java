@@ -41,7 +41,9 @@ public class InfoCarrello {
 	{
 		return prodotto.getPrezzo();
 	}
-	
+	public int getID() {
+		return prodotto.getID_prodotti();
+	}
 	
 	public double getTotale() {
 		return quantitaCarrello * prodotto.getPrezzo();

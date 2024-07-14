@@ -58,19 +58,17 @@ public class ProdottoDao implements ProdottoDaoInterface {
 		}
 
 
-	public ProdottoBean doRetrive(String nome, String animale, String genere) throws SQLException {
+	public ProdottoBean doRetrive(int idProd) throws SQLException {
 		Connection connection=null;
 		PreparedStatement preparedStatement =null;
 		ProdottoBean prod= new ProdottoBean();
 
-		    String selectSQL = "SELECT * FROM " + ProdottoDao.TABLE_NAME + " WHERE NOME = ? AND ANIMALE= ? AND GENERE = ?";
+		    String selectSQL = "SELECT * FROM " + ProdottoDao.TABLE_NAME + " WHERE ID_PRODOTTI = ?";
 
 		    try {
 				connection =ds.getConnection();
 				preparedStatement =connection.prepareStatement(selectSQL);
-				preparedStatement.setString(1,nome);
-				preparedStatement.setString(2, animale);
-				preparedStatement.setString(3, genere);
+				preparedStatement.setInt(1,idProd);
 				
 				ResultSet rs= preparedStatement.executeQuery();
 				boolean check =rs.next();
@@ -105,7 +103,7 @@ public class ProdottoDao implements ProdottoDaoInterface {
 		 int result = 0;
 		 Connection connection =null;
 		 PreparedStatement preparedStatement =null;
-		 String deleteSQL = "DELETE FROM " + ProdottoDao.TABLE_NAME + " WHERE ID_PRODOTTO = ?";
+		 String deleteSQL = "DELETE FROM " + ProdottoDao.TABLE_NAME + " WHERE ID_PRODOTTI = ?";
 
 		    try {
 		    	connection = ds.getConnection();
@@ -144,6 +142,7 @@ public class ProdottoDao implements ProdottoDaoInterface {
 				while(rs.next()) {
 					ProdottoBean prod =new ProdottoBean();
 					
+					prod.setID_prodotti(rs.getInt("ID_prodotti"));
 					prod.setNome(rs.getString("nome"));
 					prod.setPrezzo(rs.getDouble("prezzo"));
 					prod.setGenere(rs.getString("genere"));
@@ -175,7 +174,7 @@ public class ProdottoDao implements ProdottoDaoInterface {
 	public void doUpdate(ProdottoBean prodotto) throws SQLException {
 		  String updateSQL = "UPDATE " + ProdottoDao.TABLE_NAME
 		            + " SET NOME = ? , QUANTITA = ?, DESCRIZIONE = ?, PREZZO = ?, GENERE = ?, ANIMALE = ?, TAGLIA = ?, MARCA = ?, DESCRIZIONE = ?, IMMAGINE = ?"
-		            + " WHERE ID_PRODOTTO = ? ";
+		            + " WHERE ID_PRODOTTI = ? ";
 
 		     Connection connection = null;
 		     PreparedStatement preparedStatement = null; 

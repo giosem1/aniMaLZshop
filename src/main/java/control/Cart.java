@@ -10,12 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import model.Carrello;
-import model.InfoCarrello;
-import model.ProdottoDao;
+import model.*;
 
 @WebServlet("/carrello")
-public class CarrelloServlet extends HttpServlet {
+public class Cart extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 
@@ -33,26 +31,26 @@ public class CarrelloServlet extends HttpServlet {
 		String quantita = request.getParameter("quantita");
 		String redirectedPage = request.getParameter("page");
 		
-		
 		try {
             if (action != null) {
                 if (action.equalsIgnoreCase("addPB")) {
-                	String animale = request.getParameter("animale");
-                    String genere = request.getParameter("genere");
-                    String nome = request.getParameter("nome");
-                    petBag.aggiungiProdotto(prodDao.doRetrive( nome, animale, genere));
+                	int id=Integer.parseInt(request.getParameter("id"));
+                    petBag.aggiungiProdotto(prodDao.doRetrive(id));
                 } else if (action.equalsIgnoreCase("deletePB")) {
-                	String animale = request.getParameter("animale");
-                    String genere = request.getParameter("genere");
-                    String nome = request.getParameter("nome");
-                    petBag.rimuoviProdotto(prodDao.doRetrive( nome, animale, genere));
+                	int id=Integer.parseInt(request.getParameter("id"));
+                    petBag.rimuoviProdotto(prodDao.doRetrive(id));
+
                 }
             }
             if (quantita != null) {
             	String animale = request.getParameter("animale");
                 String genere = request.getParameter("genere");
                 String nome = request.getParameter("nome");
-                InfoCarrello info = petBag.getInfo(nome, animale, genere);
+
+                System.out.println(petBag.getInfo( nome, animale, genere));
+                InfoCarrello info = petBag.getInfo( nome, animale, genere);
+
+
 				info.setQuantitaCarrello(Integer.parseInt(quantita));
             }
 			
@@ -63,10 +61,9 @@ public class CarrelloServlet extends HttpServlet {
 		
 		request.getSession().setAttribute("petBag", petBag);
 		request.setAttribute("petBag", petBag);
-		
-		
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/" + redirectedPage);
-			dispatcher.forward(request, response);
+	
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/" + redirectedPage);
+		dispatcher.forward(request, response);
 
 	}
 

@@ -5,6 +5,8 @@ import java.sql.Date;
 
 public class NewsBean implements Serializable{
 
+	
+
 	private static final long serialVersionUID = 1L;
 	private int idNews;
 	private String titolo;
