@@ -33,7 +33,7 @@ public class OrdineDao implements OrdineDaoInterface {
 		PreparedStatement preparedStatement = null;
 
 		String insertSQL = "INSERT INTO " + OrdineDao.TABLE_NAME
-				+ " ( IMPORTO_TOTALE, ID_UTENTE, DATA_ORDINE, ID_ORDINE, QUANTITA) VALUES (?, ?, ?, ?, ?)";
+				+ " ( IMPORTO_TOTALE, ID_UTENTE, DATA_ORDINE, ID_ORDINE, QUANTITA) VALUES (?, ?, ?, ?)";
 
 		try {
 			connection = ds.getConnection();
@@ -42,7 +42,6 @@ public class OrdineDao implements OrdineDaoInterface {
 			preparedStatement.setDouble(1, ordine.getImportoTotale());
 			preparedStatement.setInt(2, ordine.getIdUtente());
 			preparedStatement.setString(3, ordine.getData());
-			preparedStatement.setInt(4, ordine.getIdOrdine());
 			preparedStatement.setInt(5, ordine.getquantita());
 
 
@@ -62,28 +61,30 @@ public class OrdineDao implements OrdineDaoInterface {
 	}
 
 
-	public OrdineBean doRetrieve(int idOrdine) throws SQLException {
+	public OrdineBean doRetrieve(int idUtente) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
-
+		
 		OrdineBean ordine = new OrdineBean();
 
 		String search = "SELECT * FROM " + OrdineDao.TABLE_NAME 
-						+ " WHERE ID_ORDINE = ?";
+						+ " WHERE ID_Utente = ?";
 
 		try {
 			connection = ds.getConnection();
 			preparedStatement = connection.prepareStatement(search);
-			preparedStatement.setInt(1, idOrdine);
+			preparedStatement.setInt(1, idUtente);
 
 			ResultSet rs = preparedStatement.executeQuery();
 
 			while (rs.next()) {
 				ordine.setIdOrdine(rs.getInt("ID_ORDINE"));
-				ordine.setImportoTotale(rs.getDouble("IMPORTO_TOTALE"));
+				ordine.setImportoTotale(rs.getDouble("IMPORTO"));
 				ordine.setData(rs.getString("DATA_ORDINE"));
 				ordine.setIdUtente(rs.getInt("ID_UTENTE"));
 				ordine.setquantita(rs.getInt("QUANTITA"));
+				
+				
 			}
 
 		} 
@@ -103,35 +104,35 @@ public class OrdineDao implements OrdineDaoInterface {
 
 	
 	
-	public synchronized ArrayList<OrdineBean> doRetrieveAll(String order) throws SQLException {
-	
+	public synchronized ArrayList<OrdineBean> doRetrieveAll(int idUtente) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
+		
+		ArrayList<OrdineBean> ordini= new ArrayList<>();
+		OrdineBean ordine = new OrdineBean();
 
-		ArrayList<OrdineBean> ordini = new ArrayList<OrdineBean>();
-
-		String search = "SELECT * FROM " + OrdineDao.TABLE_NAME;
-
-		if (order != null && !order.equals("")) {
-			search += " ORDER BY ? " ;
-		}
+		String search = "SELECT * FROM " + OrdineDao.TABLE_NAME 
+						+ " WHERE ID_Utente = ?";
 
 		try {
 			connection = ds.getConnection();
 			preparedStatement = connection.prepareStatement(search);
-			preparedStatement.setString(1, order);
+			preparedStatement.setInt(1, idUtente);
 
 			ResultSet rs = preparedStatement.executeQuery();
-			
+
 			while (rs.next()) {
-				OrdineBean ordine = new OrdineBean();
 				ordine.setIdOrdine(rs.getInt("ID_ORDINE"));
-				ordine.setImportoTotale(rs.getDouble("IMPORTO_TOTALE"));
+				ordine.setImportoTotale(rs.getDouble("IMPORTO"));
 				ordine.setData(rs.getString("DATA_ORDINE"));
 				ordine.setIdUtente(rs.getInt("ID_UTENTE"));
 				ordine.setquantita(rs.getInt("QUANTITA"));
+				
+				
+				ordini.add(ordine);
 			}
-		}
+
+		} 
 		finally {
 			try {
 				if (preparedStatement != null)
@@ -144,6 +145,6 @@ public class OrdineDao implements OrdineDaoInterface {
 		}
 		
 		return ordini;
+		
 	}
-
 }

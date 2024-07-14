@@ -6,8 +6,8 @@ public interface OrdineDaoInterface {
 	
 public void doSave(OrdineBean ordine) throws SQLException;
 	
-	public OrdineBean doRetrieve(int idOrdine) throws SQLException;
+	public OrdineBean doRetrieve(int idUtente) throws SQLException;
 	
-	public ArrayList<OrdineBean> doRetrieveAll(String order) throws SQLException;
+	public ArrayList<OrdineBean> doRetrieveAll(int idUtente) throws SQLException;
 
 }

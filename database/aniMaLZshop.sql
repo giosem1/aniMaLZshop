@@ -52,7 +52,7 @@ al Pollo e Tacchino, conferisce l’alta appetibilità.',
 'miglior-gatto.jpg', '32');
 INSERT INTO prodotti VALUES(NULL, 'Repti Carbon Heater 50w', '22.59', 'Accessori', 'Rettile', 'Tutte le taglie', 'Repti Carbon Heater', 'Lampada riscaldante in fibra di carbonio. Emette calore senza luce, il calore emesso da questa lampada è molto più simile al calore dei raggi solari rispetto alle classiche lampade in ceramica, il calore emesso entra più a fondo nei tessuti degli animali. Dotata di griglia di protezione, a parità di wattaggio emette più calore rispetto ad una lampada in ceramica.
  50W di questa lampada emettono lo stesso calore di una lampada in ceramica da 100W', 
-'repti-carbon-heater.jpg', '10');
+'repti-carbon-heater.jpg', '0');
 INSERT INTO prodotti VALUES(NULL, 'Repti Planet Omnivore Diet - Dieta in gel per rettili onnivori', '6.59', 'Cibo', 'Rettile', 'Tutte le taglie', 'Repti Planet', 'Omnivore Diet è un mangime completo e totalmente bilanciato in gel per tutte le specie di rettili onnivori. Contiene; veri insetti, uova, carne, frutti, verdure, Fiori, miele, polline, vitamine e minerali.
 Omnivore Diet è fatto in Inghilterra, alimento completo per animali onnivori inclusa la tiliqua dalla lingua blu. Il mix contiene la corretta formulazione di piante/vegetali, carne/insetti, frutta, vitamine e minerali. Tutti prodotti naturali.
 Alimento in polvere, va aggiunta acqua per creare un alimento completo in gel probiotico per specie onnivore di rettili, come tiliqua, varie specie di agama, varani e altre lucertole. Fornisce un livello equilibrato di proteine, vitamine e minerali e fibre. Adatto a tutte le fasi della vita.', 
@@ -92,12 +92,14 @@ CREATE TABLE ordine(
     PRIMARY KEY(ID_ordine),
     FOREIGN KEY(ID_utente) REFERENCES utente(ID_utente) 
 );
-
+INSERT INTO ordine VALUES(NULL,'2024-06-18', '22.35', '2', '1');
+INSERT INTO ordine VALUES(NULL,'2024-06-18', '54.99', '1', '2');
+INSERT INTO ordine VALUES(NULL,'2024-06-18', '59.73', '3', '3');
 DROP TABLE IF EXISTS news;
 CREATE TABLE news(
 	ID_news INT NOT NULL AUTO_INCREMENT,
     titolo VARCHAR(100) NOT NULL,
-    categoria VARCHAR(15) NOT NULL,
+    categoria VARCHAR(30) NOT NULL,
     data_publicazione DATE NOT NULL,
     animale VARCHAR(10) NOT NULL,
     immagine VARCHAR(100), 
@@ -105,9 +107,13 @@ CREATE TABLE news(
     contenuto TEXT DEFAULT NULL,
     PRIMARY KEY(ID_news)
 );
-INSERT INTO news VALUES(NULL, 'Sterilizzazione della gatta: come avviene, cosa fare e quanto costa', 'Veterinaia', '2024-06-18', 'Gatti',NULL, 'Giovanni', 'Quando si affronta il tema della sterilizzazione della gatta, emergono una serie di considerazioni cruciali per il benessere del nostro pet. La sterilizzazione è un intervento comune, condotto con l’obiettivo di controllare la riproduzione, migliorare la salute generale e prevenire comportamenti indesiderati.
+INSERT INTO news VALUES(NULL, 'Sterilizzazione della gatta: come avviene, cosa fare e quanto costa', 'Benessere e Salute', '2024-06-18', 'Gatti','gattino.png', 'Giovanni', 'Quando si affronta il tema della sterilizzazione della gatta, emergono una serie di considerazioni cruciali per il benessere del nostro pet. La sterilizzazione è un intervento comune, condotto con l’obiettivo di controllare la riproduzione, migliorare la salute generale e prevenire comportamenti indesiderati.
 In questo articolo, esploreremo le ragioni dietro la scelta di sterilizzare una gatta, i benefici associati e i potenziali rischi.
 Inoltre, risponderemo a domande comuni sulla procedura e vedremo come affrontare al meglio il periodo post-operatorio, in modo da fornire alla tua gatta sterilizzata la migliore assistenza possibile per il suo benessere.');
+INSERT INTO news VALUES(NULL, 'Come fare amicizzia con un cagnolino', 'Comportamento e Gioco', '2024-07-10', 'Cani','cane.png', 'Giuseppe', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.');
+
 DROP TABLE IF EXISTS recensisce;
 CREATE TABLE recensisce(
 	ID_utente INT NOT NULL AUTO_INCREMENT,
@@ -129,12 +135,17 @@ CREATE TABLE aggiunge(
 );
 DROP TABLE IF EXISTS inseriti;
 CREATE TABLE inseriti(
-	ID_ordine INT NOT NULL AUTO_INCREMENT,
+	ID_ordine INT NOT NULL,
     ID_prodotti INT NOT NULL,
-    voto DOUBLE,
-    recensione TEXT DEFAULT NULL,
-    
-    PRIMARY KEY(ID_ordine, ID_prodotti),
-	FOREIGN KEY(ID_ordine) REFERENCES ordine(ID_ordine), 
-    FOREIGN KEY(ID_prodotti) REFERENCES prodotti(ID_prodotti) 
+	nome VARCHAR(100) NOT NULL,
+	prezzo DOUBLE NOT NULL,
+    quantita INT NOT NULL,
+    PRIMARY KEY(ID_ordine,ID_prodotti),
+	FOREIGN KEY(ID_ordine) REFERENCES ordine(ID_ordine)
 );
+INSERT INTO inseriti VALUES('1', '16','Mangime per Pesci Discus in Granuli','6.99','1');
+INSERT INTO inseriti VALUES('1', '17','Neo Foractil Spray per Uccelli 300 ml','15.36','1');
+INSERT INTO inseriti VALUES('2', '15','MultiFit Snack per Roditori Drops Mix Senza Cereali','54.99','1');
+INSERT INTO inseriti VALUES('3', '1','Anione Pettorina Classic Verde','15.99','1');
+INSERT INTO inseriti VALUES('3', '2','Royal Canin Puppy','16.99','1');
+INSERT INTO inseriti VALUES('3', '3','Adtab Compresse 48 Mg Gatti','26.75','1');

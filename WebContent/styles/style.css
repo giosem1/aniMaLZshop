@@ -566,14 +566,14 @@ th,td{
 	margin-top:15px;
  	text-align: center;
 }
-#addprod a, #mod{
+#addprod a, #mod, #det{
 	 font-weight: bold;
      color: black;
      text-decoration: none;
      font-family: Arial, sans-serif;
 }
 
-#addprod a:hover, #mod:hover{
+#addprod a:hover, #mod:hover, #det:hover{
      font-weight: bold;
      color: rgba(6,191,173,1);
      text-decoration: none;
