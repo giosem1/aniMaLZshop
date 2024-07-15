@@ -61,4 +61,12 @@ public class Carrello {
 	        }
 	        return null;
 	    }
+
+        public int calcolaQuantitaTotale() {
+           int quantitaTot = 0;
+           for (InfoCarrello prod : prodotti) {
+                quantitaTot += prod.getQuantitaCarrello();
+    }
+            return quantitaTot;
+}
 }

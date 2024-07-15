@@ -28,16 +28,17 @@
 		<th>Dettagli</th>
 	</tr>
 	<%for(OrdineBean ordine :ordini){%>
+	<% System.out.println(ordine.getData()); %>
 			<tr class="elem">
 				<td><%= ordine.getIdOrdine()%></td>
 				<td><%= ordine.getData()%></td>
 				<td><%= ordine.getImportoTotale()%></td>
 				<td><%=ordine.getquantita() %></td>
 				<td><a id="det" href="./Dettagli.jsp?idord=<%=ordine.getIdOrdine()%>"><span class="material-symbols-outlined">plagiarism</span></a></td>
-			</tr>
-		
+			</tr>	
+				<%} %>	
 	</table>
-	<%} %>
+
 	<%@ include file="./fragment/footer.jsp" %>	
 </body>
 </html>

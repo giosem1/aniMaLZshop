@@ -41,8 +41,7 @@ public class Ordine extends HttpServlet {
 				
 				int id_ord=Integer.parseInt(request.getParameter("idord"));
 				InseritiDao insdao=new InseritiDao();
-				ArrayList<InseritiBean> ins=insdao.doRetriveAll(id_ord);
-			
+				ArrayList<InseritiBean> ins=insdao.doRetriveAll(id_ord);	
 				
 				request.getSession().setAttribute("inse", ins);
 				RequestDispatcher disp= getServletContext().getRequestDispatcher("/Dettagli.jsp");

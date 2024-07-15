@@ -8,7 +8,7 @@ public interface UtenteDaoInterface {
 	
 	public ArrayList<UtenteBean> doRetriveAll(String order) throws SQLException;
 	
-	public void doUpdateSpedizione(String email, String via, String cap) throws SQLException;
+	public void doUpdateSpedizione(String email, String via, int cap, String numCivico) throws SQLException;
 	
 	public void doUpdatePagamento(String email, String cartaCredito) throws SQLException;
 	

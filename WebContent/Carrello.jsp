@@ -51,7 +51,7 @@
 	</div>
 	
 	<a <%if(request.getSession().getAttribute("currentSessionUser") != null) { %>
-	href="account?page=Checkout.jsp"> <% } else { %>href="Login.jsp?action=checkout"> <% } %><button id="inputcar">Effettua il pagamento</button> </a>
+	href="./Checkout.jsp"> <% } else { %>href="Login.jsp"> <% } %><button id="inputcar">Effettua il pagamento</button> </a>
 	
 	<% } else { %> 
 		<div id="car">

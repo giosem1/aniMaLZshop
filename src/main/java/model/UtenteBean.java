@@ -14,7 +14,7 @@ public class UtenteBean implements Serializable {
 	private String numCivico;
 	private int cap;
 	private String tel;
-	private long cartaCredito;
+	private String cartaCredito;
 	private boolean isAmm;
 
 	public UtenteBean() { 
@@ -101,11 +101,11 @@ public class UtenteBean implements Serializable {
 		this.tel = tel;
 	}
 
-	public long getCartaCredito() {
+	public String getCartaCredito() {
 		return cartaCredito;
 	}
 
-	public void setCartaCredito(long cartaCredito) {
+	public void setCartaCredito(String cartaCredito) {
 		this.cartaCredito = cartaCredito;
 	}
 

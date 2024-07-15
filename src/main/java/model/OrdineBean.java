@@ -1,6 +1,7 @@
 package model;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 public class OrdineBean implements Serializable {
 	
@@ -8,7 +9,7 @@ public class OrdineBean implements Serializable {
 	private int idOrdine;
 	private double importoTotale;
 	private int idUtente;
-	private String data;
+	private Date data;
 	private int quantita;
 	
 	
@@ -20,6 +21,12 @@ public class OrdineBean implements Serializable {
 		return idOrdine;
 	}
 	
+	@Override
+	public String toString() {
+		return "OrdineBean [idOrdine=" + idOrdine + ", importoTotale=" + importoTotale + ", idUtente=" + idUtente
+				+ ", data=" + data + ", quantita=" + quantita + "]";
+	}
+
 	public void setIdOrdine(int idOrdine) {
 		this.idOrdine = idOrdine;
 	}
@@ -32,12 +39,11 @@ public class OrdineBean implements Serializable {
 		this.importoTotale = importoTotale;
 	}
 	
-	
-	public String getData() {
+	public Date getData() {
 		return data;
 	}
 	
-	public void setData(String data) {
+	public void setData(Date data) {
 		this.data = data;
 	}
 

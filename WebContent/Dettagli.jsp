@@ -28,10 +28,12 @@
 		<th>Quantità</th>
 	</tr>
 	<%for(InseritiBean prodotti : inse){%>
+	<%System.out.println(prodotti);%>
 			<tr class="elem">
 				<td><%= prodotti.getNome()%></td>
 				<td><%= String.format("%.2f",prodotti.getPrezzo())%> &euro;</td>
-				<td></td>
+				<td><%= prodotti.getQuantita()%><td>
+			
 			</tr>
 	<%}  request.getSession().removeAttribute("inse");%>		
 	</table>

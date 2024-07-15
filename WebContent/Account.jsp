@@ -24,4 +24,4 @@
 	</ul>
 	<%@ include file="./fragment/footer.jsp" %>	
 </body>
-<
+</html>

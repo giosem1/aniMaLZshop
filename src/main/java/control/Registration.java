@@ -62,7 +62,7 @@ public class Registration extends HttpServlet {
                 utente.setCap(0);
                 utente.setNumCivico(null);
                 utente.setVia(null);
-                utente.setCartaCredito(0);
+                utente.setCartaCredito(null);
                 utente.setPassword(pwd);
                 dao.doSave(utente);
                 response.sendRedirect(request.getContextPath() + "/Home.jsp");

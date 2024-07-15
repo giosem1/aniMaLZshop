@@ -2,6 +2,12 @@ package model;
 
 public class InseritiBean {
 
+	@Override
+	public String toString() {
+		return "InseritiBean [ID_prodotti=" + ID_prodotti + ", ID_ordine=" + ID_ordine + ", nome=" + nome + ", prezzo="
+				+ prezzo + ", quantita=" + quantita + "]";
+	}
+
 	private static final long serialVersionUID = 1L;
 	private int ID_prodotti;
 	private int ID_ordine;

@@ -20,7 +20,7 @@ public class UtenteDao implements UtenteDaoInterface{
 			Context envCtx= (Context) initCtx.lookup("java:comp/env");
 			
 			ds= (DataSource) envCtx.lookup("jdbc/aniMaLZshop");
-		}
+	}
 		catch(NamingException e){
 			System.out.println("Error: "+e.getMessage());
 		}
@@ -46,7 +46,7 @@ public class UtenteDao implements UtenteDaoInterface{
 			preparedStatement.setString(7, utente.getNumCivico());
 			preparedStatement.setInt(8, (int) utente.getCap());
 			preparedStatement.setString(9, utente.getTel());
-			preparedStatement.setInt(10, (int)utente.getCartaCredito());
+			preparedStatement.setString(10, utente.getCartaCredito());
 			preparedStatement.setBoolean(11, (boolean) utente.isAmm());
 			
 			preparedStatement.executeUpdate();
@@ -79,7 +79,7 @@ public class UtenteDao implements UtenteDaoInterface{
 			boolean check= rs.next();
 
 			if(check) {
-				ute.setId(rs.getInt("id_utente"));
+
 				ute.setPassword(rs.getString("pwd"));
 				ute.setEmail(rs.getString("email"));
 				ute.setNome(rs.getString("nome"));
@@ -89,8 +89,9 @@ public class UtenteDao implements UtenteDaoInterface{
 				ute.setNumCivico(rs.getString("num_civico"));
 				ute.setCap(rs.getInt("cap"));
 				ute.setTel(rs.getString("telefono"));
-				ute.setCartaCredito(rs.getLong("carta_di_credito"));
+				ute.setCartaCredito(rs.getString("carta_di_credito"));
 				ute.setAmm(rs.getBoolean("isAmm"));
+				ute.setId(rs.getInt("ID_Utente"));
 
 			}
 			
@@ -114,15 +115,42 @@ public class UtenteDao implements UtenteDaoInterface{
 		return null;
 	}
 	//da implementare con la gestione delle spedizioni
-	public void doUpdateSpedizione(String email, String via, String cap) throws SQLException {
-		// TODO Auto-generated method stub
-		
-	}
+	public void doUpdateSpedizione(String email, String via, int cap, String numCivico) throws SQLException {
+		 String updateSQL = "UPDATE " + UtenteDao.TABLE_NAME
+		            + " SET  VIA = ?, NUM_CIVICO = ?, CAP = ?"
+		            + " WHERE EMAIL = ? ";
+
+		    try (Connection connection = ds.getConnection();
+		         PreparedStatement preparedStatement = connection.prepareStatement(updateSQL)) {
+		        
+		        preparedStatement.setString(1, via);       
+		        preparedStatement.setString(2, numCivico);
+		        preparedStatement.setInt(3, cap);
+		        preparedStatement.setString(4, email);;
+		        preparedStatement.executeUpdate();
+		    } catch (SQLException ex) {
+		        System.out.println("An error occurred while updating shipping information: " + ex.getMessage());
+		        throw ex;
+		    }
+		}
+
 	//da implementare con la gestione dell'acquisto
 	public void doUpdatePagamento(String email, String cartaCredito) throws SQLException {
-		// TODO Auto-generated method stub
-		
-	}
+		  String updateSQL = "UPDATE " + UtenteDao.TABLE_NAME
+		            + " SET CARTA_DI_CREDITO = ?"
+		            + " WHERE EMAIL = ? ";
+		    
+		    try (Connection connection = ds.getConnection();
+		         PreparedStatement preparedStatement = connection.prepareStatement(updateSQL)) {
+		        
+		        preparedStatement.setString(1, cartaCredito);
+		        preparedStatement.setString(2, email);
+		        preparedStatement.executeUpdate();
+		    } catch (SQLException ex) {
+		        System.out.println("An error occurred while updating payment information: " + ex.getMessage());
+		        throw ex; 
+		    }
+		}
 
 public boolean isEmailExist(String email) throws SQLException {
     Connection connection = null;
