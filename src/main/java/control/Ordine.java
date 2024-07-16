@@ -30,30 +30,87 @@ public class Ordine extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String details= request.getParameter("azione");
+String details= request.getParameter("azione");
 		
-		
-		int id_ute=Integer.parseInt(request.getParameter("id"));
-		
+		UtenteBean id= (UtenteBean) request.getSession().getAttribute("currentSessionUser");
 		OrdineDao ord  =new OrdineDao();
 		try {
-			if(details.equalsIgnoreCase("details")) {
+			
+			if(id.isAmm() && details.equalsIgnoreCase("orders")) {
+				String dataDa= request.getParameter("dataDa");
+				String dataA= request.getParameter("dataA");
+				String name= request.getParameter("nome");
+				String surname= request.getParameter("cognome");
 				
-				int id_ord=Integer.parseInt(request.getParameter("idord"));
-				InseritiDao insdao=new InseritiDao();
-				ArrayList<InseritiBean> ins=insdao.doRetriveAll(id_ord);	
+				if(dataDa!=null && dataA!=null) {
+					ArrayList<OrdineBean> ordinidata= ord.doRetrieveAllByDate(dataDa, dataA);
+					ArrayList<ArrayList<UtenteBean>> ute= new ArrayList<>();
+					UtenteDao uteDao= new UtenteDao();
+
+
+						for(OrdineBean ordine: ordinidata) {
+							ArrayList<UtenteBean> utenti= uteDao.doRetriveAll(ordine.getIdUtente());
+							
+							ute.add(utenti);
+							
+						}
+
+						request.getSession().setAttribute("utenti", ute);
+						request.getSession().setAttribute("orders", ordinidata);
+				}else if(name!= null && surname != null){
+					ArrayList<OrdineBean> ordininame= ord.doRetrieveAll();
+					ArrayList<ArrayList<UtenteBean>> ute= new ArrayList<>();
+					UtenteDao uteDao= new UtenteDao();
+
+
+					for(OrdineBean ordine: ordininame) {
+						ArrayList<UtenteBean> utenti= uteDao.doRetriveAll(ordine.getIdUtente());
+						for(UtenteBean user:utenti) {
+							if(user.getNome().equalsIgnoreCase(name) && user.getCognome().equalsIgnoreCase(surname)) {
+								ute.add(utenti);
+							}
+						}
+						
+					}
+
+						request.getSession().setAttribute("utenti", ute);
+						request.getSession().setAttribute("orders", ordininame);
 				
-				request.getSession().setAttribute("inse", ins);
-				RequestDispatcher disp= getServletContext().getRequestDispatcher("/Dettagli.jsp");
+						}else {
+						ArrayList<OrdineBean> ordini= ord.doRetrieveAll();
+						ArrayList<ArrayList<UtenteBean>> ute= new ArrayList<>();
+						UtenteDao uteDao= new UtenteDao();
+		
+		
+							for(OrdineBean ordine: ordini) {
+								ArrayList<UtenteBean> utenti= uteDao.doRetriveAll(ordine.getIdUtente());
+								ute.add(utenti);
+								
+							}
+							request.getSession().setAttribute("utenti", ute);
+							request.getSession().setAttribute("orders", ordini);
+						}
+					
+					RequestDispatcher disp= getServletContext().getRequestDispatcher("/admin/OrdiniTotali.jsp");
+					
+					disp.forward(request, response);
+				}else if(details.equalsIgnoreCase("details")) {
+					
+					int id_ord=Integer.parseInt(request.getParameter("idord"));
+					InseritiDao insdao=new InseritiDao();
+					ArrayList<InseritiBean> ins=insdao.doRetriveAll(id_ord);
 				
-				disp.forward(request, response);
-			}else {
-				ArrayList<OrdineBean> ordini= ord.doRetrieveAll(id_ute);
-				
-				request.getSession().setAttribute("ord", ordini);
-				RequestDispatcher disp= getServletContext().getRequestDispatcher("/Ordini.jsp");
-				
-				disp.forward(request, response);
+					request.getSession().setAttribute("inse", ins);
+					RequestDispatcher disp= getServletContext().getRequestDispatcher("/Dettagli.jsp");
+					
+					disp.forward(request, response);
+				}else {
+					ArrayList<OrdineBean> ordini= ord.doRetrieve(id.getId());
+					
+					request.getSession().setAttribute("ord", ordini);
+					RequestDispatcher disp= getServletContext().getRequestDispatcher("/Ordini.jsp");
+					
+					disp.forward(request, response);
 			}
 		}catch(SQLException e) {
 			System.out.println("Error:" + e.getMessage());		

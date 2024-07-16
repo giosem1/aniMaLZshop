@@ -206,4 +206,32 @@ public class ProdottoDao implements ProdottoDaoInterface {
 			}
 	
 	}
+
+
+	@Override
+	public void doUpdateQuantita(int id,int quantita) throws SQLException {
+		  String updateSQL = "UPDATE " + ProdottoDao.TABLE_NAME
+		            + " SET QUANTITA = ?"
+		            + " WHERE ID_PRODOTTI = ? ";
+
+		     Connection connection = null;
+		     PreparedStatement preparedStatement = null; 
+		        		
+		      try { 
+		    	connection = ds.getConnection();
+		    	preparedStatement = connection.prepareStatement(updateSQL);
+		        preparedStatement.setInt(1, quantita);
+		        preparedStatement.setInt(2, id);
+		        preparedStatement.executeUpdate();
+		    }finally {
+				try {
+					if (preparedStatement != null)
+						preparedStatement.close();
+				} finally {
+					if (connection != null)
+						connection.close();
+				}
+			}
+	
+	}
 }

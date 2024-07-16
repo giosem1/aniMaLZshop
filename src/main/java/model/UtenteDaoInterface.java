@@ -6,7 +6,7 @@ public interface UtenteDaoInterface {
 	
 	public UtenteBean doRetrive(String email, String pwd) throws SQLException;
 	
-	public ArrayList<UtenteBean> doRetriveAll(String order) throws SQLException;
+	public ArrayList<UtenteBean> doRetriveAll(int order) throws SQLException;
 	
 	public void doUpdateSpedizione(String email, String via, int cap, String numCivico) throws SQLException;
 	

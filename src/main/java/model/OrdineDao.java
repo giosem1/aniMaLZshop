@@ -62,11 +62,12 @@ public class OrdineDao implements OrdineDaoInterface {
 	}
 
 
-	public OrdineBean doRetrieve(int idUtente) throws SQLException {
+	public ArrayList<OrdineBean> doRetrieve(int idUtente) throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		
-		OrdineBean ordine = new OrdineBean();
+		ArrayList<OrdineBean> ordini= new ArrayList<>();
+	
 
 		String search = "SELECT * FROM " + OrdineDao.TABLE_NAME 
 						+ " WHERE ID_Utente = ?";
@@ -79,6 +80,8 @@ public class OrdineDao implements OrdineDaoInterface {
 			ResultSet rs = preparedStatement.executeQuery();
 
 			while (rs.next()) {
+				OrdineBean ordine = new OrdineBean();
+
 				ordine.setIdOrdine(rs.getInt("ID_ORDINE"));
 				ordine.setImportoTotale(rs.getDouble("IMPORTO"));
 				ordine.setData(rs.getDate("DATA_ORDINE"));
@@ -86,6 +89,7 @@ public class OrdineDao implements OrdineDaoInterface {
 				ordine.setquantita(rs.getInt("QUANTITA"));
 				
 				
+				ordini.add(ordine);
 			}
 
 		} 
@@ -100,27 +104,28 @@ public class OrdineDao implements OrdineDaoInterface {
 			}
 		}
 		
-		return ordine;
+		return ordini;
+		
 	}
 	
-	public synchronized ArrayList<OrdineBean> doRetrieveAll(int idUtente) throws SQLException {
+	public synchronized ArrayList<OrdineBean> doRetrieveAll() throws SQLException {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		
 		ArrayList<OrdineBean> ordini= new ArrayList<>();
+	
 
-		String search = "SELECT * FROM " + OrdineDao.TABLE_NAME 
-						+ " WHERE ID_Utente = ?";
+		String search = "SELECT * FROM " + OrdineDao.TABLE_NAME;
 
 		try {
 			connection = ds.getConnection();
 			preparedStatement = connection.prepareStatement(search);
-			preparedStatement.setInt(1, idUtente);
 
 			ResultSet rs = preparedStatement.executeQuery();
 
 			while (rs.next()) {
 				OrdineBean ordine = new OrdineBean();
+
 				ordine.setIdOrdine(rs.getInt("ID_ORDINE"));
 				ordine.setImportoTotale(rs.getDouble("IMPORTO"));
 				ordine.setData(rs.getDate("DATA_ORDINE"));
@@ -180,4 +185,50 @@ public class OrdineDao implements OrdineDaoInterface {
 	        }
 	        return ordini;
 	    }
+	 public ArrayList<OrdineBean> doRetrieveAllByDate(String dataDa,String dataA)throws SQLException{
+			Connection connection = null;
+			PreparedStatement preparedStatement = null;
+			
+			ArrayList<OrdineBean> ordini= new ArrayList<>();
+		
+
+			String search = "SELECT * FROM " + OrdineDao.TABLE_NAME 
+							+ " WHERE  DATA_ORDINE >= ? AND DATA_ORDINE <= ?";
+
+			try {
+				connection = ds.getConnection();
+				preparedStatement = connection.prepareStatement(search);
+				preparedStatement.setDate(1, Date.valueOf(dataDa));
+				preparedStatement.setDate(2, Date.valueOf(dataA));
+				ResultSet rs = preparedStatement.executeQuery();
+
+				while (rs.next()) {
+					OrdineBean ordine = new OrdineBean();
+
+					ordine.setIdOrdine(rs.getInt("ID_ORDINE"));
+					ordine.setImportoTotale(rs.getDouble("IMPORTO"));
+					ordine.setData(rs.getDate("DATA_ORDINE"));
+					ordine.setIdUtente(rs.getInt("ID_UTENTE"));
+					ordine.setquantita(rs.getInt("QUANTITA"));
+					
+					
+					ordini.add(ordine);
+				}
+
+			} 
+			finally {
+				try {
+					if (preparedStatement != null)
+						preparedStatement.close();
+				} 
+				finally {
+					if (connection != null)
+						connection.close();
+				}
+			}
+			
+			return ordini;
+			
+		}
+	
 	}

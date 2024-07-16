@@ -47,7 +47,6 @@ public class Cart extends HttpServlet {
                 String genere = request.getParameter("genere");
                 String nome = request.getParameter("nome");
 
-                System.out.println(petBag.getInfo( nome, animale, genere));
                 InfoCarrello info = petBag.getInfo( nome, animale, genere);
 
 

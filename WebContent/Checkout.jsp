@@ -55,11 +55,11 @@
 	        </div>
 	        
 	        <div class="table">
-	        <p id= "errCartaCredito"></p>
+	       	 	<p id= "errCartaCredito"></p>
 	        </div>
 	        
-	        	        <div class="clic">
-	       <p> <input type="submit" value="Completa ordine" > </p>
+	        <div class="clic">
+	       		<p> <input type="submit" value="Completa ordine" > </p>
 	        </div>
 	    </form>
 	
@@ -95,7 +95,7 @@
 	        
 	        <div class="table">
 	            <p>Carta di credito:</p>
-	            <p><input type="text" name="CartaDiCredito" placeholder="Inserisci carta di credito" required></p> 
+	            <p><input type="text" name="cartaDiCredito" placeholder="Inserisci carta di credito" required></p> 
 	        </div>
 	        
 	        <div class="table">

@@ -2,6 +2,8 @@ package model;
 
 public class InfoCarrello {
 	
+
+
 	private ProdottoBean prodotto;
 	private int quantitaCarrello;
 	

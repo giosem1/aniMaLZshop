@@ -41,7 +41,6 @@ public class Checkout extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 
 		OrdineDao  daoOrd= new OrdineDao();
 		InseritiDao daoIns = new InseritiDao();
@@ -49,6 +48,7 @@ public class Checkout extends HttpServlet {
 		UtenteBean utente = (UtenteBean) request.getSession().getAttribute("currentSessionUser");
 		UtenteDao uteDao = new UtenteDao();
 		OrdineBean ordine = new OrdineBean();
+		ProdottoDao prodao=new ProdottoDao();
 		
 		Carrello cart = (Carrello) request.getSession().getAttribute("petBag");
 		Double prezzoTot = cart.calcolaCosto();
@@ -59,14 +59,12 @@ public class Checkout extends HttpServlet {
 		SimpleDateFormat formatter = new SimpleDateFormat(pattern);
 		String mysqlDateString = formatter.format(now);
 		
-		
 		String via = request.getParameter("via");
 		String Civico = request.getParameter("numCivico");
 		String cap = request.getParameter("cap");
 		String cartaDiCredito = request.getParameter("cartaDiCredito");
-		
+
 		try {
-		
 	    uteDao.doUpdateSpedizione(utente.getEmail(),via, Integer.parseInt(cap), Civico);
 	    uteDao.doUpdatePagamento(utente.getEmail(), cartaDiCredito);
 	    
@@ -79,7 +77,6 @@ public class Checkout extends HttpServlet {
         
         ArrayList<OrdineBean> idOrdine = daoOrd.doRetrieveOrdersByDate(utente.getId(), mysqlDateString);
   
-        
         for(OrdineBean ord : idOrdine)
         {
             InseritiBean ins = daoIns.doRetrive(ord.getIdOrdine());	
@@ -94,9 +91,14 @@ public class Checkout extends HttpServlet {
                     inserito.setQuantita(info.getQuantitaCarrello());
                           
                     daoIns.doSave(inserito);
+                    
+                    ProdottoBean prodnew= prodao.doRetrive(info.getID());
+                    prodnew.setQuantita((prodnew.getQuantita()-info.getQuantitaCarrello()));
+                    prodao.doUpdateQuantita(prodnew.getID_prodotti(),prodnew.getQuantita());
             	}  
             }
         }
+        cart.svuota();
         
         
         RequestDispatcher disp = getServletContext().getRequestDispatcher("/Home.jsp");

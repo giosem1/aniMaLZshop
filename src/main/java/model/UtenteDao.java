@@ -110,9 +110,52 @@ public class UtenteDao implements UtenteDaoInterface{
 		return ute;
 	}
 	//da implementare con la gestione dell'ordine
-	public ArrayList<UtenteBean> doRetriveAll(String order) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+	public ArrayList<UtenteBean> doRetriveAll(int order) throws SQLException {
+		Connection connection=null;
+		PreparedStatement preparedStatement =null;
+		ArrayList<UtenteBean> utenti = new ArrayList<>();
+		String search="SELECT * FROM "+UtenteDao.TABLE_NAME+" WHERE ID_UTENTE= ? ";
+		
+		try {
+			connection =ds.getConnection();
+
+			preparedStatement =connection.prepareStatement(search);
+			preparedStatement.setInt(1,order);
+
+			ResultSet rs= preparedStatement.executeQuery();
+
+			while(rs.next()) {
+				UtenteBean ute= new UtenteBean();
+				
+				ute.setId(rs.getInt("id_utente"));
+				ute.setPassword(rs.getString("pwd"));
+				ute.setEmail(rs.getString("email"));
+				ute.setNome(rs.getString("nome"));
+				ute.setCognome(rs.getString("cognome"));
+				ute.setDataNascita(rs.getDate("data_di_nascita"));
+				ute.setVia(rs.getString("via"));
+				ute.setNumCivico(rs.getString("num_civico"));
+				ute.setCap(rs.getInt("cap"));
+				ute.setTel(rs.getString("telefono"));
+				ute.setCartaCredito(rs.getString("carta_di_credito"));
+				ute.setAmm(rs.getBoolean("isAmm"));
+				
+				utenti.add(ute);
+			}
+			
+				
+		}catch(Exception ex) {
+			System.out.println("Login failed");
+		}finally {
+			try {
+				if(preparedStatement !=null)
+					preparedStatement.close();
+			}finally {
+				if(connection != null)
+					connection.close();
+			}
+		}
+		return utenti;
 	}
 	//da implementare con la gestione delle spedizioni
 	public void doUpdateSpedizione(String email, String via, int cap, String numCivico) throws SQLException {
@@ -139,7 +182,7 @@ public class UtenteDao implements UtenteDaoInterface{
 		  String updateSQL = "UPDATE " + UtenteDao.TABLE_NAME
 		            + " SET CARTA_DI_CREDITO = ?"
 		            + " WHERE EMAIL = ? ";
-		    
+
 		    try (Connection connection = ds.getConnection();
 		         PreparedStatement preparedStatement = connection.prepareStatement(updateSQL)) {
 		        
@@ -178,4 +221,5 @@ public boolean isEmailExist(String email) throws SQLException {
     }
     return emailExists;
 }
+
 }

@@ -2,10 +2,9 @@
     pageEncoding="UTF-8"  import="model.*, java.util.*"%>
      <% 
 	    ArrayList<InseritiBean> inse =(ArrayList<InseritiBean>) request.getSession().getAttribute("inse"); 
-	    UtenteBean uteord= (UtenteBean) request.getSession().getAttribute("currentSessionUser");
     	
      if(inse==null){
-    		response.sendRedirect("./ordine?azione=details&idord="+request.getParameter("idord")+"&id="+uteord.getId());
+    		response.sendRedirect("./ordine?azione=details&idord="+request.getParameter("idord"));
     		return;
     	}
     
@@ -28,7 +27,7 @@
 		<th>Quantità</th>
 	</tr>
 	<%for(InseritiBean prodotti : inse){%>
-	<%System.out.println(prodotti);%>
+	
 			<tr class="elem">
 				<td><%= prodotti.getNome()%></td>
 				<td><%= String.format("%.2f",prodotti.getPrezzo())%> &euro;</td>

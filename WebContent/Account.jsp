@@ -9,7 +9,8 @@
 <body>
 	<%@ include file="./fragment/header.jsp" %>
 	
-	<%UtenteBean utente=(UtenteBean) request.getSession().getAttribute("currentSessionUser");%>
+	<% 	
+		UtenteBean utente=(UtenteBean) request.getSession().getAttribute("currentSessionUser");%>
 	<h2 class="title">Dati Personali</h2>
 	<ul id="dati-list">
 		<li><span class="elem-field">Nome: </span><%=utente.getNome()%></li>

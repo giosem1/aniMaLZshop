@@ -187,13 +187,16 @@ nav ul li a:hover {
 	font-weight: bold;
 }
 
-.clic input {
+.clic input, .clic button{
      border-radius: 15px;
      width: 100px;
      margin-left: 18%;
      background:rgba(208,128,242,1);
      color: black;
      font-family: Arial, sans-serif;
+}
+.clic button{
+	align-items: center;
 }
 a #input {
      border-radius: 15px;
@@ -221,7 +224,7 @@ a #inputcar {
      margin-left: 45%;
      font-family: Arial, sans-serif;
 }
-.clic input:hover, a #input:hover, a #inputprod:hover, a #inputcar:hover, .clic {
+.clic input:hover, a #input:hover, a #inputprod:hover, a #inputcar:hover, .clic, .clic button:hover{
      font-weight: bold;
 }
 
@@ -578,4 +581,19 @@ th,td{
      color: rgba(6,191,173,1);
      text-decoration: none;
      transition:.4s;
+}
+#forms{
+	margin-left: 30%;
+	margin-right: 30%;
+	align-items: center;
+	display: inline-flex;
+}
+#forms .MyForm{
+	margin-left: 0%;
+}
+#forms #formdata .clic {
+	margin-left: 15%;
+}
+#formdata, #formnome{
+	align-self: center;
 }

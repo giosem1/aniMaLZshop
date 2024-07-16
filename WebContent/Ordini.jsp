@@ -2,9 +2,9 @@
     pageEncoding="UTF-8" import="model.*, java.util.*"%>
     <% 
     	ArrayList<OrdineBean> ordini =(ArrayList<OrdineBean>) request.getSession().getAttribute("ord"); 
-    	 UtenteBean uteord= (UtenteBean) request.getSession().getAttribute("currentSessionUser");
+
     if(ordini==null){
-    		response.sendRedirect("./ordine?azione=order&id="+uteord.getId());
+    		response.sendRedirect("./ordine?azione=order");
     		return;
     	}
     %>
@@ -28,11 +28,10 @@
 		<th>Dettagli</th>
 	</tr>
 	<%for(OrdineBean ordine :ordini){%>
-	<% System.out.println(ordine.getData()); %>
 			<tr class="elem">
 				<td><%= ordine.getIdOrdine()%></td>
 				<td><%= ordine.getData()%></td>
-				<td><%= ordine.getImportoTotale()%></td>
+				<td><%= String.format("%.2f",ordine.getImportoTotale()) %>&euro;</td>
 				<td><%=ordine.getquantita() %></td>
 				<td><a id="det" href="./Dettagli.jsp?idord=<%=ordine.getIdOrdine()%>"><span class="material-symbols-outlined">plagiarism</span></a></td>
 			</tr>	

@@ -27,7 +27,7 @@
 	  			<a href="<%= request.getContextPath() %>/admin/AddNews.jsp">Aggiungi News</a>
 	  			<a href="<%= request.getContextPath() %>/admin/Catalogo.jsp">Catalogo</a>
 	  			
-	  			<a href="">Ordini totali</a>
+	  			<a href="<%= request.getContextPath() %>/ordine?azione=orders">Ordini totali</a>
 	  			<%}%>
 	  			
 	  			<a href="<%= request.getContextPath() %>/Logout">Logout</a>

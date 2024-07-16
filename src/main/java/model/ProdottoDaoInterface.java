@@ -15,4 +15,7 @@ public interface ProdottoDaoInterface {
 
 	
 	public void doUpdate(ProdottoBean prodotto) throws SQLException;
+
+	public void doUpdateQuantita(int id,int quantita) throws SQLException;
+	
 }

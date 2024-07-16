@@ -38,7 +38,6 @@ public class InseritiDao implements InseritiDaoInterface {
 			
 			connection = ds.getConnection();
 			connection.setAutoCommit(false);
-			
 			preparedStatement = connection.prepareStatement(insertSQL);
 			preparedStatement.setInt(1, prodotto.getID_ordine());
 			preparedStatement.setInt(2, prodotto.getID_prodotti());
@@ -68,7 +67,6 @@ public class InseritiDao implements InseritiDaoInterface {
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		InseritiBean ins= new InseritiBean();
-		
 		String search = "SELECT * FROM " + InseritiDao.TABLE_NAME 
 				+ " WHERE ID_ORDINE = ?";
 		try {
@@ -78,14 +76,17 @@ public class InseritiDao implements InseritiDaoInterface {
 
 			ResultSet rs = preparedStatement.executeQuery();
 			
-			
 			if(rs.next()) {
 				ins.setID_ordine(rs.getInt("ID_ordine"));
 				ins.setID_prodotti(rs.getInt("ID_prodotti"));
 				ins.setNome(rs.getString("nome"));
 				ins.setPrezzo(rs.getDouble("prezzo"));
 				ins.setQuantita(rs.getInt("quantita"));	
+				
+			}else {
+				return null;
 			}
+			
 
 		} 
 		finally {
@@ -98,6 +99,7 @@ public class InseritiDao implements InseritiDaoInterface {
 					connection.close();
 			}
 		}
+		
 		return ins;
 	}
 	
