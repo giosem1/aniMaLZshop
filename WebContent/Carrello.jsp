@@ -21,11 +21,11 @@
 			
 			<div class="carrello">
 		
-			<% 
-		    	ArrayList <InfoCarrello> prodpetBag = petBag.getArticoli(); 	
-		        for(InfoCarrello infopetBag: prodpetBag){
-					int id = prodpetBag.indexOf(infopetBag);
-			%>
+			<%
+					ArrayList <InfoProdotto> prodpetBag = petBag.getArticoli(); 	
+							        for(InfoProdotto infopetBag: prodpetBag){
+								int id = prodpetBag.indexOf(infopetBag);
+					%>
 			 <form action="carrello">
 			 <input type="hidden" name="page" value="Carrello.jsp">
 			 <input type="hidden" name="nome" value="<%= infopetBag.getNome() %>">

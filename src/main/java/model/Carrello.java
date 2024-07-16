@@ -4,24 +4,24 @@ import java.util.ArrayList;
 
 public class Carrello {
 		
-		private ArrayList<InfoCarrello> prodotti;
+		private ArrayList<InfoProdotto> prodotti;
 		
 	    public Carrello() {
-	        prodotti = new ArrayList<InfoCarrello>();
+	        prodotti = new ArrayList<InfoProdotto>();
 	    }
 
 	    public void aggiungiProdotto(ProdottoBean prodotto) {
-	    	for(InfoCarrello info : prodotti) {
+	    	for(InfoProdotto info : prodotti) {
 	    		if(info.getNome().equals(prodotto.getNome())) {
 					info.incrementa();
 					return;
 				}
 	    	}
-			InfoCarrello info = new InfoCarrello(prodotto);
+			InfoProdotto info = new InfoProdotto(prodotto);
 			prodotti.add(info);
 	   }
 	    public void rimuoviProdotto(ProdottoBean prodotto) {
-	    	for(InfoCarrello prod : prodotti) {
+	    	for(InfoProdotto prod : prodotti) {
 	    		if(prod.getNome().equals(prodotto.getNome())) {
 					prodotti.remove(prod);
 					break;
@@ -33,13 +33,13 @@ public class Carrello {
 			prodotti.removeAll(prodotti);
 		}
 	    
-	    public ArrayList<InfoCarrello> getArticoli() {
+	    public ArrayList<InfoProdotto> getArticoli() {
 	        return prodotti;
 	    }
 	    
 	    public double calcolaCosto() {
 			double tot = 0;
-			for(InfoCarrello prod : prodotti)
+			for(InfoProdotto prod : prodotti)
 				tot += prod.getTotale();
 			
 			return tot;	
@@ -53,8 +53,8 @@ public class Carrello {
 	        return prodotti.isEmpty();
 	    }
 	    
-	    public InfoCarrello getInfo(String nome, String animale, String genere) {
-	        for (InfoCarrello info : prodotti) {
+	    public InfoProdotto getInfo(String nome, String animale, String genere) {
+	        for (InfoProdotto info : prodotti) {
 	            if (info.getNome().equals(nome) && info.getAnimale().equals(animale) && info.getGenere().equals(genere)) {
 	                return info;
 	            }
@@ -64,7 +64,7 @@ public class Carrello {
 
         public int calcolaQuantitaTotale() {
            int quantitaTot = 0;
-           for (InfoCarrello prod : prodotti) {
+           for (InfoProdotto prod : prodotti) {
                 quantitaTot += prod.getQuantitaCarrello();
     }
             return quantitaTot;

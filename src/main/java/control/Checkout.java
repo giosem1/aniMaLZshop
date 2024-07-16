@@ -82,7 +82,7 @@ public class Checkout extends HttpServlet {
             InseritiBean ins = daoIns.doRetrive(ord.getIdOrdine());	
             if(ins == null)
             {
-            	for (InfoCarrello info : cart.getArticoli()) {   
+            	for (InfoProdotto info : cart.getArticoli()) {   
                 	InseritiBean inserito = new InseritiBean();
                     inserito.setID_ordine(ord.getIdOrdine());
                     inserito.setID_prodotti(info.getID());

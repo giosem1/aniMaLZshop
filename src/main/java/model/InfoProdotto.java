@@ -1,13 +1,13 @@
 package model;
 
-public class InfoCarrello {
+public class InfoProdotto {
 	
 
 
 	private ProdottoBean prodotto;
 	private int quantitaCarrello;
 	
-	public InfoCarrello(ProdottoBean prodotto){
+	public InfoProdotto(ProdottoBean prodotto){
 		this.prodotto = prodotto;
 		quantitaCarrello = 1;
 	}
