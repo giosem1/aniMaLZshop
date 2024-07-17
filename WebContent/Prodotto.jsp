@@ -24,7 +24,14 @@
 
     <div class="viewprod">
         <ul>
-            <li><h2 class="title"><%= prodotto.getNome() %></h2></li>
+            <li>
+                <div class="prefProd">
+                    <a href="./preferiti?action=add&id=<%=prodotto.getID_prodotti()%>">
+                       <img src="./images/preferiti.png" alt="Aggiungi ai preferiti">
+                    </a>
+                </div>
+                 <h2 class="title"><%= prodotto.getNome() %></h2>
+            </li>
             <li>Prezzo: <span class="price">&euro;<%= String.format("%.2f", prodotto.getPrezzo()) %></span></li>
             <li>Taglia: <span class="size"><%= prodotto.getTaglia() %></span></li>
             <% if (prodotto.getQuantita() > 0) { %>

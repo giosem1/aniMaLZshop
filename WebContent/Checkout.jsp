@@ -4,22 +4,24 @@
 <html>
 <head>
 
+<script src="scripts.js"></script>
 <link rel="stylesheet" href="../styles/style.css" type="text/css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"/>
 
 <meta charset="UTF-8">
 <title>Checkout</title>
 </head>
 <body>   	
 	<%@ include file="./fragment/header.jsp" %>	
-	
+	     <h2 class="title">Checkout</h2>
        <% 
 			UtenteBean utente = (UtenteBean) request.getSession().getAttribute("currentSessionUser");		
 			if (utente != null) {
 				if (utente.getVia() != null && utente.getNumCivico() != null && utente.getCap() != 0 && utente.getCartaCredito() != null) {
 		%>       
           
-          <form action="./checkout" method="post" class="MyForm" >			     
+          
+          <form action="./checkout" method="post" class="MyForm" onsubmit="event.preventDefault(); validateCheck(this)">			     
 	          
 	        <div class="table">
 	            <p>Via:</p>
@@ -31,40 +33,41 @@
 	        </div>
 	        
 	        <div class="table">
-	            <p>Via:</p>
+	            <p>CAP:</p>
 	            <p><input type="text" name="cap" value="<%=utente.getCap()%>" required></p> 
 	        </div>
 	        
 	         <div class="table">
-	        <p id= "errCap"></p>
+	        <p id="errCap"></p>
 	        </div>
 			
 			
 	        <div class="table">
-	            <p>Via:</p>
+	            <p>Numero civico:</p>
 	            <p><input type="text" name="numCivico" value="<%=utente.getNumCivico()%>" required></p> 
 	        </div>
 	        
 	        <div class="table">
-	        <p id= "errNumCivico"></p>
+	        <p id="errNumCivico"></p>
 	        </div>
 	        
 	        <div class="table">
-	            <p>Via:</p>
+	            <p>Carta di credito:</p>
 	            <p><input type="text" name="cartaDiCredito" value="<%=utente.getCartaCredito()%>" required></p> 
 	        </div>
 	        
 	        <div class="table">
-	       	 	<p id= "errCartaCredito"></p>
+	        <p id="errCartaCredito"></p>
 	        </div>
 	        
 	        <div class="clic">
-	       		<p> <input type="submit" value="Completa ordine" > </p>
-	        </div>
+	       <p><input type="submit" value="Completa ordine"> </p>
+	       </div>
+	        
 	    </form>
 	
 	<%} else { %>
-	 <form action="./checkout" method="post" class="MyForm" >			     
+	 <form action="./checkout" method="post" class="MyForm" onsubmit="event.preventDefault(); validateCheck(this)">			     
 	          
 	        <div class="table">
 	            <p>Via:</p>
@@ -102,9 +105,10 @@
 	        <p id= "errCartaCredito"></p>
 	        </div>
 	        
-	        <div class="clic">
+	       <div class="clic">
 	       <p> <input type="submit" value="Completa ordine"> </p>
-	        </div>
+	       </div>
+	       
 	    </form>
 	<% } }%>
 	

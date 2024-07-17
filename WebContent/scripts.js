@@ -74,6 +74,25 @@ function checkTelefono(inputtxt) {
     var telefono = /^[0-9]{9,10}$/;
     return telefono.test(inputtxt.value);
 }
+function checkVia(inputtxt) {
+    var via = /^[A-Za-z\s]+$/;
+    return via.test(inputtxt.value);
+}
+
+function checkNumCivico(inputtxt) {
+    var NumCivico = /^[0-9]{1,4}[A-Z]?$/;
+    return NumCivico.test(inputtxt.value);
+}
+
+function checkCap(inputtxt) {
+    var cap = /^[0-9]{5}$/;
+    return cap.test(inputtxt.value);
+}
+
+function checkCartaCredito(inputtxt) {
+    var cartaCredito = /^[0-9]{16}$/;
+    return cartaCredito.test(inputtxt.value);
+}
 
 function validate(obj) {	
     var valid = true;	
@@ -113,17 +132,52 @@ function validate(obj) {
     } else {
         document.getElementById("errTelefono").innerHTML = "";
     }
-
     if(valid) {
         obj.submit();
     }
-    
 }
-function setNews(img){
-	var basePath = './images/';
-    var imageUrl = basePath + img;
-
-  document.getElementById('pnews').style.backgroundImage = "url("+imageUrl+")";
-   
+    
+    function validateCheck(obj) {	
+    var valid = true;	
+    
+     var via = document.getElementsByName("via")[0];
+    if(!checkVia(via)) {
+        valid = false;
+        document.getElementById("errVia").innerHTML = "Via non valido";
+        document.getElementById("errVia").style.color = "rgba(208,128,242,1)";
+    } else {
+        document.getElementById("errVia").innerHTML = "";
+    }
+    
+      var NumCivico = document.getElementsByName("numCivico")[0];
+    if(!checkNumCivico(NumCivico)) {
+        valid = false;
+        document.getElementById("errNumCivico").innerHTML = "Numero civico non valido";
+        document.getElementById("errNumCivico").style.color = "rgba(208,128,242,1)";
+    } else {
+        document.getElementById("errNumCivico").innerHTML = "";
+    }
+    
+      var cap = document.getElementsByName("cap")[0];
+    if(!checkCap(cap)) {
+        valid = false;
+        document.getElementById("errCap").innerHTML = "CAP non valido";
+        document.getElementById("errCap").style.color = "rgba(208,128,242,1)";
+    } else {
+        document.getElementById("errCap").innerHTML = "";
+    }
+    
+       var cartaCredito = document.getElementsByName("cartaDiCredito")[0];
+    if(!checkCartaCredito(cartaCredito)) {
+        valid = false;
+        document.getElementById("errCartaCredito").innerHTML = "Numero carta non valido";
+        document.getElementById("errCartaCredito").style.color = "rgba(208,128,242,1)";
+    } else {
+        document.getElementById("errCartaCredito").innerHTML = "";
+    }
+    
+     if(valid) {
+        obj.submit();
+    }
     
 }

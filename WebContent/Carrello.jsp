@@ -31,17 +31,20 @@
 			 <input type="hidden" name="nome" value="<%= infopetBag.getNome() %>">
              <input type="hidden" name="genere" value="<%= infopetBag.getGenere() %>">
              <input type="hidden" name="animale" value="<%= infopetBag.getAnimale() %>">
-			 <input type="number" name="quantita" min="1" max="<%= infopetBag.getProdotto().getQuantita() %>"
-                value="<%= infopetBag.getQuantitaCarrello() %>"> 
 			 
-			 <input class="update" type="submit" value="Aggiorna">
-			 </form>
-	        
-			<div class="immcar"><img src="./images/<%= infopetBag.getProdotto().getImmagine()%>" height="200" width="200" ></div>
+			 <div class="immcar"><img src="./images/<%= infopetBag.getProdotto().getImmagine()%>" height="200" width="200" ></div>
 			
 			<h2 id="nome"><%=infopetBag.getProdotto().getNome()%></h2>
 			 
 			 <h2 class="prezzoCar">Prezzo: <span class="price">&nbsp; &euro;<%=String.format("%.2f",infopetBag.getPrezzo())%></span></h2>
+			 
+			    <div class="input-group">
+			        <h2 style="font-family: Arial, sans-serif; font-size: 120%;">Quantità: <input class="numeroq" type="number" name="quantita" min="1" max="<%= infopetBag.getProdotto().getQuantita() %>"
+					 value="<%= infopetBag.getQuantitaCarrello() %>">
+				     <input class="update" type="submit" value="Aggiorna"> </h2> 
+			     </div>			 		 
+			 </form>
+	        
 			<a href="carrello?action=deletePB&id=<%=infopetBag.getID()%>&page=Carrello.jsp"><button type="button" class="delete" >Elimina</button></a>
 			
 		<% } %>
@@ -65,4 +68,3 @@
 </body>
 
 </html>
-

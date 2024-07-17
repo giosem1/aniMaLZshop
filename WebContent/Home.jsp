@@ -25,6 +25,7 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
 	<script type="text/javascript" src="./scripts.js"></script>
+	
 </head>
 
 <body onload="setNews('<%=newsdisp.get(0).get(0).getImmagine()%>')">
@@ -49,33 +50,60 @@
     	
  	  <%for(int j=0; j<anim.size(); j++){
 	 	  		ArrayList<ProdottoBean> pets= anim.get(j);
-	 	  		int i=0;
+	 	  		int i=0; 
 	 			ProdottoBean cate= pets.get(i);%>
-	 			   <div class="category-group">
-	 			   
-	 			   		<h2 class="titlehome">Consigliato per <%= cate.getAnimale()%></h2>		 
-	 				 	<div class="conteiner-prod">   				
-			     			<%while( i< pets.size()){
-			    				ProdottoBean pet= pets.get(i);%>
-			    			    	<div class="prodotti">    				
-			    				   	    <a href="./prodotto?id=<%= pet.getID_prodotti()%>&page=Prodotto.jsp">
-				    				    <img src="./images/<%= pet.getImmagine()%>" height="130" width="130" ></a>
-				    				    <p class="nome"><%=pet.getNome()%> </p> 
-				    				    <p class="prezzo"> &euro; <%=String.format("%.2f", pet.getPrezzo()) %></p>
-				    				    
-				    				    <div class="clicprod">
-											<a href="./carrello?action=addPB&id=<%= pet.getID_prodotti()%>&page=Home.jsp"><button id="input">Aggiungi al carello</button></a>		    				    
-										</div>
-				    			   		
-				    			   </div>
-				    		<%i++;
-				    		}%>
-		    		  
-		    		   </div>
-		            </div>
+	 			
+	<div class="category-group">
+          <h2 class="titlehome">Consigliato per <%= cate.getAnimale() %></h2>
+    
+    <div class="scroll-container">
+    
+    <% if(pets.size() > 4 ) {%>
+        <button id="scrollLeft"><img src="./images/arrow_right.png"></button>
+        <%} %>
+    
+     <div class="scrollable-content" id="scrollableContent">
+       <div class="conteiner-prod">
+                   <% while (i < pets.size()) {
+                    ProdottoBean pet = pets.get(i); %>
+                   <div class="prodotti">
+                       <a href="./prodotto?id=<%= pet.getID_prodotti() %>&page=Prodotto.jsp">
+                       <img src="./images/<%= pet.getImmagine() %>">
+                       </a>
+                       <p class="nome"><%= pet.getNome() %></p>
+                   <div class="prezzo-container">
+                      <p class="prezzo"> &euro;<%= String.format("%.2f", pet.getPrezzo()) %> </p>              
+                  </div>
+              </div>
+             <% i++;
+              } %>
+       </div>
+    </div>
+    
+     <% if(pets.size() > 4 ) {%>
+        <button id="scrollRight"><img src="./images/arrow_left.png"></button>
+        <%} %>
+      
+    </div>
+</div>
+
     		<%}%>
     </div>
-	<%@ include file="./fragment/footer.jsp" %>						
-</body>
+	<%@ include file="./fragment/footer.jsp" %>	
+	
+	<script>
+        const scrollableContent = document.getElementById('scrollableContent');
+        const scrollLeftButton = document.getElementById('scrollLeft');
+        const scrollRightButton = document.getElementById('scrollRight');
 
+        scrollLeftButton.addEventListener('click', function() {
+            scrollableContent.scrollBy({ left: -100, behavior: 'smooth'});
+        });
+
+        scrollRightButton.addEventListener('click', function() {
+            scrollableContent.scrollBy({ left: 100, behavior: 'smooth'});
+        });
+
+        </script>					
+</body>
 </html>

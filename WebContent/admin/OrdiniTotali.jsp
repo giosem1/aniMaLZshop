@@ -17,7 +17,7 @@
 </head>
 <body>
 	<%@ include file="../fragment/header.jsp" %>
-	<%@ include file="../fragment/menu.jsp" %>
+
 	<h2 class="title">Ordini Totali</h2>
 	
 	<table class="catalogo">
@@ -51,14 +51,13 @@
 	<%		}
 	} %>	
 	</table>
-		<div id="forms">
-			<form action="./ordine?azione=orders" method="post" class="MyForm" id="formdata">
+			<form action="./ordine?azione=orders" method="post" class="formData">
 				<div class="table">
 		            <p>Da:</p>
 		            <p><input type="date" name="dataDa" placeholder="GG/MM/AAAA" required></p>
 		        </div>
 		        <div class="table">
-		            <p>A:</p>
+		            <p>Al:</p>
 		            <p><input type="date" name="dataA" placeholder="GG/MM/AAAA" required></p>
 		        </div>
 				
@@ -67,7 +66,7 @@
 				</div>		        		  
 			</form>
 			
-			<form action="./ordine?azione=orders" method="post" class="MyForm" id="formnome">
+			<form action="./ordine?azione=orders" method="post" class="formNome">
 			<div class="table">
 		            <p>Nome:</p>
 		            <p><input type="text" name="nome" placeholder="Inserisci il nome" required></p>
@@ -78,13 +77,11 @@
 		        </div>
 		        
 		        <div class="clic"> 
-	            	<p><input type="submit" value="Cerca"></p>
-	            	
+	            	<p><input type="submit" value="Cerca"></p>	            	
 				</div>
 			</form>
-	
-	</div>		
-				<div class="clic"> 
+		
+				<div> 
 	            	<p><a href="./ordine?azione=orders"><button id="rest">Reset</button></a></p>
 				</div>
 	<%@ include file="../fragment/footer.jsp" %>	
