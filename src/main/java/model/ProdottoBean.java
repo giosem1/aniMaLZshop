@@ -4,6 +4,13 @@ import java.io.Serializable;
 public class ProdottoBean implements Serializable {
 
 
+	@Override
+	public String toString() {
+		return "ProdottoBean [ID_prodotti=" + ID_prodotti + ", nome=" + nome + ", prezzo=" + prezzo + ", genere="
+				+ genere + ", animale=" + animale + ", taglia=" + taglia + ", Marca=" + Marca + ", Descrizione="
+				+ Descrizione + ", immagine=" + immagine + ", quantita=" + quantita + "]";
+	}
+
 	private static final long serialVersionUID = 1L;
 	private int ID_prodotti;
 	private String  nome;

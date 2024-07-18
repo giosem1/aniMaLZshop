@@ -2,6 +2,7 @@ package control;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -31,15 +32,16 @@ public class Prodotto extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-    ProdottoDao prodDao = new ProdottoDao();
-	String redirectpage= request.getParameter("page");
+	    ProdottoDao prodDao = new ProdottoDao();
+		String redirectpage= request.getParameter("page");
 
 		try {		
 			int id=Integer.parseInt(request.getParameter("id"));
 			
 				request.getSession().removeAttribute("prodotto");
 				ProdottoBean Prodotto= prodDao.doRetrive(id);
+				
+			
 				request.getSession().setAttribute("prodotto", Prodotto);
 			
 		} catch (SQLException e) {

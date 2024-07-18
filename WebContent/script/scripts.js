@@ -181,3 +181,18 @@ function validate(obj) {
     }
     
 }
+function setNews(img){
+	var basePath = './images/';
+    var imageUrl = basePath + img;
+
+  document.getElementById('pnews').style.backgroundImage = "url("+imageUrl+")";
+ }
+function scrolleft(){
+		const scrollableContent = document.getElementById('scrollableContent');
+        scrollableContent.scrollBy({ left: -100, behavior: 'smooth'});  
+}
+
+function scrollright(){
+	const scrollableContent = document.getElementById('scrollableContent');	
+	 scrollableContent.scrollBy({ left: 100, behavior: 'smooth'});
+}

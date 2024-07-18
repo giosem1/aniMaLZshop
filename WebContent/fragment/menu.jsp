@@ -7,14 +7,25 @@
 <title>Insert title here</title>
 	<link rel="stylesheet" href="./styles/style.css" type="text/css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-	
+	<script type="text/javascript" src="./script/serchajax.js"></script>
 </head>
 <body>
 			<nav>
-			    <div id="search">
-					<input type="text" placeholder="Cerca...">
-					<span class="material-symbols-outlined">search</span>
+			   
+				<form action="javascript:void(0)" method="get">	  
+				<div id="search"> 
+					<div class="drop">
+						<input type="text" id="serch" class="dropfirst" placeholder="Cerca..." onkeyup="cercaProd()" autocomplete="off">
+							
+						<div class="elem-content" >						
+							<a id="datiRice"> </a>
+							
+						</div>
+					</div>
+					<button><span class="material-symbols-outlined">search</span></button>
 				</div>	
+				</form>
+				
 				<ul>
 					<li class="menu">
                       <a href="#">Cani

@@ -18,4 +18,6 @@ public interface ProdottoDaoInterface {
 
 	public void doUpdateQuantita(int id,int quantita) throws SQLException;
 	
+	public ArrayList<ProdottoBean> doRetriveAllByName() throws SQLException;
+	
 }

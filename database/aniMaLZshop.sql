@@ -120,15 +120,19 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
 
 DROP TABLE IF EXISTS recensisce;
 CREATE TABLE recensisce(
-	ID_utente INT NOT NULL AUTO_INCREMENT,
+	ID_utente INT NOT NULL,
     ID_prodotti INT NOT NULL,
-    voto DOUBLE,
+    voto INT,
     recensione TEXT DEFAULT NULL,
+	data_publicazione DATE NOT NULL,
     
     PRIMARY KEY(ID_utente, ID_prodotti),
-	FOREIGN KEY(ID_utente) REFERENCES utente(ID_utente), 
-    FOREIGN KEY(ID_prodotti) REFERENCES prodotti(ID_prodotti) 
+	FOREIGN KEY(ID_utente) REFERENCES utente(ID_utente)
 );
+INSERT INTO recensisce VALUE('3', '1', '2','TROPPO GRANDE PER IL MIO CHIWAWA, CONSIGLIO UNA TAGLIA PIU PICCOLA PER GLI ALTRI UTENTI, AGGIORNATE UN PO STO DATABASE!!!!!','2024-05-28');
+INSERT INTO recensisce VALUE('1', '13', '4','Ottima per non sentire odori, anche se la mia gatta non vuole utilizzare la lettiera, è allergica alla sabbia della lettiera','2024-02-05');
+INSERT INTO recensisce VALUE('2', '10', '5','Funziona subito dopo il bagnetto, sono scomparse anche le zanzare da casa, lo consiglio a tutti gli utenti','2024-03-18');
+
 DROP TABLE IF EXISTS aggiunge;
 CREATE TABLE aggiunge(
 	ID_utente INT NOT NULL AUTO_INCREMENT,

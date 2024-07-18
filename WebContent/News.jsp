@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
      <%NewsBean news = (NewsBean) request.getSession().getAttribute("news");
-		System.out.println(news);	
-	if(news==null){
+
+     if(news==null){
 			response.sendRedirect("./news");
 		}%>
 <!DOCTYPE html>

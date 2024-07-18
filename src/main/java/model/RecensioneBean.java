@@ -1,12 +1,32 @@
 package model;
 import java.io.Serializable;
+import java.sql.Date;
 
 public class RecensioneBean implements Serializable{
 	private static final long serialVersionUID = 1L;
     private int ID_utente;
     private int ID_prodotti;
-    private double voto;
-    private String recensione;
+    private int voto;
+    private Date dataPubl;
+    private String nome;
+    private String cognome;
+    public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public String getCognome() {
+		return cognome;
+	}
+
+	public void setCognome(String cognome) {
+		this.cognome = cognome;
+	}
+
+	private String recensione;
     
 	public RecensioneBean() {
 		
@@ -28,11 +48,11 @@ public class RecensioneBean implements Serializable{
 		ID_prodotti = iD_prodotti;
 	}
 	
-	public double getVoto() {
+	public int getVoto() {
 		return voto;
 	}
 	
-	public void setVoto(double voto) {
+	public void setVoto(int voto) {
 		this.voto = voto;
 	}
 	
@@ -42,6 +62,14 @@ public class RecensioneBean implements Serializable{
 	
 	public void setRecensione(String recensione) {
 		this.recensione = recensione;
+	}
+
+	public Date getDataPubl() {
+		return dataPubl;
+	}
+
+	public void setDataPubl(Date dataPubl) {
+		this.dataPubl = dataPubl;
 	}
     
    

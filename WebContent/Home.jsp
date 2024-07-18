@@ -24,7 +24,7 @@
 	<link rel="stylesheet" href="styles/style.css" type="text/css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
-	<script type="text/javascript" src="./scripts.js"></script>
+	<script type="text/javascript" src="./script/scripts.js"></script>
 	
 </head>
 
@@ -55,14 +55,9 @@
 	 			
 	<div class="category-group">
           <h2 class="titlehome">Consigliato per <%= cate.getAnimale() %></h2>
+   
     
-    <div class="scroll-container">
-    
-    <% if(pets.size() > 4 ) {%>
-        <button id="scrollLeft"><img src="./images/arrow_right.png"></button>
-        <%} %>
-    
-     <div class="scrollable-content" id="scrollableContent">
+     <div class="scrollable-content" >
        <div class="conteiner-prod">
                    <% while (i < pets.size()) {
                     ProdottoBean pet = pets.get(i); %>
@@ -79,31 +74,14 @@
               } %>
        </div>
     </div>
-    
-     <% if(pets.size() > 4 ) {%>
-        <button id="scrollRight"><img src="./images/arrow_left.png"></button>
-        <%} %>
+   
       
-    </div>
+    
 </div>
 
     		<%}%>
     </div>
 	<%@ include file="./fragment/footer.jsp" %>	
-	
-	<script>
-        const scrollableContent = document.getElementById('scrollableContent');
-        const scrollLeftButton = document.getElementById('scrollLeft');
-        const scrollRightButton = document.getElementById('scrollRight');
-
-        scrollLeftButton.addEventListener('click', function() {
-            scrollableContent.scrollBy({ left: -100, behavior: 'smooth'});
-        });
-
-        scrollRightButton.addEventListener('click', function() {
-            scrollableContent.scrollBy({ left: 100, behavior: 'smooth'});
-        });
-
-        </script>					
+					
 </body>
 </html>

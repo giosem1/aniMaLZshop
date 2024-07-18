@@ -31,16 +31,16 @@ public class RecensioneDao implements RecensioneDaoInterface{
 		Connection connection =null;
 		PreparedStatement preparedStatement =null;
 		
-		String sqlInsert="INSERT INTO " + RecensioneDao.TABLE_NAME+ "(ID_UTENTE, ID_PRODOTTI, VOTO, RECENSIONE) VALUES (?, ?, ?, ?)";
+		String sqlInsert="INSERT INTO " + RecensioneDao.TABLE_NAME+ "(ID_UTENTE, ID_PRODOTTI, VOTO, RECENSIONE, DATA_PUBLICAZIONE) VALUES (?, ?, ?, ?, ?)";
 		
 		try {
 	    	connection = ds.getConnection();
 			preparedStatement = connection.prepareStatement(sqlInsert);
 			  preparedStatement.setInt(1, recensione.getID_utente());
 			  preparedStatement.setInt(2, recensione.getID_prodotti());
-			  preparedStatement.setDouble(3, recensione.getVoto());
-			  preparedStatement.setString(2, recensione.getRecensione());
-			  
+			  preparedStatement.setInt(3, recensione.getVoto());
+			  preparedStatement.setString(4, recensione.getRecensione());
+			  preparedStatement.setDate(5, recensione.getDataPubl());
 		        preparedStatement.executeUpdate();
 				    }finally {
 						try {
@@ -57,7 +57,8 @@ public class RecensioneDao implements RecensioneDaoInterface{
 		PreparedStatement preparedStatement =null;
 		ArrayList<RecensioneBean> recensioni =new ArrayList<>();
 
-		    String selectSQL = "SELECT * FROM " + RecensioneDao.TABLE_NAME +" WHERE ID_PRODOTTO = ?";
+		    String selectSQL = "SELECT * FROM " + RecensioneDao.TABLE_NAME +" R JOIN utente U "
+		    		+ "WHERE U.ID_UTENTE = R.ID_UTENTE AND ID_PRODOTTI = ?";
 		    
 		    try {
 		    	connection = ds.getConnection();
@@ -68,9 +69,12 @@ public class RecensioneDao implements RecensioneDaoInterface{
 					RecensioneBean rec =new RecensioneBean();
 					
 					rec.setID_utente(rs.getInt("id_utente"));
-					rec.setID_prodotti(rs.getInt("id_prodotto"));
-					rec.setVoto(rs.getDouble("voto"));
+					rec.setID_prodotti(rs.getInt("id_prodotti"));
+					rec.setVoto(rs.getInt("voto"));
 					rec.setRecensione(rs.getString("recensione"));
+					rec.setDataPubl(rs.getDate("data_publicazione"));
+					rec.setNome(rs.getString("nome"));
+					rec.setCognome(rs.getString("cognome"));
 					
 					recensioni.add(rec);
 				}
@@ -91,13 +95,13 @@ public class RecensioneDao implements RecensioneDaoInterface{
 		 int result = 0;
 		 Connection connection =null;
 		 PreparedStatement preparedStatement =null;
-		 String deleteSQL = "DELETE FROM " + RecensioneDao.TABLE_NAME + " WHERE ID_PRODOTTO = ? AND ID_UTENTE = ?";
+		 String deleteSQL = "DELETE FROM " + RecensioneDao.TABLE_NAME + " WHERE ID_PRODOTTI = ? AND ID_UTENTE = ?";
 
 		    try {
 		    	connection = ds.getConnection();
 		    	preparedStatement = connection.prepareStatement(deleteSQL);
-		    	preparedStatement.setInt(1, ID_utente);
 		    	preparedStatement.setInt(1, ID_prodotto);
+		    	preparedStatement.setInt(2, ID_utente);
 
 		        result = preparedStatement.executeUpdate();
 		    }finally {
@@ -115,7 +119,7 @@ public class RecensioneDao implements RecensioneDaoInterface{
 
 	public void doUpdate(RecensioneBean recensione) throws SQLException {
 		 String updateSQL = "UPDATE " + RecensioneDao.TABLE_NAME+
-		 "SET VOTO = ?, RECENSIONE = ?" + "WHERE ID_PRODOTTO AND ID_UTENTE = ?";
+		 "SET VOTO = ?, RECENSIONE = ?" + "WHERE ID_PRODOTTI AND ID_UTENTE = ?";
 		 
 		Connection connection = null;
 	    PreparedStatement preparedStatement = null; 
@@ -128,15 +132,15 @@ public class RecensioneDao implements RecensioneDaoInterface{
 			    preparedStatement.setString(4, recensione.getRecensione());
 			    
 		        preparedStatement.executeUpdate();
-				    }finally {
-						try {
-							if (preparedStatement != null)
-								preparedStatement.close();
-						} finally {
-							if (connection != null)
-								connection.close();
-						}
-					}		
+	    }finally {
+			try {
+				if (preparedStatement != null)
+					preparedStatement.close();
+			} finally {
+				if (connection != null)
+					connection.close();
+			}
+		}		
 	}
 }
 
