@@ -33,7 +33,7 @@
         <ul>
             <li>
                 <div class="prefProd">
-                    <a href="./addPreferiti?action=addPB&id=<%=prodotto.getID_prodotti()%>&page=Prodotto.jsp" >
+                    <a href="./addPreferiti?action=addPB&id=<%=prodotto.getID_prodotti()%>&page=Prodotto.jsp">
                        <img id="viola" src="./images/preferiti.png" alt="Aggiungi ai preferiti">
                     </a>
                 </div>

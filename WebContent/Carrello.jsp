@@ -12,7 +12,7 @@
 
 </head>
 <body>
-	<%@ include file="./fragment/header.jsp" %>	
+	<%@ include file="../fragment/header.jsp" %>	
 	
 	<% 	Carrello petBag = (Carrello) request.getSession().getAttribute("petBag");
 		if(petBag != null && !petBag.isEmpty()){%>

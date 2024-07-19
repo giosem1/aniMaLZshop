@@ -34,12 +34,12 @@ public class Catalogo extends HttpServlet {
 			
 				
 			} 
-			ArrayList<ProdottoBean>cane = prod.doRetriveAll("Cane");
-			ArrayList<ProdottoBean>gatto= prod.doRetriveAll("Gatto");
-			ArrayList<ProdottoBean>rettile= prod.doRetriveAll("Rettile");
-			ArrayList<ProdottoBean>roditore= prod.doRetriveAll("Roditore");
-			ArrayList<ProdottoBean>uccello= prod.doRetriveAll("Uccello");
-			ArrayList<ProdottoBean>pesce= prod.doRetriveAll("Pesce");
+			ArrayList<ProdottoBean>cane = prod.doRetriveAll("Cane", null);
+			ArrayList<ProdottoBean>gatto= prod.doRetriveAll("Gatto", null);
+			ArrayList<ProdottoBean>rettile= prod.doRetriveAll("Rettile", null);
+			ArrayList<ProdottoBean>roditore= prod.doRetriveAll("Roditore", null);
+			ArrayList<ProdottoBean>uccello= prod.doRetriveAll("Uccello", null);
+			ArrayList<ProdottoBean>pesce= prod.doRetriveAll("Pesce", null);
 
 			cata.add(cane);
 			cata.add(gatto);

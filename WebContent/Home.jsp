@@ -13,8 +13,7 @@
 			response.sendRedirect("./newsBanner");
 			return;
 		}
-		
-		
+	
 	%>
 <!DOCTYPE html>
 <html>
@@ -56,9 +55,8 @@
 	<div class="category-group">
           <h2 class="titlehome">Consigliato per <%= cate.getAnimale() %></h2>
    
-    
-     <div class="scrollable-content" >
-       <div class="conteiner-prod">
+         <div class="scrollable-content">
+           <div class="conteiner-prod">
                    <% while (i < pets.size()) {
                     ProdottoBean pet = pets.get(i); %>
                    <div class="prodotti">
@@ -72,13 +70,9 @@
               </div>
              <% i++;
               } %>
+          </div>
        </div>
     </div>
-   
-      
-    
-</div>
-
     		<%}%>
     </div>
 	<%@ include file="./fragment/footer.jsp" %>	

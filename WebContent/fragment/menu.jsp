@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +15,7 @@
 			   
 				<form action="javascript:void(0)" method="get">	  
 				<div id="search"> 
-					<div class="drop">
+					<div class="Drop">
 						<input type="text" id="serch" class="dropfirst" placeholder="Cerca..." onkeyup="cercaProd()" autocomplete="off">
 							
 						<div class="elem-content" >						
@@ -24,80 +25,87 @@
 					</div>
 					<button><span class="material-symbols-outlined">search</span></button>
 				</div>	
-				</form>
 				
+				</form>			
 				<ul>
 					<li class="menu">
-                      <a href="#">Cani
+					  
+                      <a href="<%= request.getContextPath()%>/products?animale=Cane">Cani
                         <span class="material-symbols-outlined">keyboard_arrow_down</span>
                        </a>
                        <div class="dropdown">
-                         <a href="#">Beni igenici e farmaceutici</a>
-                         <a href="#">Giochi</a>
-                         <a href="#">Cibo</a>
-                         <a href="#">Snack</a>
-                         <a href="#">Accessori</a>
-                         <a href="#">Abbigliamento</a>
+                         <a href="<%= request.getContextPath()%>/products?animale=Cane&Categoria=Farmaceutici">Beni farmaceutici</a>
+                          <a href="<%= request.getContextPath()%>/products?animale=Cane&Categoria=Igenici">Beni igenici</a>
+                         <a href="<%= request.getContextPath()%>/products?animale=Cane&Categoria=Giochi">Giochi</a>
+                         <a href="<%= request.getContextPath()%>/products?animale=Cane&Categoria=Cibo">Cibo</a>
+                         <a href="<%= request.getContextPath()%>/products?animale=Cane&Categoria=Snack">Snack</a>
+                         <a href="<%= request.getContextPath()%>/products?animale=Cane&Categoria=Accessori">Accessori</a>
+                         <a href="<%= request.getContextPath()%>/products?animale=Cane&Categoria=Abbigliamento">Abbigliamento</a>
                        </div>
                     </li>
 					
 					<li class="menu">
-                      <a href="#">Gatti
+                      <a href="<%= request.getContextPath()%>/products?animale=Gatto">Gatti
                         <span class="material-symbols-outlined">keyboard_arrow_down</span>
                        </a>
-                       <div class="dropdown">
-                         <a href="#">Beni igenici e farmaceutici</a>
-                         <a href="#">Giochi</a>
-                         <a href="#">Cibo</a>
-                         <a href="#">Snack</a>
-                         <a href="#">Accessori</a>
-                         <a href="#">Abbigliamento</a>
+                        <div class="dropdown">
+                         <a href="<%= request.getContextPath()%>/products?animale=Gatto&Categoria=Farmaceutici">Beni farmaceutici</a>
+                         <a href="<%= request.getContextPath()%>/products?animale=Gatto&Categoria=Igenici">Beni igenici</a>
+                         <a href="<%= request.getContextPath()%>/products?animale=Gatto&Categoria=Giochi">Giochi</a>
+                         <a href="<%= request.getContextPath()%>/products?animale=Gatto&Categoria=Cibo">Cibo</a>
+                         <a href="<%= request.getContextPath()%>/products?animale=Gatto&Categoria=Snack">Snack</a>
+                         <a href="<%= request.getContextPath()%>/products?animale=Gatto&Categoria=Accessori">Accessori</a>
+                         <a href="<%= request.getContextPath()%>/products?animale=Gatto&Categoria=Abbigliamento">Abbigliamento</a>
                        </div>
                        
 					<li class="menu">
-                      <a href="#">Rettili
+                      <a href="<%= request.getContextPath()%>/products?animale=Rettile">Rettili
                         <span class="material-symbols-outlined">keyboard_arrow_down</span>
                        </a>
                        <div class="dropdown">
-                         <a href="#">Beni igenici e farmaceutici</a>   
-                         <a href="#">Cibo</a>
-                         <a href="#">Snack</a>
-                         <a href="#">Accessori</a>                
+                         <a href="<%= request.getContextPath()%>/products?animale=Rettile&Categoria=Farmaceutici">Beni farmaceutici</a>  
+                         <a href="<%= request.getContextPath()%>/products?animale=Rettile&Categoria=Igenici">Beni igenici</a>
+                         <a href="<%= request.getContextPath()%>/products?animale=Rettile&Categoria=Cibo">Cibo</a>
+                         <a href="<%= request.getContextPath()%>/products?animale=Rettile&Categoria=Snack">Snack</a>
+                         <a href="<%= request.getContextPath()%>/products?animale=Rettile&Categoria=Accessori">Accessori</a>                
                        </div>
                        
 					<li class="menu">
-                      <a href="#">Roditori
+                      <a href="<%= request.getContextPath()%>/products?animale=Roditore">Roditori
                         <span class="material-symbols-outlined">keyboard_arrow_down</span>
                        </a>
                        <div class="dropdown">
-                         <a href="#">Beni igenici e farmaceutici</a>
-                         <a href="#">Giochi</a>
-                         <a href="#">Cibo</a>
-                         <a href="#">Snack</a>
-                         <a href="#">Accessori</a>
+                         <a href="<%= request.getContextPath()%>/products?animale=Roditore&Categoria=Farmaceutici">Beni farmaceutici</a>
+                         <a href="<%= request.getContextPath()%>/products?animale=Roditore&Categoria=Igenici">Beni igenici</a>
+                         <a href="<%= request.getContextPath()%>/products?animale=Roditore&Categoria=Giochi">Giochi</a>
+                         <a href="<%= request.getContextPath()%>/products?animale=Roditore&Categoria=Cibo">Cibo</a>
+                         <a href="<%= request.getContextPath()%>/products?animale=Roditore&Categoria=Snack">Snack</a>
+                         <a href="<%= request.getContextPath()%>/products?animale=Roditore&Categoria=Accessori">Accessori</a>
                        </div>
                        
 					<li class="menu">
-                      <a href="#">Uccelli
+                      <a href="<%= request.getContextPath()%>/products?animale=Uccello">Uccelli
                         <span class="material-symbols-outlined">keyboard_arrow_down</span>
                        </a>
                        <div class="dropdown">
-                         <a href="#">Beni igenici e farmaceutici</a>
-                         <a href="#">Cibo</a>
-                         <a href="#">Snack</a>
-                         <a href="#">Accessori</a>
+                         <a href="<%= request.getContextPath()%>/products?animale=Uccello&Categoria=Farmaceutici">Beni farmaceutici</a>
+                          <a href="<%= request.getContextPath()%>/products?animale=Uccello&Categoria=Igenici">Beni igenici</a>
+                         <a href="<%= request.getContextPath()%>/products?animale=Uccello&Categoria=Cibo">Cibo</a>
+                         <a href="<%= request.getContextPath()%>/products?animale=Uccello&Categoria=Snack">Snack</a>
+                         <a href="<%= request.getContextPath()%>/products?animale=Uccello&Categoria=Accessori">Accessori</a>
 
                        </div>
                        
 					<li class="menu">
-                      <a href="#">Pesci
+                      <a href="<%= request.getContextPath()%>/products?animale=Pesce">Pesci
                         <span class="material-symbols-outlined">keyboard_arrow_down</span>
                        </a>
                        <div class="dropdown">
-                         <a href="#">Beni igenici e farmaceutici</a>
-                         <a href="#">Cibo</a>
-                         <a href="#">Snack</a>
-                         <a href="#">Accessori</a>
+                         <a href="<%= request.getContextPath()%>/products?animale=Pesce&Categoria=Farmaceutici">Beni farmaceutici</a>
+                         <a href="<%= request.getContextPath()%>/products?animale=Pesce&Categoria=Igenici">Beni igenici</a>
+                         <a href="<%= request.getContextPath()%>/products?animale=Pesce&Categoria=Cibo">Cibo</a>
+                         <a href="<%= request.getContextPath()%>/products?animale=Pesce&Categoria=Snack">Snack</a>
+                         <a href="<%= request.getContextPath()%>/products?animale=Pesce&Categoria=Accessori">Accessori</a>
                        </div>
 				</ul>   		
 			</nav>

@@ -17,7 +17,7 @@ import model.ProdottoDao;
 
 
 
-@WebServlet("/AddPreferiti")
+@WebServlet("/addPreferiti")
 public class AddPreferiti extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
@@ -25,10 +25,10 @@ public class AddPreferiti extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		ProdottoDao prodDao = new ProdottoDao();
-		Preferiti petBag = (Preferiti)request.getSession().getAttribute("petBag");
-		if( petBag == null) {
-			petBag = new Preferiti();
-			request.getSession().setAttribute("petBag", petBag);
+		Preferiti petPref = (Preferiti)request.getSession().getAttribute("petPref");
+		if( petPref == null) {
+			petPref = new Preferiti();
+			request.getSession().setAttribute("petPref", petPref);
 		}
 		
 		String action = request.getParameter("action");
@@ -38,10 +38,10 @@ public class AddPreferiti extends HttpServlet {
             if (action != null) {
                 if (action.equalsIgnoreCase("addPB")) {
                 	int id=Integer.parseInt(request.getParameter("id"));
-                    petBag.aggiungiProdotto(prodDao.doRetrive(id));
+                    petPref.aggiungiProdotto(prodDao.doRetrive(id));
                 } else if (action.equalsIgnoreCase("deletePB")) {
                 	int id=Integer.parseInt(request.getParameter("id"));
-                    petBag.rimuoviProdotto(prodDao.doRetrive(id));
+                    petPref.rimuoviProdotto(prodDao.doRetrive(id));
                 }
             }
             
@@ -49,8 +49,8 @@ public class AddPreferiti extends HttpServlet {
 			System.out.println("Error:" + e.getMessage());
 		}
 		
-		request.getSession().setAttribute("petBag", petBag);
-		request.setAttribute("petBag", petBag);
+		request.getSession().setAttribute("petPref", petPref);
+		request.setAttribute("petPref", petPref);
 		
 		
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/" + redirectedPage);

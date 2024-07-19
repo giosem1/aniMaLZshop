@@ -18,7 +18,6 @@ document.addEventListener('DOMContentLoaded', function() {
     loginForm.addEventListener('submit', function(event) {
         event.preventDefault();
         
-        
         // Ottieni i dati dal form
         const formData = new FormData(loginForm);
         const username = formData.get('user');
@@ -30,35 +29,41 @@ document.addEventListener('DOMContentLoaded', function() {
             pwd: password
         };
 
-        // Invia i dati come JSON con fetch
-        fetch(loginForm.action, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(loginData)
-        })
-        .then(response => response.json().then(data => ({status: response.status, body: data})))
-        .then(({status, body}) => {
-            if (status === 200) {
-                if (body.status === 'success') {
-                    window.location.href = body.redirect;
+        // Crea una nuova richiesta XMLHttpRequest
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', loginForm.action, true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                const status = xhr.status;
+                const response = JSON.parse(xhr.responseText);
+
+                if (status === 200) {
+                    if (response.status === 'success') {
+                        window.location.href = response.redirect;
+                    } else {
+                        errorIcon.style.display = 'inline';
+                        errorText.textContent = response.message;
+                    }
                 } else {
                     errorIcon.style.display = 'inline';
-                    errorText.textContent = body.message;
+                    errorText.textContent = response.message || 'Errore durante la connessione al server';
                 }
-            } else {
-                errorIcon.style.display = 'inline';
-                errorText.textContent = body.message || 'Errore durante la connessione al server';
             }
-        })
-        .catch(error => {
-            console.error('Errore durante la richiesta AJAX:', error);
+        };
+
+        xhr.onerror = function() {
+            console.error('Errore durante la richiesta AJAX:', xhr.statusText);
             errorIcon.style.display = 'inline';
             errorText.textContent = 'Errore durante la connessione al server';
-        });
+        };
+
+        // Invia i dati come JSON
+        xhr.send(JSON.stringify(loginData));
     });
 });
+
 
 function checkNomeCognome(inputtxt) {
     var nome = /^[A-Za-z]+$/;
@@ -187,12 +192,3 @@ function setNews(img){
 
   document.getElementById('pnews').style.backgroundImage = "url("+imageUrl+")";
  }
-function scrolleft(){
-		const scrollableContent = document.getElementById('scrollableContent');
-        scrollableContent.scrollBy({ left: -100, behavior: 'smooth'});  
-}
-
-function scrollright(){
-	const scrollableContent = document.getElementById('scrollableContent');	
-	 scrollableContent.scrollBy({ left: 100, behavior: 'smooth'});
-}

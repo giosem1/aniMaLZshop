@@ -16,31 +16,31 @@
 	 <%@ include file="../fragment/header.jsp" %>
 	 <%@ include file="../fragment/menu.jsp" %>	
 	
-	<% 	Preferiti petBag = (Preferiti) request.getSession().getAttribute("petBag");
-		if(petBag != null && !petBag.isEmpty()){%>
+	<% 	Preferiti petPref = (Preferiti) request.getSession().getAttribute("petPref");
+		if(petPref != null && !petPref.isEmpty()){%>
 	
 		<h2 class="title">I tuoi preferiti</h2>	
 		
-		<div class="conteiner-prod">
+		<div class="Conteiner-prod">
 		
 		<%
-					ArrayList <InfoProdotto> prodpetBag = petBag.getArticoli(); 	
-							        for(InfoProdotto infopetBag: prodpetBag){
-								int id = prodpetBag.indexOf(infopetBag);
+					ArrayList <InfoProdotto> prodpetPref = petPref.getArticoli(); 	
+							        for(InfoProdotto infopetPref: prodpetPref){
+								int id = prodpetPref.indexOf(infopetPref);
 		%>
 	
             <div class="prodotti">
 			<div class="prefe">	
-			<a href="addPreferiti?action=deletePB&id=<%=infopetBag.getID()%>&page=Preferiti.jsp"><img src="./images/preferiti.png" width="40" height="40"></a>		
+			<a id="preferitiLink" href="addPreferiti?action=deletePB&id=<%=infopetPref.getID()%>&page=Preferiti.jsp"><img src="./images/preferiti.png" width="40" height="40"></a>		
 			</div>
 		
-		    <a href="./prodotto?id=<%= infopetBag.getProdotto().getID_prodotti()%>&page=Prodotto.jsp">
-		    <img src="./images/<%= infopetBag.getProdotto().getImmagine()%>" height="130" width="130" ></a>
+		    <a href="./prodotto?id=<%= infopetPref.getProdotto().getID_prodotti()%>&page=Prodotto.jsp">
+		    <img src="./images/<%= infopetPref.getProdotto().getImmagine()%>" height="130" width="130" ></a>
 	
-		    <p class="nome"><%=infopetBag.getProdotto().getNome()%> </p> 
+		    <p class="nome"><%=infopetPref.getProdotto().getNome()%> </p> 
 		    
 		    <div class="prezzo-container">
-		    <p class="prezzo"> &nbsp; &euro; <%=String.format("%.2f", infopetBag.getPrezzo()) %></p>
+		    <p class="prezzo"> &nbsp; &euro; <%=String.format("%.2f", infopetPref.getPrezzo()) %></p>
 			</div>
 			
 			</div>

@@ -27,12 +27,12 @@ public class Home extends HttpServlet {
 		ArrayList<ArrayList<ProdottoBean>> anim= new ArrayList<>();
 		
 		try{
-			ArrayList<ProdottoBean>cane = prod.doRetriveAll("Cane");
-			ArrayList<ProdottoBean>gatto= prod.doRetriveAll("Gatto");
-			ArrayList<ProdottoBean>rettile= prod.doRetriveAll("Rettile");
-			ArrayList<ProdottoBean>roditore= prod.doRetriveAll("Roditore");
-			ArrayList<ProdottoBean>uccello= prod.doRetriveAll("Uccello");
-			ArrayList<ProdottoBean>pesce= prod.doRetriveAll("Pesce");
+			ArrayList<ProdottoBean>cane = prod.doRetriveAll("Cane", null);
+			ArrayList<ProdottoBean>gatto= prod.doRetriveAll("Gatto", null);
+			ArrayList<ProdottoBean>rettile= prod.doRetriveAll("Rettile", null);
+			ArrayList<ProdottoBean>roditore= prod.doRetriveAll("Roditore", null);
+			ArrayList<ProdottoBean>uccello= prod.doRetriveAll("Uccello", null);
+			ArrayList<ProdottoBean>pesce= prod.doRetriveAll("Pesce", null);
 
 			anim.add(cane);
 			anim.add(gatto);

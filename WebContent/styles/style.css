@@ -298,6 +298,14 @@ a #inputcar {
     display: flex;
     gap: 13px;   
 }
+
+.Conteiner-prod {
+	width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px; 
+    justify-content: flex-start;
+}
 .prodotti {
     border-style: solid;
     border-color: rgba(215, 215, 215, 1);
@@ -346,7 +354,7 @@ a #inputcar {
     width: 40px;
     height: 40px;
     opacity: 0;
-    transition: opacity 0.3s, color 0.3s; 
+    transition: opacity 0.3s, background-color 0.3s; 
 }
 
 .prodotti:hover .prefe a img {
@@ -355,10 +363,10 @@ a #inputcar {
     border-color: rgba(208,128,242,1); 
 }
 
-
-.prefe a img:hover{
+.prodotti:hover .prefe a img:hover {
     border-width: 1px;
-    background-color: rgba(208,128,242,1);
+    background: rgba(208,128,242,1); 
+    
 }
 
 .prezzo {
@@ -429,6 +437,14 @@ a #inputcar {
 	z-index: 1;
 }
 
+.Drop:hover .elem-content{
+	display: block;
+	background: white;
+	border-radius: 10px;
+	z-index: 1;
+	padding: 10px;
+}
+
 .elem-content a{
 	display: table;
 	text-align: float;
@@ -443,6 +459,14 @@ a #inputcar {
 	 text-decoration: none;
 	 transition:.1s;
 }
+
+.elem-content a#datiRice:hover{
+	 font-weight: bold;
+	 color: rgba(6,191,173,1);
+	 text-decoration: none;
+	 transition:.1s;
+}
+
  #dati-list{
     font-family: Arial, sans-serif;
 	text-align: center;
@@ -647,9 +671,8 @@ a #inputcar {
     border-radius: 15px;
     float: left;   
 }
-
-.prefProd a img:hover,.prefProd a img:clicked {
-    background-color: rgba(208,128,242,1);
+.prefProd a img:hover{  
+	background: rgba(208,128,242,1);  
 }
 
 .error-message {
@@ -746,14 +769,14 @@ th,td{
 	margin-top: -6%;
 	display: inline-flex;
 }
-
 .rec .uterece,.rec .valutation .vot{
 	font-weight: bold;	
 }
-.rec .valutation .utevot, .rec  .valutation #paw{
+.rec .valutation .utevot, .rec .valutation #paw{
 	padding-left: 10%;
 	color: rgba(208,128,242,1);
 }
+
 .rec .descrecs{
 	margin-top: -0.6%;
 	font-family: Arial, sans-serif;
@@ -784,3 +807,4 @@ th,td{
 .clicrec input:hover{
 	font-weight: bold;
 }
+      
