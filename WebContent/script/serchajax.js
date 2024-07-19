@@ -1,10 +1,12 @@
 
 function cercaProd() {
     var input = document.getElementById('serch').value;
-    var params = 'prodotto=' + input;
-
- 	loadAjaxDoc('./cercaprodJson', "GET", params, handleProd);
-
+   		if(input != " "){
+			   var params = 'prodotto=' + input;
+	
+ 		loadAjaxDoc('./cercaprodJson', "GET", params, handleProd);
+		   }
+	
 }
 
 function createXMLHttpRequest() {
@@ -40,9 +42,9 @@ function loadAjaxDoc(url, method, params, cFuction) {
 				if (this.status == 200) {
 				     cFuction(this);
 				} else {				
-					if(this.status == 0){ // When aborting the request
+					if(this.status == 0){ 
 						alert("Problemi nell'esecuzione della richiesta: nessuna risposta ricevuta nel tempo limite");
-					} else { // Any other situation
+					} else { 
 						alert("Problemi nell'esecuzione della richiesta:\n" + this.statusText);
 					}
 					return null;
@@ -50,7 +52,7 @@ function loadAjaxDoc(url, method, params, cFuction) {
 		    }
 		};
 		
-		setTimeout(function () {     // to abort after 15 sec
+		setTimeout(function () {    
         	if (request.readyState < 4) {
             	request.abort();
         	}
@@ -81,22 +83,36 @@ function loadAjaxDoc(url, method, params, cFuction) {
 		
 	}
 }
-var cal=0;
 function handleProd(request){
 	var response = JSON.parse(request.responseText);
-		cal=response.result.length
 	
-/*	for(var i=1; i<response.result.length; i++ ){*/
+	removeSearch()
+	
 	let text = "";
 	for (let x in response.result) {
-		
+		var newitem = document.createElement("A");
+  		newitem.classList.add("ricerca");
   		text += response.result[x];
-  		document.getElementById("datiRice").innerHTML = text;
-  		document.getElementById("retr").innerHTML= cal;
+ 
+  		var textnode= document.createTextNode(text);
+  		newitem.appendChild(textnode);
+  			
+  		var list=document.getElementById("datiRice");
+  		list.insertBefore(newitem, list.childNodes[x]);
+  		newitem.setAttribute("href", "./prodotto?id="+ response.id[x]+"&page=Prodotto.jsp");
+  		
+  		text="";
 	}
-	//}
+
     
 }
-function retVal(){
-	return cal;
+function removeSearch(){
+	var list= document.getElementById("datiRice");
+	
+	var nodes= document.getElementsByClassName("ricerca");
+	
+	for(var i=0; i< (nodes.length); i++){
+		list.removeChild(list.childNodes[i]);	
+	}
+	
 }

@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="./styles/style.css" type="text/css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 	<script type="text/javascript" src="./script/serchajax.js"></script>
+	<script type="text/javascript" src="./script/scripts.js"></script>
 </head>
 <body>
 			<nav>
@@ -18,16 +19,20 @@
 					<div class="Drop">
 						<input type="text" id="serch" class="dropfirst" placeholder="Cerca..." onkeyup="cercaProd()" autocomplete="off">
 							
-						<div class="elem-content" >						
-							<a id="datiRice"> </a>
+						<div class="elem-content" >	
+						
+							<ul id="datiRice"></ul>	
 							
 						</div>
 					</div>
 					<button><span class="material-symbols-outlined">search</span></button>
 				</div>	
 				
-				</form>			
-				<ul>
+				</form>	
+				<span onclick="openMenu()" id="men" class="material-symbols-outlined">menu</span> 		
+				<ul id="generi" class="side">
+					<li class="closebtn" onclick="closeMenu()">&times;</li>
+					
 					<li class="menu">
 					  
                       <a href="<%= request.getContextPath()%>/products?animale=Cane">Cani
@@ -107,6 +112,7 @@
                          <a href="<%= request.getContextPath()%>/products?animale=Pesce&Categoria=Snack">Snack</a>
                          <a href="<%= request.getContextPath()%>/products?animale=Pesce&Categoria=Accessori">Accessori</a>
                        </div>
+                       
 				</ul>   		
 			</nav>
 </body>

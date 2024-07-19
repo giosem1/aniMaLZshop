@@ -1,4 +1,5 @@
 @charset "UTF-8";
+/*HEADER*/
 header {
 display: flex;
 align-items: center;
@@ -8,24 +9,6 @@ margin:0px;
 height: 100px;
 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
-body {	
-background:white;
-margin:0px;
-}
-
-#footer {
-	position: sticky;
-	top: 100%;
-	background-color: #26272b;
-	color: white;
-	margin-top: 5px;
-	padding: 25px;
-	text-align: center;
-	clear: both;
-	line-height: normal;
-}
-
 #logo {
 	padding: 10px 0px 10px 10px;
 }
@@ -33,51 +16,36 @@ margin:0px;
 #icone {
 	display: flex;
 	float: right;
-	margin-left: 72%;
+	margin-left: auto;
 }
 
-#news, #pnews{	
-     background: rgb(210,163,240);
-	 height: 320px;
-	 background-position: center;
-	 background-repeat: no-repeat;
-	 background-size: cover;
-	 border-radius: 20px;
-	 position: relative;
-	 margin-top: 1px;
+.elem-content {
+	display: none;
+	 position: absolute;
+}
+.drop:hover .elem-content{
+	display: block;
+	background: linear-gradient(35deg,rgba(208,128,242,1) 0%, rgba(6,191,173,1) 80%);
+	border-radius: 10px;
+	z-index: 1;
+}
+@media screen and (max-width: 540px){
+	#logo img{
+		width:180px;
+		height: 56px;
+	}
+	.elem-content{
+		font-size: 95%;
+	}
+} 
+/*BODY*/
+body {	
+	background:white;
+	margin:0px;
 }
 
-#news a {
-	font-weight: bold;
-	font-size: 300%;
-	color: black;
-	text-decoration: none;
-	font-family: Arial, sans-serif;
-}
-.arrow {
-    position: absolute;
-    top: 38%;
-    color: black;
-    cursor: pointer;
-    font-weight: bold;
-    transition: transform 0.5s;
-}
-
-.arrow:hover{
-	color: rgba(6,191,173,1);
-	font-weight: bold;
-	transform: scale(1.3);
-}
-
-#left-arrow {
-    left: 20px;
-}
-
-#right-arrow {
-    right: 20px;
-}
-
- nav {
+/*MENU*/
+nav {
      height: 60px;
      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -121,12 +89,12 @@ nav ul li a:hover {
      }
 
 #search {
-	 display: ruby;
+	 display: flex;
      float: right;
-     margin-right: 15px;
 }
 
 #search input {
+	 margin-top: 8%;
      border-radius: 15px;
      padding: 5px;
      width: 250px;
@@ -135,7 +103,12 @@ nav ul li a:hover {
 	background: none;
 	border: none;
 }
-    
+#men{
+	display: none;
+}
+.side .closebtn{
+	display: none;
+}
 nav ul li.menu{
      text-align: float;
      font-weight: bold;
@@ -173,13 +146,139 @@ nav ul li.menu .dropdown a:hover{
     color: rgba(6,191,173,1);
     transition:.1s;
 }
-    
-.title { 
+
+.Drop:hover .elem-content{
+	display: block;
+	background: white;
+	border-radius: 10px;
+	z-index: 1;
+	padding: 10px;
+}
+
+.elem-content a{
+	display: table;
+	text-align: float;
+	font-weight: bold;
+	color: black;
+	text-decoration: none;
+	font-family: Arial, sans-serif;
+}
+.elem-content a:hover{
+	 font-weight: bold;
+	 color: white;
+	 text-decoration: none;
+	 transition:.1s;
+}
+
+.elem-content a.ricerca:hover{
+	 font-weight: bold;
+	 color: rgba(6,191,173,1);
+	 text-decoration: none;
+	 transition:.1s;
+}
+@media screen and (max-width: 970px){
+
+	#men{
+		display: inline-block;
+		margin-left:5%;
+	}
+	li.menu{
+		display: table;
+		}
+	#search{
+		margin-right: 5%;
+	}
+	#search input{
+		width:200px; 
+	}
+	.side{
+	  display:none;
+	  height: 100%;
+	  width: 0%;
+	  position: absolute;
+	  z-index: 1;
+	  top: 12.2%;
+	  left: 0;
+	  background-color: white;
+	  overflow-x: hidden;
+	  transition: 0.5s;
+	  padding-top: 60px;
+	}
+	
+	.side .closebtn{
+	  position: absolute;
+	  top: 0;
+	  right: 25px;
+	  font-size: 36px;
+	  margin-left: 50px;
+	  padding: 8px 8px 8px 32px;
+  	  text-decoration: none;
+	  font-size: 25px;
+	  color: #818181;
+	  display: block;
+  	  transition: 0.3s;
+	}
+	nav ul li.menu:hover .dropdown, nav ul li.menu .dropdown:hover{
+    margin-top: 8%;
+    display: table;
+}
+	
+}
+/*BANNER NEWS*/
+#news, #pnews{	
+     background: rgb(210,163,240);
+	 height: 320px;
+	 background-position: center;
+	 background-repeat: no-repeat;
+	 background-size: cover;
+	 border-radius: 20px;
+	 position: relative;
+	 margin-top: 1px;
+}
+
+#news a {
+	font-weight: bold;
+	font-size: 300%;
+	color: black;
+	text-decoration: none;
+	font-family: Arial, sans-serif;
+}
+.arrow {
+    position: absolute;
+    top: 38%;
+    color: black;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.5s;
+}
+
+.arrow:hover{
+	color: rgba(6,191,173,1);
+	font-weight: bold;
+	transform: scale(1.3);
+}
+
+#left-arrow {
+    left: 20px;
+}
+
+#right-arrow {
+    right: 20px;
+}
+
+@media screen and (max-width: 905px){
+	#news a{
+		font-size: 150%;
+	}
+	
+}
+
+ .title { 
      text-align: center;
      font-size: 50px;
      font-family: Arial, sans-serif;	
 }
-
+/*FORMS*/
 .MyForm {
     margin-left: 35%; 
 }
@@ -286,6 +385,17 @@ a #inputcar {
      text-decoration: none;
      transition:.3s;
 }
+
+@media screen and (max-width: 540px){
+	.MyForm{
+		margin-left:10%
+	}
+	
+	.clic p input{
+		margin-left: 25%
+	}
+}
+
 .category-group {
     width: 100%;
 }
@@ -425,46 +535,6 @@ a #inputcar {
 	border-radius: 15px;
 	padding: 5px;
 	resize: none;
-}
-.elem-content {
-	display: none;
-	 position: absolute;
-}
-.drop:hover .elem-content{
-	display: block;
-	background: linear-gradient(35deg,rgba(208,128,242,1) 0%, rgba(6,191,173,1) 80%);
-	border-radius: 10px;
-	z-index: 1;
-}
-
-.Drop:hover .elem-content{
-	display: block;
-	background: white;
-	border-radius: 10px;
-	z-index: 1;
-	padding: 10px;
-}
-
-.elem-content a{
-	display: table;
-	text-align: float;
-	font-weight: bold;
-	color: black;
-	text-decoration: none;
-	font-family: Arial, sans-serif;
-}
-.elem-content a:hover{
-	 font-weight: bold;
-	 color: white;
-	 text-decoration: none;
-	 transition:.1s;
-}
-
-.elem-content a#datiRice:hover{
-	 font-weight: bold;
-	 color: rgba(6,191,173,1);
-	 text-decoration: none;
-	 transition:.1s;
 }
 
  #dati-list{
@@ -807,4 +877,17 @@ th,td{
 .clicrec input:hover{
 	font-weight: bold;
 }
+/*FOOTER*/
+footer {
+	position: sticky;
+	top: 100%;
+	background-color: #26272b;
+	color: white;
+	margin-top: 5px;
+	padding: 25px;
+	text-align: center;
+	clear: both;
+	line-height: normal;
+}
+
       

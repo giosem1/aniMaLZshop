@@ -189,6 +189,21 @@ function validate(obj) {
 function setNews(img){
 	var basePath = './images/';
     var imageUrl = basePath + img;
-
+	
   document.getElementById('pnews').style.backgroundImage = "url("+imageUrl+")";
+ 
+ }
+ 
+ function openMenu(){
+	var side=document.getElementById("generi");
+ 	side.style.width="150px";
+ 	side.style.display="table";
+ 	side.style.background="white";
+ }
+ function closeMenu(){
+	var side=document.getElementById("generi");
+ 	side.style.width="0px";
+ 	side.style.display="inline";
+ 	side.style.textAlign="center";
+ 	side.style.background="none";
  }

@@ -24,6 +24,7 @@ public class CercaprodJson extends HttpServlet {
     
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ArrayList<String> result= new ArrayList<>();
+		ArrayList<Integer> id= new ArrayList<>();
 		response.setContentType("application/json");
 		String nomeprod= request.getParameter("prodotto");
 		ArrayList<ProdottoBean> match= new ArrayList<>();
@@ -42,6 +43,7 @@ public class CercaprodJson extends HttpServlet {
 			}
 			for(ProdottoBean prod : match) {
 				result.add(prod.getNome());
+				id.add(prod.getID_prodotti());
 			}
 			
 		} catch (SQLException e) {
@@ -51,6 +53,7 @@ public class CercaprodJson extends HttpServlet {
 		JSONObject json = new JSONObject();
 		 json.put("functionName", "aggiornaDatiProdottoJSON");
 	     json.put("result", result);
+	     json.put("id", id);
 		response.getWriter().print(json.toString());
 		
 	}

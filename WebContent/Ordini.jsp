@@ -30,7 +30,6 @@
 		<th>Dettagli</th>
 	</tr>
 	<%for(OrdineBean ordine :ordini){%>
-	<% System.out.println(ordine.getData()); %>
 			<tr class="elem">
 				<td><%= ordine.getIdOrdine()%></td>
 				<td><%= ordine.getData()%></td>

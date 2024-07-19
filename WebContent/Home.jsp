@@ -13,12 +13,13 @@
 			response.sendRedirect("./newsBanner");
 			return;
 		}
-	
+		
+		
 	%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" name="viewport" content="initial-scale=1,width=device-width">
 <title>aniMaLZshop</title>
 	<link rel="stylesheet" href="styles/style.css" type="text/css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
@@ -55,8 +56,9 @@
 	<div class="category-group">
           <h2 class="titlehome">Consigliato per <%= cate.getAnimale() %></h2>
    
-         <div class="scrollable-content">
-           <div class="conteiner-prod">
+    
+     <div class="scrollable-content" >
+       <div class="conteiner-prod">
                    <% while (i < pets.size()) {
                     ProdottoBean pet = pets.get(i); %>
                    <div class="prodotti">
@@ -70,9 +72,13 @@
               </div>
              <% i++;
               } %>
-          </div>
        </div>
     </div>
+   
+      
+    
+</div>
+
     		<%}%>
     </div>
 	<%@ include file="./fragment/footer.jsp" %>	
