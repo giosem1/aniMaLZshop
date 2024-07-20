@@ -187,13 +187,13 @@ function validate(obj) {
     
 }
 function setNews(img){
-	var basePath = './images/';
+    var basePath = './images/';
     var imageUrl = basePath + img;
-	
-  document.getElementById('pnews').style.backgroundImage = "url("+imageUrl+")";
+
+  document.getElementById('news').style.backgroundImage = "url("+imageUrl+")";
  
- }
- 
+ } 
+
  function openMenu(){
 	var side=document.getElementById("generi");
  	side.style.width="150px";

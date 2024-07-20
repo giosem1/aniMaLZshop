@@ -11,6 +11,24 @@
 <body>
 <footer>
 	aniMaLZshop &copy; 2024.
+	
+	<div class="container-footer">
+	<p>Chi siamo?</p>
+	<p>La nostra fonte di ispirazione!</p>
+	
+		<div class="imgfooter">
+		<img src="./images/maze.png" height="130">
+		<img src="./images/leo.png" height="130">
+		<img src="./images/zoe.png" height="130">
+		</div>
+		
+		<div class="container-nomef">
+		<span id="nomem"> Maze </span>
+		<span id="nomel"> Leo </span>
+		<span id="nomez"> Zoe </span>
+		</div>
+		
+	</div>
 </footer>
 </body>
 </html>

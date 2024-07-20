@@ -28,23 +28,17 @@
 	
 </head>
 
-<body onload="setNews('<%=newsdisp.get(0).get(0).getImmagine()%>')">
-	
-	<%@ include file="./fragment/header.jsp" %>
-	<%@ include file="./fragment/menu.jsp" %>	
-	
-    
-    <div id="news" >
-     
-   	
-	    	<a href="./news?titolo=<%= newsdisp.get(0).get(0).getTitolo() %>&categ=<%=newsdisp.get(0).get(0).getCategoria()%>"><p id="pnews"> <%=newsdisp.get(0).get(0).getTitolo()  %></p></a>
-	    	
-	      	<span id="left-arrow" class="material-symbols-outlined arrow">arrow_back_ios</span>
-	      
-	     	<span id="right-arrow" class="material-symbols-outlined arrow">arrow_forward_ios</span>
-    	 
-    </div>
- 
+<body onload="setNews('news.png')">
+
+    <%@ include file="./fragment/header.jsp" %>
+    <%@ include file="./fragment/menu.jsp" %>
+
+    <a href="./news?titolo=<%= newsdisp.get(0).get(0).getTitolo() %>&categ=<%=newsdisp.get(0).get(0).getCategoria()%>" id="banner">
+        <div id="news" >
+                <p id="pnews">News</p>
+        </div>
+     </a> 
+
      
     <div id="preferiti">
     	

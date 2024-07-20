@@ -232,52 +232,36 @@ nav ul li.menu .dropdown a:hover{
 	
 
 /*BANNER NEWS*/
-#news, #pnews{	
+#news{
      background: rgb(210,163,240);
-	 height: 320px;
-	 background-position: center;
-	 background-repeat: no-repeat;
-	 background-size: cover;
-	 border-radius: 20px;
-	 position: relative;
-	 margin-top: 1px;
+     height: 320px;
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: cover;
+     border-radius: 20px;
+     position: relative;
+     margin-top: 1px;
 }
-
-#news a {
-	font-weight: bold;
-	font-size: 300%;
-	color: black;
-	text-decoration: none;
-	font-family: Arial, sans-serif;
+#pnews{
+    position: relative;
+    float: left;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
 }
-.arrow {
-    position: absolute;
-    top: 38%;
-    color: black;
-    cursor: pointer;
+ a#banner {
     font-weight: bold;
-    transition: transform 0.5s;
+    font-size: 300%;
+    color: black;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
 }
-
-.arrow:hover{
-	color: rgba(6,191,173,1);
-	font-weight: bold;
-	transform: scale(1.3);
-}
-
-#left-arrow {
-    left: 20px;
-}
-
-#right-arrow {
-    right: 20px;
-}
-
 @media screen and (max-width: 905px){
-	#news a{
-		font-size: 150%;
-	}
-	
+    #news{
+        background-size: auto;
+    }
+
 }
 
  .title { 
@@ -720,13 +704,11 @@ a #inputcar {
 
 @media screen and (max-width: 540px) {
     .carrello {
-        margin: 20px; 
         box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.1); 
         border-radius: 10px; 
     }
 
     .immcar img {
-        
         width: 57%; 
         height: auto; 
     }
@@ -759,7 +741,7 @@ a #inputcar {
     }
 
     .update {
-        width: 100px; 
+        width: 80px; 
         font-size: 80%; 
     }
 
@@ -776,14 +758,15 @@ a #inputcar {
         margin: 10px; 
         font-size: 100%; 
     }
-    
+
     a #inputcar {
-	 font-size: 100%;
+     font-size: 100%;
      border-radius: 20px;
      width: 200px;
      margin-left: 23%;
      }
 }
+
 
 .clear {
 	clear: both;
@@ -1080,5 +1063,40 @@ footer {
 	clear: both;
 	line-height: normal;
 }
-
+#nomem {
+    margin:10% 5% 10% 3%;
+}
+#nomel {
+    margin:10% 0% 0% 20%;
+}
+#nomez {
+    margin:10% 0% 0% 26.5%;
+}
+.imgfooter {
+	display:flex;
+}
+.imgfooter img {
+	margin:1% 0% 0% 19%;
+	border-style: solid;
+    border-color: rgba(215, 215, 215, 1);
+    border-width: 1px;
+    border-radius: 20px;
+    width: 130px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+.container-nomef{
+	 margin:1% 0% 0% 0%;
+	
+}
+.container-footer {
+    overflow: hidden;
+    margin-top:1%;
+	font-family: Arial, sans-serif;
+}
+@media screen and (max-width: 540px) {
+	.imgfooter img {
+		margin:auto;
+		width: 30%;
+	}
+}
       
