@@ -189,10 +189,10 @@ nav ul li.menu .dropdown a:hover{
 		margin-right: 5%;
 	}
 	#search input{
-		width:200px; 
+		width: 200px; 
 	}
 	.side{
-	  display:none;
+	  display: none;
 	  height: 100%;
 	  width: 0%;
 	  position: absolute;
@@ -221,9 +221,16 @@ nav ul li.menu .dropdown a:hover{
 	nav ul li.menu:hover .dropdown, nav ul li.menu .dropdown:hover{
     margin-top: 8%;
     display: table;
+    padding: 2px;
+    font-size: 86%;
+	}
+	
+    nav ul li.menu .dropdown{
+    min-width: 150px;
+    }
 }
 	
-}
+
 /*BANNER NEWS*/
 #news, #pnews{	
      background: rgb(210,163,240);
@@ -281,6 +288,10 @@ nav ul li.menu .dropdown a:hover{
 /*FORMS*/
 .MyForm {
     margin-left: 35%; 
+}
+
+#errorIcon{
+	font-size: 20px;
 }
 
 .table {
@@ -386,16 +397,7 @@ a #inputcar {
      transition:.3s;
 }
 
-@media screen and (max-width: 540px){
-	.MyForm{
-		margin-left:10%
-	}
-	
-	.clic p input{
-		margin-left: 25%
-	}
-}
-
+/*PRODOTTI*/
 .category-group {
     width: 100%;
 }
@@ -416,6 +418,13 @@ a #inputcar {
     gap: 13px; 
     justify-content: flex-start;
 }
+
+@media screen and (max-width: 540px){
+	.Conteiner-prod{
+	justify-content: center;
+	}
+}
+
 .prodotti {
     border-style: solid;
     border-color: rgba(215, 215, 215, 1);
@@ -557,6 +566,8 @@ a #inputcar {
     margin-bottom: 150px;
    
 }
+
+/*CARRELLO*/
 .carrello {
     background-color: #fff;
     box-shadow: 1px 1px 2px 4px rgba(0, 0, 0, 0.1);
@@ -564,6 +575,7 @@ a #inputcar {
     overflow: hidden;
     margin: 60px;
 }
+
 .immcar img {
     border-radius: 20px;
     margin-top: 10px;
@@ -575,7 +587,8 @@ a #inputcar {
     display: flex;
     float: left;
 }
-#nome{
+
+#nome {
     margin: 50px 50px 20px 100px;
     text-align: center;
     font-size: 145%;
@@ -584,6 +597,7 @@ a #inputcar {
     font-weight: bold;
     text-transform: uppercase;
 }
+
 .tot {
     color: black;
     font-size: 125%;
@@ -608,7 +622,7 @@ a #inputcar {
     text-align: center;
 }
 
-.input-group{
+.input-group {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -665,10 +679,79 @@ a #inputcar {
     font-size: 110%;
 }
 
+
+@media screen and (max-width: 540px) {
+    .carrello {
+        margin: 20px; 
+        box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.1); 
+        border-radius: 10px; 
+    }
+
+    .immcar img {
+        
+        width: 57%; 
+        height: auto; 
+    }
+
+    #nome {
+        margin: 20px 10px; 
+        font-size: 120%; 
+    }
+
+    .tot {
+        font-size: 110%; 
+        padding: 10px; 
+    }
+
+    .prezzoCar {
+        margin: 10px 10px 0; 
+        font-size: 110%; 
+    }
+
+    .input-group {
+        margin: 10px; 
+        flex-direction: column; 
+        align-items: flex-start; 
+    }
+
+    .numeroq {
+        width: 40px; 
+        font-size: 80%; 
+        margin-right: 10px; 
+    }
+
+    .update {
+        width: 100px; 
+        font-size: 80%; 
+    }
+
+    .delete {
+        width: 100px; 
+        margin-left: 0;
+        margin-top: 10px; 
+        margin-bottom: 10px; 
+        font-size: 90%; 
+        align-self: center; 
+    }
+
+    #car {
+        margin: 10px; 
+        font-size: 100%; 
+    }
+    
+    a #inputcar {
+	 font-size: 100%;
+     border-radius: 20px;
+     width: 200px;
+     margin-left: 23%;
+     }
+}
+
 .clear {
 	clear: both;
 }
 
+/*VIEWPROD*/
 .container {
     display: flex;
     flex-direction: row;
@@ -751,9 +834,26 @@ a #inputcar {
 	color: rgba(208,128,242,1);
 }
 
-#errorIcon{
-	font-size: 20px;
+@media screen and (max-width: 540px)
+{
+	.container{
+	  width: 100%;
+	  flex-wrap: wrap;
+	}
+	
+	.immprod{
+  	  margin-top: -5%;
+	  margin-left: -10.5%;
+	  transform: scale(0.75);
+	}
+    
+    .title{
+     font-size: 35px;
+     }
+		
 }
+
+/*CATALOGO*/
 
 .catalogo{
 	margin-left: 30%;
@@ -822,6 +922,55 @@ th,td{
      color: black;
      font-family: Arial, sans-serif;   
 }
+
+
+@media screen and (max-width: 540px) {
+    .catalogo {
+        margin-left: 5%;
+        margin-right: 5%;
+        font-size: 14px;
+        overflow-x: auto;
+        display: block;
+    }
+
+    th, td {
+        padding: 4px;
+    }
+
+    .formData {
+        margin-left: 11%;
+      
+        margin-top: 20px;
+    }
+
+    .formData .clic input {
+        margin-left: 5%;
+        width: 30%;
+    }
+
+    .formNome {
+        margin-left: -0.8%;
+        margin-right: 5%;
+        margin-top: 20px;
+    }
+
+    .formNome .clic input {
+        margin-left: 16.5%;
+        width: 30%;
+    }
+
+    #rest {
+        width: 30%;
+        margin-left: 35%;
+        margin-top: 20px;
+    }
+
+    .table {
+        width: 100%;
+    }
+}
+
+
 .scrollable-content {
     position: relative;
     overflow-x: auto; 
