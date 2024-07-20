@@ -285,6 +285,12 @@ nav ul li.menu .dropdown a:hover{
      font-size: 50px;
      font-family: Arial, sans-serif;	
 }
+@media screen and (max-width: 540px){
+	.title {
+		margin-right:auto;
+	}
+	
+}
 /*FORMS*/
 .MyForm {
     margin-left: 35%; 
@@ -316,6 +322,14 @@ nav ul li.menu .dropdown a:hover{
     box-sizing: border-box;
     border-radius: 5px;
 }
+@media screen and (max-width: 540px){
+	.table p input{
+		 width: 90%;
+	}
+	.table p textarea {
+		 width: 90%;
+	}
+}
 .inOrder textarea {
     width: 100%;
     padding: 8px;
@@ -329,6 +343,14 @@ nav ul li.menu .dropdown a:hover{
     font-family: Arial, sans-serif;
     text-align: center;
     margin-right: 50%;
+}
+@media screen and (max-width: 540px){
+	.inOrder textarea {
+			width:280%;
+	}
+	.inOrder p {
+		margin-right: 65%;
+	}
 }
 .update{
 	 border-radius: 15px;
@@ -396,7 +418,14 @@ a #inputcar {
      text-decoration: none;
      transition:.3s;
 }
-
+@media screen and (max-width: 540px){
+	.MyForm{
+		margin-left:10%
+	}
+	.clic p input{
+		margin-left: 25%
+	}
+}
 /*PRODOTTI*/
 .category-group {
     width: 100%;
@@ -534,12 +563,21 @@ a #inputcar {
      padding: 5px;
      width: 250px;
 }
-
+@media screen and (max-width: 540px){
+	.password-container p input{
+		 width: 90%;
+	}
+}
 .sel{
 	border-radius: 15px;
 	padding: 5px;
 	width: 265px;
 } 
+@media screen and (max-width: 540px){
+	.sel{
+		 width: 90%;
+	}
+}
 .table #testo{
 	border-radius: 15px;
 	padding: 5px;
@@ -867,7 +905,11 @@ a #inputcar {
  .catalogo .head{
 	background-color: #7EC0B6;
 }
-
+@media screen and (max-width: 540px){
+	.catalogo{
+		margin:auto;
+	}
+}
 tr:nth-child(even){
 	background-color: rgb(210,163,240);
 }
