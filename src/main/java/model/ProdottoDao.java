@@ -289,4 +289,52 @@ public class ProdottoDao implements ProdottoDaoInterface {
 	    
 		return prodotti;
 	}
+
+
+	@Override
+	public ProdottoBean doRetriveByGen(String anim, String cate) throws SQLException {
+		  Connection connection = null;
+		    PreparedStatement preparedStatement = null;
+
+		    ProdottoBean prod = new ProdottoBean();
+
+		    String selectSQL= "SELECT * FROM " + ProdottoDao.TABLE_NAME + " WHERE ANIMALE = ? AND GENERE = ?";
+		    
+
+		    try {
+		        connection = ds.getConnection();
+		        preparedStatement = connection.prepareStatement(selectSQL);
+		        preparedStatement.setString(1, anim);
+		        preparedStatement.setString(2, cate);
+		        
+		        ResultSet rs = preparedStatement.executeQuery();
+		        if (rs.next()) {
+		        
+		            prod.setID_prodotti(rs.getInt("ID_prodotti"));
+		            prod.setNome(rs.getString("nome"));
+		            prod.setPrezzo(rs.getDouble("prezzo"));
+		            prod.setGenere(rs.getString("genere"));
+		            prod.setAnimale(rs.getString("animale"));
+		            prod.setTaglia(rs.getString("taglia"));
+		            prod.setMarca(rs.getString("marca"));
+		            prod.setDescrizione(rs.getString("descrizione"));
+		            prod.setImmagine(rs.getString("immagine"));
+		            prod.setQuantita(rs.getInt("quantita"));
+		        	
+		        }
+		    } finally {
+		        try {
+		            if (preparedStatement != null) {
+		                preparedStatement.close();
+		            }
+		        } finally {
+		            if (connection != null) {
+		                connection.close();
+		            }
+		        }
+		    }
+
+		    return prod;
+	
+	}
 }

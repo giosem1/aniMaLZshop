@@ -123,7 +123,7 @@ function validate(obj) {
     var pw = document.getElementsByName("pwd")[0];
     if(!checkPassword(pw)) {
         valid = false;
-        document.getElementById("errPwd").innerHTML = "Password non valida";
+        document.getElementById("errPwd").innerHTML = "Min 8, almeno una Maisc,Min,numero";
         document.getElementById("errPwd").style.color = "rgba(208,128,242,1)";
     } else {
         document.getElementById("errPwd").innerHTML = "";

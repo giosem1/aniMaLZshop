@@ -19,7 +19,7 @@
 	<%@ include file="../fragment/header.jsp" %>
 
 	<h2 class="title">Ordini Totali</h2>
-	
+	<main>
 	<table class="catalogo">
 	<tr class="head">
 		<th>ID</th>
@@ -28,7 +28,7 @@
 		<th>E-mail</th>
 		<th>Data Ordine</th>
 		<th>Importo</th>
-		<th>Quantità</th>
+		<th>QuantitÃ </th>
 		<th>Dettagli</th>
 	</tr>
 	<%for(int i=0; i<ordini.size() && i< utente.size() ;i++ ){
@@ -44,14 +44,18 @@
 				<td><%= uten.getCognome()%></td>
 				<td><%= uten.getEmail()%></td>
 				<td><%= ordine.getData()%></td>
-				<td><%= ordine.getImportoTotale()%></td>
+				<td><%= String.format("%.2f",ordine.getImportoTotale())%> &euro;</td>
 				<td><%=ordine.getquantita() %></td>
 				<td><a id="det" href="./Dettagli.jsp?idord=<%=ordine.getIdOrdine()%>"><span class="material-symbols-outlined">plagiarism</span></a></td>
 			</tr>
 	<%		}
 	} %>	
 	</table>
-			<form action="./ordine?azione=orders" method="post" class="formData">
+	</main>
+		<main>
+			<div class="formsorders">
+			<div class="formData">
+			<form action="./ordine?azione=orders" method="post">
 				<div class="table">
 		            <p>Da:</p>
 		            <p><input type="date" name="dataDa" placeholder="GG/MM/AAAA" required></p>
@@ -65,25 +69,29 @@
 	            	<p><input type="submit" value="Cerca"></p>
 				</div>		        		  
 			</form>
+			</div>
 			
-			<form action="./ordine?azione=orders" method="post" class="formNome">
-			<div class="table">
-		            <p>Nome:</p>
-		            <p><input type="text" name="nome" placeholder="Inserisci il nome" required></p>
-		        </div>
-		        <div class="table">
-		            <p>Cognome:</p>
-		            <p><input type="text" name="cognome" placeholder="Inserisci il cognome" required></p>
-		        </div>
-		        
-		        <div class="clic"> 
-	            	<p><input type="submit" value="Cerca"></p>	            	
-				</div>
-			</form>
-		
+			<div class="formNome">
+				<form action="./ordine?azione=orders" method="post" >
+				<div class="table">
+			            <p>Nome:</p>
+			            <p><input type="text" name="nome" placeholder="Inserisci il nome" required></p>
+			        </div>
+			        <div class="table">
+			            <p>Cognome:</p>
+			            <p><input type="text" name="cognome" placeholder="Inserisci il cognome" required></p>
+			        </div>
+			        
+			        <div class="clic"> 
+		            	<p><input type="submit" value="Cerca"></p>	            	
+					</div>
+				</form>
+			</div>
+			</div>
 				<div> 
 	            	<p><a href="./ordine?azione=orders"><button id="rest">Reset</button></a></p>
 				</div>
+	</main>
 	<%@ include file="../fragment/footer.jsp" %>	
 </body>
 </html>

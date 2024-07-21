@@ -37,9 +37,16 @@
 
 				</div>
 				<div class="table">
-						<p>Categoria:</p>
-						<p><input type="text" name="cate" placeholder="Inserisci la categoria del prodotto" required ></p>	
-				</div>
+                        <p>Categoria:</p>
+                        <p><select name="cate" class="sel" required>
+                            <option value="Cane">Cane</option>
+                            <option value="Gatto">Gatto</option>
+                            <option value="Rettile">Rettile</option>
+                            <option value="Roditore">Roditore</option>
+                            <option value="Uccello">Uccello</option>
+                            <option value="Pesce">Pesce</option>
+                        </select></p>
+                </div>
 				<div class="table">
 						<p>Taglia:</p>
 						<p><select name="taglia" class="sel" required>

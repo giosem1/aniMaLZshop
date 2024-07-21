@@ -17,5 +17,5 @@ public interface ProdottoDaoInterface {
 	public void doUpdateQuantita(int id,int quantita) throws SQLException;
 	
 	public ArrayList<ProdottoBean> doRetriveAllByName() throws SQLException;
-	
+	public ProdottoBean doRetriveByGen(String anim,String gen) throws SQLException;
 }

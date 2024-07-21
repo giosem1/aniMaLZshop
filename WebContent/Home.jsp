@@ -6,7 +6,7 @@
    	 	if(anim == null) {
 			response.sendRedirect("./home");
 			return;
-   	 	}
+		}
 		
 	%>
 <!DOCTYPE html>
@@ -22,23 +22,24 @@
 </head>
 
 <body onload="setNews('news.png')">
-
-    <%@ include file="./fragment/header.jsp" %>
-    <%@ include file="./fragment/menu.jsp" %>
-
-   <a href="./News.jsp" id="banner">
-        <div id="news">
-
-               <p id="pnews">News</p>
-
-
-        </div>
-     </a>
+	
+	<%@ include file="./fragment/header.jsp" %>
+	<%@ include file="./fragment/menu.jsp" %>	
+	
+    <main>
+	<a href="./News.jsp" id="banner">
+	    <div id="news">
+	     		
+	   		<p id="pnews">News</p>
+		    	
+	    	 
+	    </div>
+ 	</a>
      
-  <div id="preferiti">
+    <div id="preferiti">
     	
- 	  <%for(int j=0; j<anim.size(); j++){
-	 	  		ArrayList<ProdottoBean> pets= anim.get(j);
+ 	  <%for(ArrayList<ProdottoBean> pets: anim){
+	 	  		
 	 	  		int i=0; 
 	 			ProdottoBean cate= pets.get(i);%>
 	 			
@@ -48,8 +49,7 @@
     
      <div class="scrollable-content" >
        <div class="conteiner-prod">
-                   <% while (i < pets.size()) {
-                    ProdottoBean pet = pets.get(i); %>
+                   <% for(ProdottoBean pet : pets) {%>
                    <div class="prodotti">
                        <a href="./prodotto?id=<%= pet.getID_prodotti() %>&page=Prodotto.jsp">
                        <img src="./images/<%= pet.getImmagine() %>">
@@ -62,12 +62,16 @@
              <% i++;
               } %>
        </div>
-    </div>  
+    </div>
+   
+      
     
 </div>
+
     		<%}%>
     </div>
+    </main>
 	<%@ include file="./fragment/footer.jsp" %>	
-					
+				
 </body>
 </html>

@@ -31,9 +31,16 @@
 			<p><input type="date" name="dataPubl" placeholder="GG/MM/AAAA"></p>
 		</div>
 		<div class="table">
-			<p>Animale:</p>
-			<p><input type="text" name="animal" placeholder="Inserisci l'animale"></p>
-		</div>
+            <p>Animale:</p>
+            <p><select name="animal" class="sel" required>
+                    <option value="Cane">Cane</option>
+                    <option value="Gatto">Gatto</option>
+                    <option value="Rettile">Rettile</option>
+                    <option value="Roditore">Roditore</option>
+                    <option value="Uccello">Uccello</option>
+                    <option value="Pesce">Pesce</option>
+                </select></p>
+        </div>
 		<div class="table">
 			<p>Immagine:</p>
 			<p><input type="file" name="imm" accept="image/*" ></p>

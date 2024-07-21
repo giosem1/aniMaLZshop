@@ -33,7 +33,7 @@
 			<tr class="elem">
 				<td><%= ordine.getIdOrdine()%></td>
 				<td><%= ordine.getData()%></td>
-				<td><%= ordine.getImportoTotale()%></td>
+				<td><%= String.format("%.2f",ordine.getImportoTotale())%> &euro;</td>
 				<td><%=ordine.getquantita() %></td>
 				<td><a id="det" href="./Dettagli.jsp?idord=<%=ordine.getIdOrdine()%>"><span class="material-symbols-outlined">plagiarism</span></a></td>
 			</tr>	
