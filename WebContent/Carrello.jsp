@@ -49,7 +49,7 @@
 			
 		<% } %>
 	
-	<span class="tot">Totale: &nbsp; &euro;<%=String.format("%.2f",petBag.calcolaCosto())%></span>
+	<span class="tot">Totale: &nbsp; &euro;<%=String.format("%.2f",petBag.calcolaCosto())%><a href="carrello?action=svuota&page=Carrello.jsp"><button type="button" class="delete" >Svuota carrello</button></a></span>
 	
 	</div>
 	

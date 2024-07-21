@@ -41,6 +41,9 @@ public class Cart extends HttpServlet {
                     petBag.rimuoviProdotto(prodDao.doRetrive(id));
 
                 }
+                else if (action.equalsIgnoreCase("svuota")) {
+                	petBag.svuota();
+                }
             }
             if (quantita != null) {
             	String animale = request.getParameter("animale");

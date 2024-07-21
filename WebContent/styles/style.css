@@ -648,7 +648,6 @@ a #inputcar {
     font-family: Arial, sans-serif;
     font-weight: bold;
 }
-
 .prezzoCar {
     font-family: Arial, sans-serif;
     font-size: 120%;
@@ -709,6 +708,9 @@ a #inputcar {
     font-weight: bold;
 }
 
+.tot  a button.delete {
+	margin-left:-10%;
+}
 #car {
     font-family: Arial, sans-serif;
     margin: 25px 50px 75px 100px;
