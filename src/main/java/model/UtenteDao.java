@@ -32,7 +32,7 @@ public class UtenteDao implements UtenteDaoInterface{
 		Connection connection= null;
 		PreparedStatement preparedStatement= null;
 		String insertSQL="INSERT INTO "+ UtenteDao.TABLE_NAME+
-				"(PWD, EMAIL, NOME, COGNOME, DATA_DI_NASCITA, VIA, NUM_CIVICO, CAP, TELEFONO, CARTA_DI_CREDITO, ISAMM) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				"(PWD, EMAIL, NOME, COGNOME, DATA_DI_NASCITA, VIA, NUM_CIVICO, CAP, TELEFONO, CARTA_DI_CREDITO, ISAMM) VALUES(MD5(?), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		try{
 			connection = ds.getConnection();
 			connection.setAutoCommit(false);
@@ -67,7 +67,7 @@ public class UtenteDao implements UtenteDaoInterface{
 		PreparedStatement preparedStatement =null;
 		UtenteBean ute= new UtenteBean();
 		
-		String search="SELECT * FROM "+UtenteDao.TABLE_NAME+" WHERE PWD= ? "+ " AND EMAIL= ?";
+		String search="SELECT * FROM "+UtenteDao.TABLE_NAME+" WHERE PWD= ?"+ " AND EMAIL= ?";
 		try {
 			connection =ds.getConnection();
 

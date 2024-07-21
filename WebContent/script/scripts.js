@@ -225,3 +225,7 @@ function setNews(img){
             })
             .catch(error => console.error('Error:', error));
     }
+    
+function redirectToLogin() {
+window.location.href = 'Login.jsp';
+}

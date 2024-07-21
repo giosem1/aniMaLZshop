@@ -18,6 +18,7 @@
 <meta charset="UTF-8">
 <title>Prodotto</title>
 <link rel="stylesheet" href="./styles/style.css" type="text/css">
+<script type="text/javascript" src="./script/scripts.js"></script>
 </head>
 <body>
       
@@ -91,11 +92,16 @@
             <p><input type="number" min="0" max="5"name="voto" placeholder="Voto" required></p>
         </div>
         
-         <div class="clicrec"> 
-	        <p><input type="submit" value="Invia"></p>
-		</div>	
-	</form>
-
+       <% if (request.getSession().getAttribute("currentSessionUser") != null) { %>
+    <div class="clicrec"> 
+        <p><input type="submit" value="Invia"></p>
+    </div>
+<% } else { %>
+    <div class="clicrec"> 
+        <p><input type="button" value="Invia" onclick="redirectToLogin()"></p>
+    </div>
+    <% } %>	
+    </form>
 
 	<%@ include file="/fragment/footer.jsp" %>
 </body>

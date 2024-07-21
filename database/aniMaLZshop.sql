@@ -20,9 +20,9 @@ CREATE TABLE utente(
 		PRIMARY KEY(ID_utente)
 );	
 
-INSERT INTO utente VALUES(NULL, 'gio', 'giovanni@gmail.com', 'Giovanni', 'Semioli', '2001-12-20', 'Via Roma', '30', '84127', '1234567890', '1111222233334444', true);
-INSERT INTO utente VALUES(NULL, 'giuse', 'giuseppe@gmail.com', 'Giuseppe', 'Ballacchino', '2003-05-12', 'Via Milano', '40', '84127', '2345678901', '2222111133334444', false);
-INSERT INTO utente VALUES(NULL, 'vale', 'valeria@gmail.com', 'Valeria', 'Zaccaro', '2003-10-10', 'Via Salerno', '60', '84127', '3456789012', '2222333311114444', false);
+INSERT INTO utente VALUES(NULL, '2bb55d712c4dcbda95497e811b696352', 'giovanni@gmail.com', 'Giovanni', 'Semioli', '2001-12-20', 'Via Roma', '30', '84127', '1234567890', '1111222233334444', true);
+INSERT INTO utente VALUES(NULL, '10811bb33b160b9ba4caf374fd8e11cb', 'giuseppe@gmail.com', 'Giuseppe', 'Ballacchino', '2003-05-12', 'Via Milano', '40', '84127', '2345678901', '2222111133334444', false);
+INSERT INTO utente VALUES(NULL, '9617aef4427f40deea8d811371f75dc6', 'valeria@gmail.com', 'Valeria', 'Zaccaro', '2003-10-10', 'Via Salerno', '60', '84127', '3456789012', '2222333311114444', false);
 
 DROP TABLE IF EXISTS prodotti;
 CREATE TABLE prodotti(
