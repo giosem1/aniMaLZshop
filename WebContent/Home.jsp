@@ -6,14 +6,7 @@
    	 	if(anim == null) {
 			response.sendRedirect("./home");
 			return;
-		}
-   		ArrayList<ArrayList<NewsBean>> newsdisp= (ArrayList<ArrayList<NewsBean>>) request.getSession().getAttribute("newsdisp");
-   		request.getSession().removeAttribute("newsdisp");
-		if(newsdisp==null) {
-			response.sendRedirect("./newsBanner");
-			return;
-		}
-		
+   	 	}
 		
 	%>
 <!DOCTYPE html>
@@ -33,12 +26,14 @@
     <%@ include file="./fragment/header.jsp" %>
     <%@ include file="./fragment/menu.jsp" %>
 
-    <a href="./news?titolo=<%= newsdisp.get(0).get(0).getTitolo() %>&categ=<%=newsdisp.get(0).get(0).getCategoria()%>" id="banner">
+   <a href="./News.jsp" id="banner">
         <div id="news">
-                <p id="pnews">News</p>
-        </div>
-     </a> 
 
+               <p id="pnews">News</p>
+
+
+        </div>
+     </a>
      
   <div id="preferiti">
     	

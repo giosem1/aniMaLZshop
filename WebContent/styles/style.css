@@ -257,6 +257,22 @@ nav ul li.menu .dropdown a:hover{
     text-decoration: none;
     font-family: Arial, sans-serif;
 }
+.newsbanners #pnews{
+    font-weight: bold;
+    font-size: 300%;
+    color: black;
+    font-family: Arial, sans-serif;
+}
+.newsbanners #imNews{
+
+    height: 150px;
+    width:150px;
+    margin-left: 10%;
+    border-radius: 20px;
+}
+.newsbanners #imNews:hover{
+    border: medium black dashed;
+}
 @media screen and (max-width: 905px){
     #news{
         background-size: auto;

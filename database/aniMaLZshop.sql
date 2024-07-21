@@ -111,10 +111,16 @@ CREATE TABLE news(
     contenuto TEXT DEFAULT NULL,
     PRIMARY KEY(ID_news)
 );
-INSERT INTO news VALUES(NULL, 'Sterilizzazione della gatta: come avviene, cosa fare e quanto costa', 'Benessere e Salute', '2024-06-18', 'Gatti','gattino.png', 'Giovanni', 'Quando si affronta il tema della sterilizzazione della gatta, emergono una serie di considerazioni cruciali per il benessere del nostro pet. La sterilizzazione è un intervento comune, condotto con l’obiettivo di controllare la riproduzione, migliorare la salute generale e prevenire comportamenti indesiderati.
+INSERT INTO news VALUES(NULL, 'Sterilizzazione della gatta: come avviene, cosa fare e quanto costa', 'Benessere e Salute', '2024-06-18', 'Gatti','gattino.jpg', 'Giovanni', 'Quando si affronta il tema della sterilizzazione della gatta, emergono una serie di considerazioni cruciali per il benessere del nostro pet. La sterilizzazione è un intervento comune, condotto con l’obiettivo di controllare la riproduzione, migliorare la salute generale e prevenire comportamenti indesiderati.
 In questo articolo, esploreremo le ragioni dietro la scelta di sterilizzare una gatta, i benefici associati e i potenziali rischi.
 Inoltre, risponderemo a domande comuni sulla procedura e vedremo come affrontare al meglio il periodo post-operatorio, in modo da fornire alla tua gatta sterilizzata la migliore assistenza possibile per il suo benessere.');
-INSERT INTO news VALUES(NULL, 'Come fare amicizzia con un cagnolino', 'Comportamento e Gioco', '2024-07-10', 'Cani','cane.png', 'Giuseppe', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+INSERT INTO news VALUES(NULL, 'Come prendersi cura di uccelli tropicali', 'Benessere e Salute', '2024-06-18', 'Uccelli','uccelli.png', 'Giovanni', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.');
+INSERT INTO news VALUES(NULL, 'Come fare amicizia con un cagnolino', 'Comportamento e Gioco', '2024-07-10', 'Cani','cane.png', 'Giuseppe', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.');
+INSERT INTO news VALUES(NULL, 'Cosa magiano i cuccioli?', 'Alimentazione', '2024-05-30', 'Cani','cane.png', 'Valeria', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.');
 
