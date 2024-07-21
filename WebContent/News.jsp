@@ -1,31 +1,41 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-     <%NewsBean news = (NewsBean) request.getSession().getAttribute("news");
-
-     if(news==null){
-			response.sendRedirect("./news");
-		}%>
+   
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>News</title>
-<link rel="stylesheet" href="../styles/style.css" type="text/css">
+<link rel="stylesheet" href="./styles/style.css" type="text/css">
+<script type="text/javascript" src="./script/ajaxnews.js"></script>
+
 </head>
 <body>
      <%@ include file="../fragment/header.jsp" %>
 	 <%@ include file="../fragment/menu.jsp" %>	
 	 
-	 <div>
-		   <ul>
-		         <li><span class=""><%=news.getTitolo()%></span></li>
-		         <li><span class="">Categoria: <%=news.getCategoria()%></span></li>
-		         <li><span class="">Data Publicazione: <%=news.getDataPlub()%></span></li>
-				 <li><span class="">Scritto da: <%=news.getAutore()%></span></li>
-				 <li><span class=""><%=news.getImmagine()%></span></li>			        
-		   </ul>
-		    	<span class=""><%=news.getContenuto()%></span>
-		</div>
+	 <div class="newsbanners">
+	
+	 	  <div id="news" onclick="cercaNews('Benessere e Salute')" >
+		    	<p id="pnews">Benessere e Salute</p>
+	    </div>
+	      <ul id="B&S"></ul>
+	      
+	      <div id="news" onclick="cercaNews('Comportamento e Gioco')" >
+		    	<p id="pnews">Comportamento e Gioco</p>
+	    </div>
+	    
+	      <ul id="C&G"></ul>
+	    
+	    <div id="news" onclick="cercaNews('Alimentazione')" >
+		    	<p id="pnews">Alimentazione</p>
+	    </div>
+	    
+	      <ul id="Ali"></ul>
+	 	
+	 
+	 
+	 </div>
 	  
      <%@ include file="../fragment/footer.jsp" %>
 </body>
