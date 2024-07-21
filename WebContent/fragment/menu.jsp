@@ -14,21 +14,18 @@
 <body>
 			<nav>
 			   
-				<form action="javascript:void(0)" method="get">	  
-				<div id="search"> 
-					<div class="Drop">
-						<input type="text" id="serch" class="dropfirst" placeholder="Cerca..." onkeyup="cercaProd()" autocomplete="off">
-							
-						<div class="elem-content" >	
-						
-							<ul id="datiRice"></ul>	
-							
-						</div>
-					</div>
-					<button><span class="material-symbols-outlined">search</span></button>
-				</div>	
-				
-				</form>	
+			<form action="javascript:void(0)" method="get">
+             <div id="search"> 
+             <div class="Drop">
+             <input type="text" id="serch" class="dropfirst" placeholder="Cerca..." onkeyup="cercaProd()" autocomplete="off">						
+             <div class="elem-content">						
+                <ul id="datiRice"></ul>	
+            </div>
+        </div>
+       <span id="butt" class="material-symbols-outlined">search</span>
+    </div>	
+</form>
+
 				<span onclick="openMenu()" id="men" class="material-symbols-outlined">menu</span> 		
 				<ul id="generi" class="side">
 					<li class="closebtn" onclick="closeMenu()">&times;</li>

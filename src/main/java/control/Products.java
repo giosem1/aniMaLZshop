@@ -34,19 +34,42 @@ public class Products extends HttpServlet {
                  
 		        String animale = request.getParameter("animale");
 		        String categoria= request.getParameter("Categoria");
-
+                String nome = request.getParameter("nome");
+                
 		        ProdottoDao prodottoDao = new ProdottoDao();
 		        ArrayList<ProdottoBean> prodotti = null;
+		        ArrayList<ProdottoBean> prodottiNome = new ArrayList<>();     
 		        
 		        try {
-	
+	                 
+		        	if(nome != null && !nome.isEmpty())
+		        	{
+		        		prodotti = prodottoDao.doRetriveAllByName();
+		        		
+		        		for(ProdottoBean prod : prodotti)
+		        		{
+		        			if(prod.getNome().contains(nome))
+		        			{   
+		        				ProdottoBean mathcprod= prod;
+		        				prodottiNome.add(mathcprod);
+		        			}
+		        		}	
+		        	}
+    	
+		        	else {
 		            prodotti = prodottoDao.doRetriveAll(animale, categoria);
+		        	}
 		        } catch (SQLException e) {
 		            e.printStackTrace();
 		        }
-
-		        request.getSession().setAttribute("prodotti", prodotti);
                 
+		        if(nome != null && !nome.isEmpty())
+		        {
+		        	 request.getSession().setAttribute("prodotti", prodottiNome);
+		        }
+		        else {
+		        request.getSession().setAttribute("prodotti", prodotti);
+		        }            
 		        RequestDispatcher dispatcher = request.getRequestDispatcher("./Products.jsp");
 		        dispatcher.forward(request, response);
 	}
@@ -60,3 +83,4 @@ public class Products extends HttpServlet {
 	}
 
 }
+

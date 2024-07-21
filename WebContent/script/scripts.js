@@ -207,3 +207,21 @@ function setNews(img){
  	side.style.textAlign="center";
  	side.style.background="none";
  }
+ 
+ 
+  function submitForm() {
+        var input = document.getElementById('searchInput').value;
+        var form = document.getElementById('searchForm');
+
+        // Costruisci l'URL con i parametri di ricerca
+        var url = 'products?action=search&name=' + encodeURIComponent(input);
+
+        // Usa fetch per inviare la richiesta AJAX
+        fetch(url)
+            .then(response => response.text())
+            .then(data => {
+                // Gestisci la risposta qui, per esempio aggiornando il DOM
+                document.getElementById('datiRice').innerHTML = data;
+            })
+            .catch(error => console.error('Error:', error));
+    }

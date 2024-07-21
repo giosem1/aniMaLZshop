@@ -1,4 +1,3 @@
-
 function cercaProd() {
     var input = document.getElementById('serch').value;
    		if(input != " "){
@@ -6,7 +5,13 @@ function cercaProd() {
 	
  		loadAjaxDoc('./cercaprodJson', "GET", params, handleProd);
 		   }
+	var divserch= document.getElementById("search");
 	
+	var link=document.createElement("a");
+	link.setAttribute("href", "./products?nome="+input);
+	link.insertBefore(document.getElementById("butt"), link.childNodes[0]);
+	
+	divserch.appendChild(link);
 }
 
 function createXMLHttpRequest() {

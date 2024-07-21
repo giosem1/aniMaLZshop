@@ -34,13 +34,13 @@
     <%@ include file="./fragment/menu.jsp" %>
 
     <a href="./news?titolo=<%= newsdisp.get(0).get(0).getTitolo() %>&categ=<%=newsdisp.get(0).get(0).getCategoria()%>" id="banner">
-        <div id="news" >
+        <div id="news">
                 <p id="pnews">News</p>
         </div>
      </a> 
 
      
-    <div id="preferiti">
+  <div id="preferiti">
     	
  	  <%for(int j=0; j<anim.size(); j++){
 	 	  		ArrayList<ProdottoBean> pets= anim.get(j);
@@ -67,12 +67,9 @@
              <% i++;
               } %>
        </div>
-    </div>
-   
-      
+    </div>  
     
 </div>
-
     		<%}%>
     </div>
 	<%@ include file="./fragment/footer.jsp" %>	
